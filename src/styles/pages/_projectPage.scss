@@ -1,0 +1,274 @@
+/* ------- Project page -------- */
+.p-project {
+    position: relative;
+    padding-top: $section-space-md;
+
+    &__video {
+        
+    }
+
+    &__row {
+        display: grid;
+        grid-template-columns: 19rem minmax(0, 30.2fr) minmax(0, 69.8fr);
+        gap: 3rem;
+        margin-top: 8rem;
+
+        @include media(tab) {
+            grid-template-columns: minmax(0, 3fr) minmax(0, 7fr);
+        }
+
+        @include media(mob) {
+            grid-template-columns: minmax(0, 3fr);
+            margin-top: 6rem;
+        }
+        
+
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+
+    &__column {
+        &_logo {
+            @include media(tab) {
+                grid-column: span 2;
+            }
+
+            @include media(mob) {
+                grid-column: auto;
+            }
+        }
+    }
+
+    &__logo {
+        display: flex;
+        align-items: center;
+        height: 4.6rem;
+    }
+
+    &__logo-image {
+
+    }
+
+    &__info {
+    }
+
+    &__info-item {
+        margin-bottom: 2rem;
+        line-height: 140%;
+
+        span {
+            line-height: 140%;
+            color: var(--color-grey-6);
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__description {
+        position: relative;
+        padding-left: 11rem;
+        font-size: 2.4rem;
+        line-height: 140%;
+
+        @include media(pc) {
+            font-size: 2rem;
+        }
+
+        @include media(mob) {
+            padding-left: 8rem;
+        }
+
+        @include media(mob-m) {
+            padding-left: 5rem;
+            font-size: 1.6rem;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 2.1rem;
+            left: 0;
+            width: 7rem;
+            height: 1px;
+            background: $primary;
+
+            @include media(pc) {
+                top: 1.5rem;
+            }
+
+            @include media(mob) {
+                width: 5rem;
+            }
+            
+            @include media(mob-m) {
+                top: 1.2rem;
+                width: 3rem;
+            }
+         
+        }
+
+        p {
+            margin-bottom: 3rem;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+	&__presentation {
+		display: flex;
+        margin-top: $section-space;
+        padding-right: 2.8rem;
+
+        @include media(netbook) {
+            padding-right: 0;
+        }
+
+        @include media(tab) {
+            flex-wrap: wrap;
+           
+        }
+
+        &:first-child {
+            margin-top: 0;
+        }
+	}
+
+    &__presentation-block {
+        display: flex;
+        flex: none;
+
+        @include media(tab) {
+            width: 100%;
+            justify-content: flex-end;
+        }
+
+       
+    }
+
+	&__presentation-button {
+		margin-right: 2rem;
+		flex-grow: 1;
+		height: var(--size-block-presentation);
+        font-weight: 700;
+        font-size: 3.2rem;
+
+        @include media(netbook) {
+            font-size: 2.6rem;
+        }
+
+        @include media(tab) {
+            margin-right: 0;
+            margin-bottom: 2rem;
+        }
+
+        @include media(mob-m) {
+            font-size: 1.8rem;
+        }
+	}
+
+	&__presentation-box {
+		display: flex;
+		align-items: center;
+		flex: none;
+        border-radius: $radius calc(var(--size-block-presentation) * 0.5) calc(var(--size-block-presentation) * 0.5) $radius;
+		padding: 0 10rem 0 3.2rem;
+		height: var(--size-block-presentation);
+        background: $accent;
+
+        @include media(pc) {
+            padding-right: 5rem;
+            padding-left: 2.4rem;
+        }
+
+        @include media(mob-m) {
+            padding-right: 1.4rem;
+            padding-left: 1.4rem;
+            flex-grow: 1;
+        }
+	}
+
+	&__presentation-number {
+		margin-right: 2rem;
+		font-weight: 800;
+		font-size: 96px;
+		line-height: 90%;
+		letter-spacing: -0.02em;
+		color: $white;
+
+        @include media(pc) {
+            font-size: 7rem;
+        }
+
+        @include media(mob-m) {
+            margin-right: 1rem;
+            font-size: 4rem;
+        }
+	}
+
+	&__presentation-more {
+		font-weight: 800;
+		font-size: 2.4rem;
+		line-height: 100%;
+		letter-spacing: -0.02em;
+        color: $white;
+
+        @include media(pc) {
+            font-size: 2rem;
+        }
+
+        @include media(mob-m) {
+            font-size: 1.6rem;
+        }
+	}
+
+	&__presentation-arrow {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+        flex: none;
+		border-radius: 50%;
+		width: var(--size-block-presentation);
+		height: var(--size-block-presentation);
+		background: $accent;
+	}
+
+	&__presentation-arrow-icon {
+		width: 5.7rem;
+		height: 4.6rem;
+		fill: $white;
+
+        @include media(pc) {
+            width: 5rem;
+            height: 4rem;
+        }
+
+        @include media(mob-m) {
+            width: 3rem;
+            height: 2rem;
+        }
+	}
+
+	&__presentation-ellipse {
+        position: relative;
+        width: calc(var(--size-block-presentation) * 0.5);
+        height: var(--size-block-presentation);
+        flex: none;
+        overflow: hidden;
+
+        &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            border-radius: 50%;
+            height: 100%;
+            width: 200%;
+            background: $accent;
+        }
+	}
+}

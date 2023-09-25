@@ -1,0 +1,41 @@
+---
+import Icon from '@components/modules/Icon.astro';
+---
+
+<div class="card-slider js-slider-cards">
+	<div class="card-slider__items js-slider-cards-items">
+		<div class="card-slider__item js-slider-cards-item is-active" data-slide={0}>
+			<div class="card-slider__item-inner">
+				<p>
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt molestias debitis cum! Animi, corporis fuga sapiente maxime pariatur vero recusandae, quo sequi repudiandae vel earum aliquid neque possimus consequuntur commodi vitae optio mollitia atque expedita quasi doloremque similique sed. Expedita, nostrum molestiae! Nisi, vero. Consequatur, amet, incidunt voluptatem dolore dolorum aspernatur itaque quaerat 
+				</p>
+			</div>
+		</div>
+		<div class="card-slider__item js-slider-cards-item" data-slide={1}>
+			<div class="card-slider__item-inner">
+				<p>
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt molestias debitis cum! Animi, corporis fuga sapiente maxime pariatur vero recusandae, quo sequi repudiandae vel earum aliquid neque possimus consequuntur commodi vitae optio mollitia atque expedita quasi doloremque similique sed. Expedita, nostrum molestiae! Nisi, vero. Consequatur, amet, incidunt voluptatem dolore dolorum aspernatur itaque quaerat 
+				</p>
+			</div>
+		</div>
+		<div class="card-slider__item js-slider-cards-item" data-slide={2}>
+			<div class="card-slider__item-inner">
+				<p>
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt molestias debitis cum! Animi, corporis fuga sapiente maxime pariatur vero recusandae, quo sequi repudiandae vel earum aliquid neque possimus consequuntur commodi vitae optio mollitia atque expedita quasi doloremque similique sed. Expedita, nostrum molestiae! Nisi, vero. Consequatur, amet, incidunt voluptatem dolore dolorum aspernatur itaque quaerat 
+				</p>
+			</div>
+		</div>
+	</div>
+	<button type="button" class="card-slider__prev js-slider-cards-prev" aria-label="Предыдущий слайд">
+		<Icon name="arrow"></Icon>
+	</button>
+	<button type="button" class="card-slider__next js-slider-cards-next" aria-label="Следующий слайд">
+		<Icon name="arrow"></Icon>
+	</button>
+
+	<div class="card-slider__pagination js-slider-cards-pagination pagination">
+		<div class="pagination__item js-slider-cards-pagination-item is-active" data-index="0"></div>
+		<div class="pagination__item js-slider-cards-pagination-item" data-index="1"></div>
+		<div class="pagination__item js-slider-cards-pagination-item" data-index="2"></div>
+	</div>
+</div>

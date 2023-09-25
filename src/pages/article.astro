@@ -1,0 +1,151 @@
+---
+import Layout from '@layouts/layout.astro';
+import Icon from '@components/modules/Icon.astro';
+import Heading from '@components/blocks/Heading.astro';
+import Tags from '@components/blocks/Tags.astro';
+import Swiper from '@components/modules/swiper/Swiper.astro';
+import SwiperControl from '@components/modules/swiper/SwiperControl.astro';
+import LikedArticles from '@components/sections/LikedArticles.astro';
+
+---
+
+<Layout title="Статья">
+    <Heading type={'article'} title="Провели космическую презентацию"></Heading>
+	<div class="section p-article">
+		<div class="container">
+			<div class="p-article__row">
+				<div class="p-article__sidebar">
+					<div class="p-article__author">
+						<div class="p-article__author-photo">
+							<img class="p-article__author-photo-image lazy" data-src="img/article/author-photo.png" data-srcset="img/article/author-photo@2x.png" alt="">
+						</div>
+						<div class="p-article__author-name">
+							<span>Автор:</span> <br/>
+							Сергей Томилов				
+						</div>
+					</div>
+					<div class="p-article__published">
+						<span>Опубликовано:</span> <br/>
+						15 декабря 2023		
+					</div>
+					<Tags class="p-article__tags" list={["Промо", "Графика", "Монтаж"]}></Tags>
+				</div>
+				<div class="p-article__content">
+					<div class="p-article__description description">
+						<h2>Мы&nbsp;провели грандиозную презентацию новой медицинской видеосистемы X1&nbsp;от&nbsp;компании</h2>
+						<p>По&nbsp;эффектности и&nbsp;масштабу это почти церемония открытия Олимпиады, но&nbsp;главным героем вечера была медицинская стойка. Для нас это был особенный день: мы&nbsp;не&nbsp;просто оказали техническую поддержку, а&nbsp;провели всё мероприятие целиком.</p>
+
+						<div class="photos-slider-wrapper">
+							<Swiper class="photos-slider js-photos-slider">
+								<div class="swiper-slide photos-slider__item">
+									<figure class="photos-slider__figure">
+										<div class="photos-slider__image-box">
+											<img class="photos-slider__image lazy" data-src="img/article/photo-slider.jpg" data-srcset="img/article/photo-slider@2x.jpg" width="620" height="394" alt="">
+										</div>
+										<figcaption class="photos-slider__figcaption">Интервью с&nbsp;гостем уже началось</figcaption>
+									</figure>
+								</div>
+								<div class="swiper-slide photos-slider__item">
+									<figure class="photos-slider__figure">
+										<div class="photos-slider__image-box">
+											<img class="photos-slider__image lazy" data-src="img/article/photo-slider.jpg" data-srcset="img/article/photo-slider@2x.jpg" width="620" height="394" alt="">
+										</div>
+										<figcaption class="photos-slider__figcaption">Интервью с&nbsp;гостем уже началось</figcaption>
+									</figure>
+								</div>
+								<div class="swiper-slide photos-slider__item">
+									<figure class="photos-slider__figure">
+										<div class="photos-slider__image-box">
+											<img class="photos-slider__image lazy" data-src="img/article/photo-slider.jpg" data-srcset="img/article/photo-slider@2x.jpg" width="620" height="394" alt="">
+										</div>
+										<figcaption class="photos-slider__figcaption">Интервью с&nbsp;гостем уже началось</figcaption>
+									</figure>
+								</div>
+								<SwiperControl slot="after" class="photos-slider__prev js-photos-slider-prev" direction="prev"></SwiperControl>
+								<SwiperControl slot="after" class="photos-slider__next js-photos-slider-next" direction="next"></SwiperControl>
+							</Swiper>
+						</div>
+						
+						<p>Поиск площадки, разработка технической и&nbsp;творческой части, проекты, схемы и&nbsp;чертежи; звук, свет, экраны, спецэффекты и&nbsp;конечно видеоконтент&nbsp;&mdash; все составляющие шоу полностью сделаны под <a href="">руководством команды dt&nbsp;group</a>&nbsp;/ <a href="">dt&nbsp;medical</a>.</p> 
+
+						<p>Большое пространство лофта мы&nbsp;превратили в&nbsp;космическую инсталляцию, над головами зрителей кружились планеты и&nbsp;спутники. Появление главного героя&nbsp;&mdash; медицинской видеосистемы&nbsp;&mdash; мы&nbsp;подали как приземление космического корабля, с&nbsp;движущимися экранами, динамическим светом, лазером и&nbsp;дымами.</p>
+
+						<figure class="figure-picture">
+							<img class="figure-picture__image lazy" data-src="img/article/image.jpg" data-srcset="img/article/image@2x.jpg" width="620" height="394" alt="">
+							<figcaption class="figure-picture__figcaption">Вид мероприятия со&nbsp;стороны управления</figcaption>
+						</figure>
+
+						<h3>Кажется, каждый из&nbsp;гостей, приглашённых на&nbsp;презентацию, почувствовал себя немного космонавтом.</h3>
+
+						<p>Мы&nbsp;подготовим красивое видео и&nbsp;рассказ о&nbsp;том, как это было, а&nbsp;пока&nbsp;&mdash; разгружаем оборудование и&nbsp;отсыпаемся, а&nbsp;часть команды уже разлетелась по&nbsp;стране вести новые эфиры.</p>
+
+						<h3>Пример маркированного списков</h3>
+						<ul>
+							<li>В&nbsp;новом ролике для HR-команды</li>
+							<li>Поиск площадки, разработка технической и&nbsp;творческой части</li>
+							<li>Большое пространство лофта мы&nbsp;превратили</li>
+						</ul>
+
+						<h3>Пример нумерованного списка</h3>
+						<ol>
+							<li>В&nbsp;новом ролике для HR-команды</li>
+							<li>Поиск площадки, разработка технической и&nbsp;творческой части</li>
+							<li>Большое пространство лофта мы&nbsp;превратили</li>
+						</ol>
+
+						<h4>Пример таблицы</h4>
+
+						<table>
+							<caption>Мы&nbsp;подготовим красивое видео и&nbsp;рассказ о&nbsp;том, как это было, а&nbsp;пока&nbsp;&mdash; разгружаем оборудование и&nbsp;отсыпаемся, а&nbsp;часть команды уже разлетелась по&nbsp;стране вести новые эфиры.</caption>
+							<tr>
+								<th>Заголовок таблицы</th>
+								<th>Заголовок таблицы</th>
+							</tr>
+							<tr>
+								<td>Какой нибудь текст в таблице</td>
+								<td>Какой нибудь текст в таблице</td>
+							</tr>
+							<tr>
+								<td>Какой нибудь текст в таблице</td>
+								<td>Какой нибудь текст в таблице</td>
+							</tr>
+							<tr>
+								<td>Какой нибудь текст в таблице</td>
+								<td>Какой нибудь текст в таблице</td>
+							</tr>
+						</table>
+
+						<h3>Пример цитаты в&nbsp;статье</h3>
+						<p>Появление главного героя&nbsp;&mdash; медицинской видеосистемы&nbsp;&mdash; мы&nbsp;подали как приземление космического корабля, с&nbsp;движущимися экранами, динамическим светом, лазером и&nbsp;дымами.</p>
+
+						<blockquote class="blockquote">
+							<div class="blockquote__author">
+								<span>Александр Петров</span>
+								Управляющий компании Ростест
+							</div>
+							<p>Мы&nbsp;подготовим красивое видео и&nbsp;рассказ о&nbsp;том, как это было, а&nbsp;пока&nbsp;&mdash; разгружаем оборудование и&nbsp;отсыпаемся, а&nbsp;часть команды уже разлетелась по&nbsp;стране вести новые эфиры.</p>
+						</blockquote>
+
+						<p>По&nbsp;эффектности и&nbsp;масштабу это почти церемония открытия Олимпиады, но&nbsp;главным героем вечера была медицинская стойка. Для нас это был особенный день: мы&nbsp;не&nbsp;просто оказали техническую поддержку, а&nbsp;провели всё мероприятие целиком.</p>
+					</div>
+					<div class="p-article__share share">
+						<div class="share__title">Поделиться:</div>
+						<div class="share__list">
+							<a href="" class="share__link">
+								<svg class="share__icon" width="21" height="17" viewBox="0 0 21 17" xmlns="http://www.w3.org/2000/svg">
+									<path d="M8.24023 11.2041L7.89285 15.9505C8.38986 15.9505 8.60511 15.7431 8.86324 15.4941L11.1934 13.3308L16.0218 16.7657C16.9073 17.2451 17.5312 16.9926 17.7701 15.9743L20.9394 1.54819L20.9403 1.54734C21.2212 0.275743 20.4669 -0.221504 19.6041 0.0904442L0.974929 7.01876C-0.296476 7.49816 -0.277226 8.18665 0.758799 8.4986L5.52154 9.93764L16.5844 3.21333C17.1051 2.87843 17.5785 3.06373 17.1891 3.39863L8.24023 11.2041Z" />
+								</svg>
+							</a>
+							<a href="" class="share__link">
+								<svg class="share__icon" width="23" height="14" viewBox="0 0 23 14" xmlns="http://www.w3.org/2000/svg">
+									<path fill-rule="evenodd" clip-rule="evenodd" d="M21.9703 0.9375C22.1372 0.40875 21.9703 0.0243748 21.232 0.0243748H18.7772C18.158 0.0243748 17.872 0.360937 17.7052 0.720937C17.7052 0.720937 16.4423 3.79594 14.6789 5.78953C14.107 6.36609 13.845 6.55828 13.5352 6.55828C13.3683 6.55828 13.1536 6.36609 13.1536 5.83781V0.912656C13.1536 0.288281 12.9633 0 12.4388 0H8.57813C8.19656 0 7.95844 0.288281 7.95844 0.576563C7.95844 1.17703 8.84016 1.32141 8.93531 3.00281V6.65625C8.93531 7.44891 8.79469 7.59375 8.4825 7.59375C7.64859 7.59375 5.62313 4.49484 4.40813 0.96375C4.17188 0.264375 3.93188 0 3.31219 0H0.833906C0.119063 0 0 0.336094 0 0.696563C0 1.34531 0.833906 4.61203 3.88406 8.93578C5.90953 11.8889 8.79281 13.4761 11.3902 13.4761C12.9633 13.4761 13.1536 13.1156 13.1536 12.5152V10.2811C13.1536 9.56062 13.2966 9.44062 13.7972 9.44062C14.1544 9.44062 14.798 9.63234 16.2516 11.0498C17.9194 12.7313 18.2053 13.5 19.1348 13.5H21.5892C22.3041 13.5 22.6378 13.1395 22.447 12.443C22.2328 11.7464 21.4223 10.7377 20.3738 9.53672C19.8019 8.86453 18.9441 8.11969 18.682 7.75922C18.3248 7.27875 18.42 7.08656 18.682 6.65438C18.6581 6.65438 21.6609 2.37844 21.9703 0.935625" />
+								</svg>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<LikedArticles></LikedArticles>
+</Layout>

@@ -1,0 +1,67 @@
+/* ------- show-more -------- */
+.show-more {
+    display: grid;
+    align-items: center;
+    gap: 6rem;
+
+    @include grid-columns(2);
+
+    @include media(pc) {
+        gap: 4rem;
+    }
+
+    @include media(mob-m) {
+        justify-content: space-between;
+        grid-template-columns: auto auto;
+        gap: 2rem;
+    }
+
+    @include media(mob-xxs) {
+        grid-template-columns: auto;
+        justify-content: center;
+    }
+
+    &__text {
+        position: relative;
+        margin-left: auto;
+        max-width: 17rem;
+
+        @include media(mob-m) {
+            max-width: 15rem;
+            font-size: 1.4rem;
+        }
+
+        @include media(mob-xxs) {
+            margin-right: auto;
+            text-align: center;
+        }
+    }
+
+    &__button {
+        min-width: 26.4rem;
+
+        @include media(mob) {
+            min-width: 20rem;
+        }
+
+        @include media(mob-m) {
+            white-space: nowrap;
+            gap: 2rem;
+        }
+
+        @include media(mob-xs) {
+            min-width: 0;
+            font-size: 1.4rem;
+        }
+
+        @include media(mob-xxs) {
+            font-size: 1.6rem;
+        }
+    }
+
+    &_self {
+        .ui-button__icon {
+            transform: rotate(90deg);
+        }
+    }
+}

@@ -1,0 +1,49 @@
+---
+import Layout from '@layouts/layout.astro';
+import Heading from '@components/blocks/Heading.astro';
+import TabMenu from '@components/blocks/TabMenu.astro';
+import ShowMore from '@components/blocks/ShowMore.astro';
+import ArticleItem from '@components/blocks/ArticleItem.astro';
+
+const tabList = ['Все', 'Технологии', 'CG', 'Корпоративный фильм', 'Маркетинг', 'Новый проект', 'Промо', 'Процесс']
+
+const blogList = [
+	{
+		title: "О&nbsp;серьезных вещах&nbsp;&mdash; нескучно и&nbsp;позитивно",
+		text: "В&nbsp;новом ролике для HR-команды Сбера рассказываем обо всех преимуществах его реферальной программы.",
+		tags: ["Технологии"],
+	},
+	{
+		title: "Время говорить",
+		tags: ["Промо"],
+	},
+	{
+		title: "Победа на&nbsp;Московском фестивале корпоративного видео",
+		tags: ["Маркетинг"],
+	},
+	{
+		title: "Самый зрелищный кейс: трансляция Red Square Cup",
+		tags: ["Промо"],
+	},
+	{
+		title: "Кто есть кто на&nbsp;съемочной площадке?",
+		tags: ["Маркетинг"],
+	},
+]
+
+---
+
+<Layout title="Блог">
+    <Heading type={'blog'} title="Блог"></Heading>
+	<div class="section p-blog">
+		<div class="container">
+			<TabMenu class="p-blog__tab-menu" list={tabList}></TabMenu>
+			<div class="p-blog__items">
+				{blogList.map((item, index) => (
+					<ArticleItem class="p-blog__item" title={item.title} text={item.text} tags={item.tags} image={`img/page-blog/${index + 1}.jpg`} image2x={`img/page-blog/${index + 1}.jpg`} isMoreButton={true}></ArticleItem>
+				))}
+			</div>
+			<ShowMore class="p-blog__show-more" moreText="У&nbsp;нас еще много интересных статей" buttonText={'Показать еще'} isSelf={true}></ShowMore>
+		</div>
+	</div>
+</Layout>

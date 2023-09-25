@@ -1,0 +1,35 @@
+---
+interface Props {
+	style?: 'second';
+    classItem?: string;
+    class?: string;
+    [x: string]: any;
+}
+
+const { 
+	style,
+	list = [], 
+	classItem,
+	class: className,
+	...rest
+} = Astro.props;
+
+---
+
+<div 
+	class:list={[
+		'tab-menu', 
+		style ? `tab-menu_style_${style}` : '',
+		className
+	]}
+	{...rest}
+>
+	<div class="tab-menu__list">
+		{list.map((item, index) => (
+			<a href="" class:list={[
+				"tab-menu__link", index === 0 ? "is-active" : '',
+				classItem
+			]} set:html={item}></a>
+		))}
+	</div>
+</div>

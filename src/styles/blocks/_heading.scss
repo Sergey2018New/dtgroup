@@ -1,0 +1,1419 @@
+/* ------- heading -------- */
+.heading {
+	position: relative;
+	
+	&__row {
+		display: grid;
+		grid-template-columns: 6rem minmax(0, 1fr);
+		grid-template-areas: "lang content";
+		gap: 2rem;
+
+		@include media(mob-m) {
+			grid-template-columns: 4rem minmax(0, 1fr);
+		}
+	}
+
+	&__title {
+		position: relative;
+		z-index: 1;
+		margin: 0 0 4rem;
+		display: flex;
+		align-items: center;
+		font-weight: 800;
+		font-size: 6.4rem;
+		line-height: 1;
+		letter-spacing: -0.02em;
+
+		@include media(pc) {
+			font-size: 4.8rem;
+		}
+
+		@include media(tab) {
+			font-size: 4rem;
+		}
+
+		@include media(mob) {
+			margin-bottom: 3rem;
+			font-size: 3.6rem;
+		}
+
+
+		@include media(mob-m) {
+			margin-bottom: 2rem;
+			font-size: 3.2rem;
+			line-height: 1.1;
+		}
+
+		@include media(mob-xxs) {
+			font-size: 2.8rem;
+		}
+
+		sup {
+			top: -0.3em;
+			margin-left: 1rem;
+			font-size: 25%;
+			letter-spacing: -0.02em;
+			color: var(--color-black-45);
+		}
+
+		&_size_lg,
+		&_size_xl {
+			font-size: 9.6rem;
+
+			@include media(tab) {
+				font-size: 6.4rem;
+			}
+			@include media(mob-m) {
+				font-size: 4.8rem;
+			}
+
+			@include media(mob-xxs) {
+				font-size: 4rem;
+			}
+		}
+
+		&_size_xl {
+			@include media-min(pc) {
+				font-size: 12.8rem;
+			}
+		}
+
+		&_center {
+			text-align: center;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	&__description {
+		font-size: 1.8rem;
+		line-height: 1.67;
+
+		@include media(mob) {
+			font-size: 1.6rem;
+		}
+	}
+
+	&__text {
+		font-weight: 600;
+		font-size: 2.4rem;
+		line-height: 120%;
+
+		@include media(mob) {
+			font-size: 2rem;
+		}
+
+		@include media(mob-m) {
+			font-size: 1.8rem;
+		}
+	}
+
+	&__image-box {
+		position: relative;
+		grid-area: image;
+		height: 50.5rem; 
+		user-select: none;
+
+		@include media(pc) {
+			height: 40rem;
+		}
+		
+	}
+
+	&__image {
+		display: block;
+		border-radius: $radius;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	&__tab-menu {
+		margin-top: 4.5rem;
+
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+
+	&__content {
+		position: relative; 
+		grid-area: content;
+	}
+
+	&__inner {
+		position: relative;
+		padding-top: 10rem;
+
+		@include media(tab) {
+			padding-top: 8rem;
+		}
+
+		@include media(mob) {
+			padding-top: 5rem;
+		}
+
+		@include media(mob-m) {
+			padding-top: 4rem;
+		}
+	}
+
+	&__graphic {
+		pointer-events: none;
+	}
+
+	&__graphic-item {
+		[class*="graphic"] {
+			display: block;
+		}
+	}
+
+	&__graphic-points {
+		position: absolute;
+		top: 6.2rem;
+		right: -7.6rem - 8rem;
+
+		@include media(netbook) {
+			right: calc(-7.5rem - $gutters);
+		}
+
+		@include media(tab) {
+			top: 4rem;
+			right: calc(-4.5rem - $gutters);
+			width: 12rem;
+			height: 12rem;
+		}
+
+		@include media(mob) {
+			right: calc(-4.5rem - $gutters);
+			width: 10rem;
+			height: 10rem;
+		}
+
+		
+		@include media(mob-m) {
+			top: 2rem;
+			right: calc(-3.5rem - $gutters);
+			width: 8rem;
+			height: 8rem;
+		}
+
+		@include media(mob-xs) {
+			right: calc(-5.3rem - $gutters);
+		}
+	}
+
+	&__graphic-ellipse {
+		position: relative;
+		display: block;
+		width: 10.6rem;
+        height: 5.3rem;
+		overflow: hidden;
+
+        &::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            border-radius: 50%;
+			width: 100%;
+            height: 200%;
+            background: $accent;
+        }
+	}
+
+	&__graphic-item {
+		position: absolute;
+		
+		&_ball {
+			top: 20.2rem;
+			right: -15.7rem;
+
+			@include media(tab) {
+				top: 15rem;
+			}
+
+			@include media(mob) {
+				right: -18rem;
+			}
+
+			@include media(mob-m) {
+				top: 14rem;
+				right: -14rem;
+			}
+		}
+
+		&_lines {
+			top: 16.6rem;
+			right: 8.7rem;
+
+			@include media(tab) {
+				top: 13rem;
+				right: 4rem;
+				width: 9rem;
+				height: 9rem;
+			}
+	
+			@include media(mob) {
+				right: -1rem;
+				width: 7rem;
+				height: 7rem;
+			}
+	
+			@include media(mob-m) {
+				width: 5rem;
+				height: 5rem;
+			}
+		}
+
+		&_pixels {
+			top: -4.1rem;
+			right: 29%;
+
+			@include media(pc) {
+				right: 15%;
+				top: -3.3rem;
+			}
+
+			@include media(tab) {
+				right: 30%;
+				top: -8%;
+			}
+
+			@include media(mob-m) {
+				top: -10%;
+			}
+		}
+
+		&_pattern {
+			top: 32.3rem;
+			right: 66%;
+
+			@include media(pc) {
+				top: 27rem;
+				right: 70%;
+			}
+
+			@include media(tab) {
+				right: 67%;
+				top: 65%;
+			}
+
+			@include media(mob-m) {
+				right: 63%;
+				top: 55%;
+			}
+		}
+
+		&_rectangle {
+			top: 35.5rem;
+			right: 53%;
+
+			@include media(pc) {
+				top: 28rem;
+			}
+
+			@include media(tab) {
+				top: 69%;
+				right: 50%;
+			}
+
+			@include media(mob-m) {
+				top: 60%;
+				right: 45%;
+			}
+		}
+
+		&_ellipse {
+			right: -12.5%;
+			bottom: 14%;
+		}
+
+		&_circles {
+			top: 5.3rem;
+			left: -14.7rem;
+		}
+	}
+
+	&__graphic-ball {
+		display: block;
+		border-radius: 50%;
+		width: 35.8rem;
+		height: 35.8rem;
+		background: radial-gradient(78.97% 78.97% at 31.78% 13.08%, var(--color-gradient-1) 0%, var(--color-gradient-2) 53.78%, var(--color-gradient-3) 100%);
+
+		@include media(tab) {
+			width: 28rem;
+			height: 28rem;
+		}
+
+		@include media(mob) {
+			width: 24rem;
+			height: 24rem;
+		}
+
+		@include media(mob-m) {
+			width: 18rem;
+			height: 18rem;
+		}
+
+	}
+
+	&__graphic-lines {
+		display: block;
+
+		@include media(tab) {
+			width: 9rem;
+			height: 9rem;
+		}
+
+		@include media(mob) {
+			width: 7rem;
+			height: 7rem;
+		}
+
+		@include media(mob-m) {
+			width: 5rem;
+			height: 5rem;
+		}
+	}
+
+	&__graphic-pattern {
+		display: block;
+
+		@include media(pc) {
+			width: 10rem;
+			height: 10rem;
+		}
+
+		@include media(tab) {
+			width: tab-adaptive(100);
+			height: tab-adaptive(100);
+		}
+		
+		@include media(mob-m) {
+			width: m(80);
+			height: m(80);
+		}
+	}
+
+	&__graphic-rectangle {
+		display: block;
+		width: 11.4rem;
+		height: 24rem;
+		background: radial-gradient(191.07% 137.25% at 13.50% 16.15%, var(--color-gradient-5) 0%, var(--color-gradient-6) 27.12%, var(--color-gradient-7) 60.42%,  var(--color-gradient-8) 100%);
+		transform: rotate(90deg);
+
+		@include media(pc) {
+			height: 20rem;
+			width: 9rem;
+		}
+
+		@include media(tab) {
+			height: tab-adaptive(200);
+			width: tab-adaptive(90);
+		}
+
+		@include media(mob-m) {
+			height: m(150);
+			width: m(70);
+		}
+		
+	}
+
+	&__graphic-pixels {
+		display: block;
+
+		@include media(pc) {
+			width: 10rem;
+			height: 10rem;
+		}
+
+		@include media(tab) {
+			width: tab-adaptive(100);
+			height: tab-adaptive(100);
+		}
+
+		@include media(mob-m) {
+			width: m(70);
+			height: m(70);
+		}
+	}
+
+	&__graphic-spinners {
+		position: absolute;
+		top: 6.9rem;
+		right: -14.7rem;
+
+		@include media(netbook) {
+			right: calc(-7rem - var(--gutters));
+		}
+
+		@include media(tab) {
+			top: 3rem;
+		}
+
+		@include media(mob) {
+			right: calc(-4.3rem - var(--gutters));
+			width: 10rem;
+			height: 10rem;
+		}
+
+		@include media(mob-m) {
+			top: 2rem;
+			right: calc(-3.4rem - var(--gutters));
+			width: 8rem;
+			height: 8rem;
+		}
+	}
+
+	&__graphic-sector {
+		position: relative;
+		width: 5.5rem;
+        height: 5.5rem;
+		overflow: hidden;
+
+        &::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            border-radius: 50%;
+			width: 200%;
+            height: 200%;
+            background: $accent;
+        }
+	}
+
+	&__graphic-squares {
+
+	}
+
+	&__title-number {
+		position: absolute;
+		top: -7.1rem;
+		left: 6.4rem;
+		margin: 0;
+		font-size: 12.8rem;
+		font-weight: 800;
+		line-height: 100%; 
+		color: $accent;
+
+		@include media(mob) {
+			top: -5.5rem;
+			font-size: 10rem;
+		}
+
+		@include media(mob-m) {
+			left: 4rem;
+			top: -4.5rem;
+			font-size: 8rem;
+		}
+	}
+
+	&__slider-cards {
+		max-width: calc(100% - 6rem);
+
+		@include media(tab) {
+			max-width: calc(100% - 4rem);
+		}
+
+		@include media(mob-m) {
+			max-width: calc(100% - 2rem);
+		}
+	}
+
+	&__slider-items {
+		min-height: 0;
+	}
+
+	&__slider-item-inner {
+		padding: 1rem;
+		background: none;
+
+		&::after {
+			background: $white;
+		}
+	}
+
+	&__slider-item {
+		&:not(.is-active) {
+			.heading__slider-image {
+				opacity: 0;
+			}
+		}
+
+		&:nth-child(5) {
+			opacity: 0;
+		}
+	}
+
+	&__slider-prev,
+	&__slider-next {
+		top: 50%;
+		bottom: auto;
+		margin-top: -2rem;
+		background: $accent;
+
+		&:hover {
+			background: var(--color-gradient-6);
+		}
+
+		@include media(mob) {
+			display: none;
+		}
+	}
+
+	&__slider-next {
+		right: 3rem;
+	}
+
+	&__slider-prev {
+		left: 3rem;
+	}
+
+	&__slider-image {
+		z-index: 1;
+	}
+
+	&__slider-pagination {
+		bottom: 3rem;
+
+		@include media(mob) {
+			bottom: 2rem;
+		}
+
+		.slider-pagination__item {
+			background: rgba(#f4f4f4, 0.5);
+
+			&.is-active {
+				background: $accent;
+			}
+		}
+	}
+
+	&_portfolio {
+		.heading__tab-menu {
+			@include media-min(tab) {
+				margin-top: 5rem;
+				margin-bottom: -1rem;
+			}
+		}
+
+		.tab-menu__link {
+			font-weight: 800;
+			
+			@include media-min(pc) {
+				margin-right: 6rem;
+				padding-top: 4rem;
+				font-size: 3.2rem;
+			}
+		}
+	}
+
+	&_project {
+		.heading__content {
+			max-width: calc(100% - 24rem);
+
+			@include media(tab) {
+				max-width: calc(100% - 17rem);
+			}
+
+			@include media(mob) {
+				max-width: calc(100% - 8rem);
+			}
+
+			@include media(mob-m) {
+				max-width: calc(100% - 5rem);
+			}
+		}
+	}
+
+	&_service {
+		.heading {
+			&__title {
+				display: flex;
+				align-items: flex-end;
+				width: 66rem;
+				min-height: 13.6rem;
+				margin-bottom: 5rem;
+				color: $accent;
+
+				@include media(tab) {
+					width: auto;
+					min-height: 0;
+				}
+
+				@include media(mob-m) {
+					margin-bottom: 3rem;
+				}
+			}
+
+			&__inner {
+				padding-top: 5rem; 
+
+				@include media(mob-m) {
+					padding-top: 4rem; 
+				}
+			}
+
+			&__row {
+				grid-template-columns: 37rem minmax(0, 1fr);
+				grid-template-areas: "content image";
+				gap: 6.5rem;
+				@include media(tab) {
+					grid-template-columns: minmax(0, 1fr);
+					grid-template-areas: 
+					"content"
+					"image";
+				}
+
+				@include media(mob-m) {
+					gap: 4rem;
+				}
+			}
+
+			&__content {
+				padding-top: 4rem;
+
+				@include media(tab) {
+					padding-top: 0;
+				}
+			}
+
+			&__image-box {
+
+				@include media(tab) {
+					height: auto;					
+					padding-top: 59.83%;
+				}
+
+				&::after {
+					content: "";
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 100%;
+					background: rgba($black, 0.20);
+					border-radius: inherit;
+				}
+			}
+			
+			&__image-box,
+			&__image {
+				border-radius: $radius $radius $radius calc($radius-lg + 2rem);
+
+				@include media(pc) {
+					border-bottom-left-radius: $radius-lg;
+				}
+
+				@include media(tab) {
+					position: relative;
+				}
+			}
+
+			&__image {
+				@include media(tab) {
+					position: absolute;
+					left: 0;
+					top: 0;
+				}
+			}
+
+			&__graphic-item {
+				z-index: 1;
+			}
+		} 
+	}
+
+	&_service_short {
+		.heading {
+			&__row {
+				grid-template-columns: minmax(0,1fr);
+			}
+
+			&__title {
+				
+			}
+		}
+	}
+
+	&_history {
+		.heading {
+
+			&__title {
+				margin-bottom: 5.8rem;
+
+				@include media(tab) {
+					margin-bottom: 4rem;
+				}
+
+				@include media(mob) {
+					margin-bottom: 3rem;
+				}
+			}
+
+			&__image-box {
+				padding-top: 58.333%;
+				height: auto;
+				border-radius: inherit;
+			}
+
+			&__image {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				border-radius: inherit;
+			}
+
+			&__graphic-lines {
+				@include media(tab) {
+					width: 7rem;
+					height: 7rem;
+				}
+
+				@include media(mob) {
+					width: m(40);
+					height: m(40);
+				}
+			}
+
+			&__graphic-ball {
+				@include media(tab) {
+					width: 22rem;
+					height: 22rem;
+				}
+
+				@include media(mob) {
+					width: m(110);
+					height: m(110);
+				}
+
+			}
+
+			&__graphic-item {
+				&_lines {
+					top: -5.5rem - 11.4rem;
+					left: 66rem;
+					right: auto;
+
+					@include media(tab) {
+						top: -10rem;
+						left: 52%;
+					}
+
+					@include media(mob) {
+						left: 62%;
+						top: m(-55);
+					}
+				}
+
+				&_ball {
+					z-index: -1;
+					top: -15rem;
+					left: 68rem;
+					right: auto;
+
+					@include media(tab) {
+						top: -9rem;
+						left: 54%;
+					}
+
+					@include media(mob) {
+						left: 64%;
+						top: m(-45);
+					}
+				}
+			}
+		}
+	}
+
+	&_article {
+		.heading {
+			&__inner {
+				margin: 0 auto;
+				max-width: 84rem;
+
+				@include media(tab) {
+					gap: 4rem;
+				}
+			}
+
+			&__title {
+				margin-bottom: 5.8rem;
+
+				@include media(tab) {
+					margin-bottom: 4rem;
+				}
+
+				@include media(mob) {
+					margin-bottom: 3rem;
+				}
+
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
+
+			&__image-box {
+				height: 47.2rem;
+				border-top-right-radius: $radius-lg;
+
+				@include media(mob) {
+					height: m(220);
+				}
+			}
+
+			&__image {
+				border-top-right-radius: $radius-lg;
+			}
+
+			&__graphic-rectangle {
+				width: 12.8rem;
+				height: 20rem;
+				background: radial-gradient(191.07% 137.25% at 13.50% 16.15%, var(--color-gradient-5) 0%, var(--color-gradient-6) 27.12%, var(--color-gradient-7) 60.42%, var(--color-gradient-8) 100%);
+				transform: rotate(180deg);
+			}
+
+			&__graphic-item {
+				&_pixels {
+					top: 11.3rem;
+					left: -6.6rem;
+					right: auto;
+
+					@include media(mob) {
+						top: 22%;
+						left: calc($gutters * -1);
+					}
+				}
+
+				&_rectangle {
+					z-index: -1;
+					top: auto;
+					bottom: -4rem;
+					right: -5.8rem;
+
+					@include media(mob) {
+						bottom: -8%;
+						right: -6.5%;
+					}
+				}
+
+				&_lines {
+					top: auto;
+					bottom: 5.4rem;
+					right: -1.8rem;
+					width: auto;
+					height: auto;
+
+					@include media(mob) {
+						right: -2%;
+						bottom: 10%;
+					}
+				}
+			}
+
+			&__graphic-pixels {
+				@include media(mob) {
+					width: calc(m(48));
+					height: calc(m(48));
+				}
+			}
+
+			&__graphic-lines {
+				@include media(mob) {
+					width: m(41);
+					height: m(24);
+				}
+			}
+
+			&__graphic-rectangle {
+				@include media(mob) {
+					width: calc(m(60));
+					height: calc(m(92));
+				}
+			}
+		}
+	}
+
+	&_contacts {
+		.heading {
+			&__graphic-points {
+				position: static;
+
+				@include media(tab) {
+					width: 7rem;
+					height: 7rem;
+				}
+
+				@include media(mob) {
+					width: 6rem;
+					height: 6rem;
+				}
+			}
+
+			&__graphic-ball {
+				width: 22.5rem;
+				height: 22.5rem;
+
+				@include media(tab) {
+					width: 14rem;
+					height: 14rem;
+				}
+
+				@include media(mob) {
+					width: 12rem;
+					height: 12rem;
+				}
+			}
+
+			&__graphic-item {
+				&_ball {
+					top: 19.2rem;
+					left: 71%;
+					right: auto;
+
+					@include media(tab) {
+						top: 6rem;
+						left: auto;
+						right: 5%;
+					}
+
+					@include media(mob) {
+						top: 3rem;
+					}
+
+					@include media(mob-m) {
+						right: -4%;
+					}
+				}
+
+				&_points {
+					top: 15.4rem;
+					left: 82.4%;
+
+					@include media(tab) {
+						top: 3rem;
+						left: auto;
+						right: 4%;
+					}
+
+					@include media(mob) {
+						top: 1rem;
+					}
+
+					@include media(mob-m) {
+						right: -5%;
+					}
+				}
+			}
+		}
+	}
+
+	&_about {
+		.heading {
+			&__inner {
+				max-width: 110rem;
+			}
+
+			&__content {
+				margin-top: -11.3rem;
+
+				@include media(pc) {
+					margin-top: -9rem;
+				}
+
+				@include media(tab) {
+					margin-top: -6rem;
+				}
+
+				@include media(mob) {
+					margin-top: 3rem;
+				}
+			}
+
+			&__title {
+				color: $accent;
+			}
+
+			&__text {
+				max-width: 113.5rem;
+				font-size: 6.4rem;
+				font-weight: 800;
+				line-height: 1; 
+				letter-spacing: -0.01em;
+
+				@include media(pc) {
+					font-size: 4.8rem;
+				}
+
+				@include media(tab) {
+					font-size: 3rem;
+					line-height: 1.2;
+				}
+
+				@include media(mob-m) {
+					font-size: 2.4rem;
+				}
+			}
+
+			&__image-box {
+				margin-left: auto;
+				width: 50.8rem;
+				height: 33.7rem;
+				
+				@include media(tab) {
+					width: 40rem;
+					height: 26.5rem;
+				}
+
+				@include media(mob-m) {
+					width: m(310);
+					height: m(205);
+				}
+			}
+
+			&__graphic-ball {
+				width: 19rem;
+				height: 19rem;
+
+				@include media(tab) {
+					width: 16rem;
+					height: 16rem;
+				}
+
+				@include media(mob-m) {
+					width: m(120);
+					height: m(120);
+				}
+			}
+
+			&__graphic-squares {
+				@include media(tab) {
+					width: 6rem;
+					height: 6rem;
+				}
+
+				@include media(mob-m) {
+					width: m(40);
+					height: m(40);
+				}
+			}
+
+			&__graphic-spinners {
+				position: static;
+				width: 22.7rem;
+				height: 22.7rem;
+				fill: var(--color-grey-5);
+
+				path {
+					fill: inherit;
+				}
+
+				@include media(tab) {
+					width: 18rem;
+					height: 18rem;
+				}
+			}
+
+			&__graphic-sector {
+				@include media(mob-m) {
+					width: m(45);
+					height: m(45);
+				}
+			}
+
+			&__graphic-item {
+				&_ball {
+					right: auto;
+					left: -29.5%;
+					top: 14%;
+				}
+
+				&_squares {
+					top: 6%;
+					left: -29.5%;
+				}
+
+				&_sector {
+					top: -7%;
+    				left: 43.5%;
+
+					@include media(tab) {
+						top: -10%;
+					}
+				}
+
+				&_spinners {
+					right: -27%;
+					top: -11%;
+					z-index: -1;
+				}
+			}
+		}
+	}
+
+	&_awards {
+		.heading__tab-menu {
+			@include media(tab-l) {
+				display: none;
+			}
+		}
+
+		.heading__title {
+			@include media(tab-l) {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	&_brief {
+		.heading__title {
+			text-align: center;
+
+			@include media(mob-m) {
+				font-size: 3.6rem;
+			}
+		}
+		.heading {
+			&__graphic-points {
+				position: static;
+				width: 10rem;
+				height: 10rem;
+
+				@include media(tab) {
+					width: 8rem;
+					height: 8rem;
+				}
+
+				@include media(mob-m) {
+					width: 5rem;
+					height: 5rem;
+				}
+
+
+			}
+
+			&__graphic-ball {
+				width: 23.4rem;
+				height: 23.4rem;
+
+				@include media(tab) {
+					width: 20rem;
+					height: 20rem;
+				}
+
+				@include media(mob-m) {
+					width: 14rem;
+					height: 14rem;
+				}
+			}
+
+			&__graphic-item {
+				&_points {
+					top: auto;
+					bottom: -8.4rem;
+					left: 50%;
+					margin-left: 47.2rem;
+
+					@include media(tab) {
+						bottom: -6rem;
+						margin-left: 33rem;
+					}
+
+					@include media(mob-m) {
+						left: auto;
+						right: -2rem;
+						margin-left: 0;
+						bottom: -7rem;
+					}
+				}
+
+				&_ball {
+					top: auto;
+					bottom: -24.7rem;
+					left: 50%;
+					margin-left: 32.3rem;
+
+					@include media(tab) {
+						bottom: -20rem;
+						margin-left: 21rem;
+					}
+
+					@include media(mob-m) {
+						bottom: -17rem;
+						left: auto;
+						right: -2rem;
+						margin-left: 0;
+					}
+				}
+			}
+		}
+	}
+
+	&_vacancies {
+		.heading {
+			&__graphic-points {
+				position: static;
+
+				@include media(tab) {
+					width: 15rem;
+					height: 15rem;
+				}
+
+				@include media(mob) {
+					width: 10rem;
+					height: 10rem;
+				}
+
+				@include media(mob-m) {
+					width: 8rem;
+					height: 8rem;
+				}
+			}
+
+			&__graphic-item {
+				&_points {
+					top: 6.8rem;
+					left: auto;
+					right: 5%;
+
+					@include media(tab) {
+						top: 4rem;
+					}
+
+					@include media(mob-m) {
+						top: 2.5rem;
+						right: 0;
+					}
+				}
+			}
+		}
+	}
+
+	&_404 {
+		.heading {
+			&__inner {
+				padding-top: 20rem;
+				margin: 0 auto;
+				max-width: 50.8rem;
+
+				@include media(pc) {
+					padding-top: calc($section-space);
+				}
+			}
+
+			&__graphic-ball {
+				width: 21.4rem;
+				height: 21.4rem;
+
+				@include media(tab) {
+					width: 18rem;
+					height: 18rem;
+				}
+
+				@include media(mob) {
+					width: tab-adaptive(180);
+					height: tab-adaptive(180);
+				}
+			}
+
+			&__graphic-points {
+				position: static;
+
+				@include media(mob) {
+					width: tab-adaptive(248);
+					height: tab-adaptive(248);
+				}
+			}
+
+			&__graphic-ellipse {
+				@include media(mob) {
+					width: tab-adaptive(106);
+					height: tab-adaptive(53);	
+				}
+			}
+
+			&__graphic-circles {
+				@include media(mob) {
+					width: tab-adaptive(84);
+					height: tab-adaptive(84);	
+				}
+			}
+
+			&__graphic-item {
+				&_ball {
+					top: 7.5rem;
+					right: auto;
+					left: -15rem;
+
+					@include media(tab) {
+						top: 23%;
+						left: -24%;
+					}
+
+					@include media(mob) {
+						left: -12%;
+					}
+
+					@include media(mob-m) {
+						left: calc($gutters * -1 + 0.5rem);
+					}
+				}
+
+				&_points {
+					top: -26%;
+					right: -21%;
+					z-index: -1;
+
+					@include media(mob) {
+						top: -14%;
+						right: -11%;
+					}
+
+					
+				}
+
+				&_circles {
+					@include media(tab) {
+						top: 16%;
+					    left: -23.5%;
+					}
+
+					@include media(mob) {
+						left: -13%;
+					}
+
+					@include media(mob-m) {
+						left: calc($gutters * -1 + 0.5rem);
+					}
+				}
+
+				&_ellipse {
+					@include media(mob) {
+						right: -6%;
+					}
+
+					@include media(mob-m) {
+						right: calc($gutters * -1 + 0.5rem);
+					}
+				}
+
+				
+			}
+
+			&__image-box {
+				height: 33.7rem;
+
+				@include media(mob-m) {
+					height: 58.5vw;
+				}
+			}
+		}
+	}
+}

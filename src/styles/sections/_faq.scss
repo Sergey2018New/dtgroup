@@ -1,0 +1,82 @@
+/* ------- faq -------- */
+.faq {
+
+    &__row {
+        display: grid;
+        grid-template-columns: 28rem minmax(0, 1fr);
+        gap: 5rem;
+
+        @include media(tab) {
+            grid-template-columns: minmax(0, 1fr);
+            gap: 0;
+        }
+    }
+
+    &__column {
+    }
+
+    &__title {
+        margin: 0 0 4rem;
+        
+    }
+
+    &__block {
+        margin-bottom: 8rem;
+
+        @include media(tab) {
+            margin-bottom: 6rem;
+        }
+
+        @include media(mob-m) {
+            margin-bottom: 4rem;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__block-title {
+        margin: 0 0 3rem;
+        font-weight: 800;
+        font-size: 2.4rem;
+        line-height: 100%;
+        letter-spacing: -0.02em;
+
+        @include media(mob-m) {
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+    }
+
+    &__block-text {
+        max-width: 70.7rem;
+        line-height: 140%;
+
+        ul, 
+        ol, 
+        p {
+            margin-bottom: 2.4rem;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        ul, ol {
+            padding-left: 3rem;
+
+            > li {
+                margin-bottom: 1rem;
+
+                &::marker {
+                    font-size: 70%;
+                }
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}

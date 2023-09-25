@@ -1,0 +1,219 @@
+/* ------- Team page -------- */
+.p-team-single {
+    padding-top: var(--section-space-md);
+
+    @include media(pc) {
+        padding-top: calc(var(--section-space-md) - 3rem);;
+    }
+
+    @include media(mob-m) {
+        padding-top: calc(var(--section-space-md) - 1.5rem);
+    }
+
+    &__graphic-lines {
+        position: absolute;
+        top: 19.7rem;
+        left: -7rem;
+
+        @include media(pc) {
+            top: 10rem;
+        }
+
+        @include media(tab) {
+            width: 15rem;
+            height: 15rem;
+            top: 6rem;
+        }
+
+        @include media(mob-m) {
+            top: 5rem;
+        }
+    }
+
+    &__graphic-ball {
+        position: absolute;
+        width: 18.2rem;
+        height: 18.2rem;
+        border-radius: 50%;
+        bottom: -9.6rem;
+        right: -8.4rem;
+        background: radial-gradient(78.97% 78.97% at 31.78% 13.08%, var(--color-gradient-1) 0%, var(--color-gradient-2) 53.78%, var(--color-gradient-3) 100%);
+
+        @include media(tab) {
+            right: -6rem;
+            bottom: -7rem;
+            width: 15rem;
+            height: 15rem;
+        }
+
+        @include media(mob-m) {
+            width: 10rem;
+            height: 10rem;
+            right: -4rem;
+            bottom: -4rem;
+        }
+    }
+
+    &__row {
+        position: relative;
+        display: grid;
+        gap: 4rem;
+
+        @include grid-columns(2);
+
+        @include media(mob) {
+            @include grid-columns(1);
+        }
+    }
+
+    &__column_photo {
+        @include media(mob) {
+            display: none;
+        }
+        
+    }
+
+    &__content {
+        position: relative;
+        margin: 0 auto;
+        max-width: 106rem;
+
+        @include media(mob) {
+            max-width: 51rem;
+        }
+    }
+
+    &__title {
+        position: relative;
+        z-index: 1;
+        margin-top: var(--section-space-md);
+        margin-bottom: 6rem;
+        gap: 4rem;
+        font-weight: 800;
+        font-size: 9.6rem;
+        line-height: 1;
+
+        @include media(pc) {
+            margin-top: 4rem;
+            margin-bottom: 4rem;
+            font-size: 6.4rem;
+        }
+
+        @include media(tab) {
+            margin-top: 0;
+            font-size: 4.8rem;
+            line-height: 1.1;
+        }
+
+        @include media(mob-m) {
+            margin-bottom: 3rem;
+            font-size: 4rem;
+        }
+
+        @include media(mob-xxs) {
+            font-size: 3.6rem;
+        }
+        
+    }
+
+    &__main-content {
+        position: relative;
+        z-index: 1;
+        margin-left: 18rem;
+
+        @include media(pc) {
+            margin-left: 14rem;
+        }
+
+        @include media(tab) {
+            margin-left: 10rem;
+        }
+
+        @include media(mob) {
+            margin-left: 4rem;
+            margin-top: 4rem;
+        }
+    }
+
+    &__position {
+        margin-bottom: 4rem;
+        max-width: 28rem;
+        font-size: 2.4rem;
+        font-weight: 500;
+        line-height: 140%;
+
+        @include media(tab) {
+            margin-bottom: 3rem;
+            font-size: 2rem;
+        }
+    }
+
+    &__info {
+        display: grid;
+        gap: 3rem;
+        max-width: 28rem;
+
+        @include media(mob) {
+            gap: 2rem;
+        }
+    }
+
+    &__info-item {
+
+    }
+
+    &__info-title {
+        position: relative;
+        margin-bottom: 1rem;
+        font-weight: 700;
+        line-height: 1.4;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 1rem;
+            left: -4rem;
+            width: 2rem;
+            height: 1px;
+            background: $accent;
+        }
+    }
+
+    &__info-text {
+        font-weight: 500;
+        line-height: 140%;
+        color: var(--color-grey-6);
+    }
+
+    &__photo {
+        position: relative;
+        padding-top: calc(731 / 510 * 100%);
+        border-radius: $radius $radius-lg $radius $radius;
+    }
+
+    &__photo-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: inherit;
+    }
+
+    &__photo-mobile {
+        @include media-min(mob) {
+            display: none;
+        }
+    }
+
+    &__social {
+        margin-top: 4rem;
+    }
+
+    &__button-wrapper {
+        display: flex;
+        justify-content: center;
+        margin-top: var(--section-space);
+    }
+}

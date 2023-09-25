@@ -1,0 +1,45 @@
+---
+import Layout from '@layouts/layout.astro';
+import Button from '@components/modules/Button.astro';
+import Heading from '@components/blocks/Heading.astro';
+
+const items = [
+	{
+		title: "CG-generalist/motion-designer",
+		tags: ['Полная занятость', 'Работа в&nbsp;офисе'],
+	},
+	{
+		title: "Исполнительный продюсер графических проектов",
+		tags: ['Полная занятость', 'Фриланс'],
+	},
+	{
+		title: "Арт-директор",
+		tags: ['Полная занятость', 'Работа в&nbsp;офисе'],
+	},
+	{
+		title: "Концепт-дизайнер",
+		tags: ['Полная занятость', 'Фриланс'],
+	},
+	{
+		title: "Менеджер по&nbsp;продажам графического направления",
+		tags: ['Полная занятость', 'Работа в&nbsp;офисе'],
+	},
+	{
+		title: "Видеооператор-фотограф",
+		tags: ['Полная занятость', 'Фриланс'],
+	},
+]
+
+---
+
+<Layout title="Страница не найдена">
+	<Heading type={'404'}></Heading>
+	<div class="section p-not-found">
+		<div class="container">
+			<h1 class="p-not-found__title section-title">Страница не&nbsp;найдена</h1>
+			<div class="p-not-found__button-wrapper">
+				<Button type='link' class="p-not-found__button" icon="arrow">Вернуться на главную</Button>
+			</div>
+		</div>
+	</div>
+</Layout>

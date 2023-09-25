@@ -1,0 +1,145 @@
+/* ------- HowWorkBuilt -------- */
+.how-work-built {
+    position: relative;
+
+    &__title {
+        position: relative;
+        margin: 0 0 4rem;
+        max-width: 60rem;
+
+        @include media(mob-m) {
+            margin-bottom: 2rem;
+        }
+    }
+
+    &__inner {
+        position: relative;
+
+        @include media(tab) {
+            padding-bottom: 20rem;
+        }
+    }
+
+    &__graphic {
+    }
+
+    &__graphic-item {
+        position: absolute;
+        display: block;
+
+        &_triangle {
+            top: 22rem;
+            left: 0;
+            width: 27.2rem;
+            height: 27.2rem;
+
+            @include media(tab) {
+                top: auto;
+                bottom: 0;
+            }
+            
+        }
+
+        &_points {
+            top: 24rem + 8.4rem;
+            left: 12rem;
+
+            @include media(tab) {
+                top: auto;
+                bottom:  4rem;
+            }
+
+            @include media(mob-m) {
+                bottom: 7rem;
+            }
+        }
+    }
+
+    &__graphic-triangle {
+        @include triangle(bottomLeft, 27.2rem, 27.2rem, $accent);
+
+        @include media(mob-m) {
+            width: 20rem;
+            height: 20rem;
+
+            border-right-width: 20rem;
+            border-bottom-width: 20rem;
+        }
+    }
+
+    &__graphic-points {
+        @include media(mob-m) {
+            width: 8rem;
+            height: 8rem;
+        }
+    }
+
+    &__row {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 4rem;
+
+        @include media(tab) {
+            grid-template-columns: minmax(0, 1fr);
+            gap: 2rem;
+        }
+    }
+
+    &__column {
+        min-height: 51.1rem;
+
+        @include media(tab) {
+            min-height: 0;
+        }
+    }
+
+    &__item {
+        position: relative;
+        padding-left: 6rem;
+        margin-bottom: 3rem;
+        padding-bottom: 3rem;
+        border-bottom: 1px solid var(--color-grey-5);
+
+        &:last-child {
+            padding-bottom: 0;
+            margin-bottom: 0;
+            border-bottom: none;
+        }
+    }
+
+    &__item-icon-box {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 4rem;
+        height: 4rem;
+    }
+
+    &__item-icon {
+        width: 4rem;
+        height: 4rem;
+    }
+
+    &__item-title {
+        min-height: 4rem;
+        display: flex;
+        align-items: center;
+        margin-bottom: 2rem;
+        font-weight: 800;
+        font-size: 2.4rem;
+        line-height: 100%;
+        letter-spacing: -0.02em;
+
+        @include media(mob-m) {
+            font-size: 2.2rem;
+        }
+    }
+
+    &__item-text {
+        line-height: 140%;
+    }
+
+}

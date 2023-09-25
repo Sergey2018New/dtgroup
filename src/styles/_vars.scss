@@ -1,0 +1,182 @@
+// Mixins
+@import "mixins";
+
+// Functions
+@import "functions";
+
+// Base
+$base-font-family: "Manrope", "Arial", sans-serif;
+$base-font-weight: 400;
+$base-font-size: var(--text-size-base);
+$base-line-height: var(--text-line-height-base);
+$base-color: var(--color-base);
+$base-background: var(--background-color);
+
+// Fonts
+$font-primary: $base-font-family;
+ 
+// Font sizes
+$font-size-normal: $base-font-size;
+
+// Colors
+$black: #000;
+$white: #fff;
+$grey: grey;
+
+$accent: var(--color-accent);
+$second: var(--color-second);
+
+$primary: var(--color-base);
+$backdrop: var(--color-backdrop);  
+
+$input-border: #DCDCDC;
+$input-border-focused: $primary;
+$placeholder: var(--color-placeholder);
+$disabled-color: #aaa;
+$disabled-background: #aaa;
+
+$error: var(--color-error);
+$success: var(--color-success);
+$link: var(--color-link);
+
+// Container
+$container: var(--container-max-width);
+$min-width: 320px;
+$gutters: var(--gutters);
+$gutters-sm: var(--gutters-sm);
+$section-space: var(--section-space);
+$section-space-sm: var(--section-space-sm);
+$section-space-md: var(--section-space-md);
+
+// Breakpoints
+$grid-breakpoints: (
+	mob-xxs: 371px,
+	mob-xs: 430px,
+	mob-sm: 480px,
+	mob-m: 576px,
+	mob: 768px,
+	tab: 992px,
+	tab-l: 1024px,
+	pc: 1200px,
+	netbook: 1340px,
+	pc-l: 1440px, 
+	pc-md: 1600px,
+	pc-xl: 1680px,
+	pc-xxl: 1920px
+);
+
+// Header
+$header: var(--header-height);
+
+// Logo
+$logo-width: var(--logo-width);
+$logo-height: var(--logo-height);
+
+// Button
+$button-height: var(--button-height);
+$button-height-sm: var(--button-height-sm);
+
+// Input
+$input-height: var(--input-height);
+
+// Animation
+$duration: 0.3s;
+$duration-lazy: 0.6s;
+
+// Radius
+$radius: var(--radius);
+$radius-sm: var(--radius-sm);
+$radius-lg: var(--radius-lg);
+
+:root {
+	--background-color: #fff;
+	--color-base: #2C2C2C;
+	--color-base-rgb: 44, 44, 44;
+	--color-base-70: rgba(var(--color-base-rgb), 0.7);
+
+	--color-accent: #FF4400;
+	--color-second: #a3a;
+
+	--color-grey-1: rgba(var(--color-base-rgb), 0.5);
+	--color-grey-4: #B2B2B2;
+	--color-grey-5: #F4F4F4;
+	--color-grey-6: #969696;
+	
+	--color-line: #DCDCDC;
+
+	--color-gradient-1: #FEF5F7;
+	--color-gradient-2: #F24825;
+	--color-gradient-3: #8E0704;
+	--color-gradient-4: #540503;
+	--color-gradient-5: #FDD8CA;
+	--color-gradient-6: #F03009;
+	--color-gradient-7: #711E0C;
+	--color-gradient-8: #030208;
+
+	--color-backdrop: rgba(var(--color-base-rgb), 0.1);
+	--color-error: #f00;
+	--color-success: #0f0;
+	--color-placeholder: var(--color-grey-6);
+
+	--color-link: inherit;
+
+	--container-max-width: 128rem;
+	--gutters: 4rem;
+	--gutters-sm: 2rem;
+
+	--space-default: 6rem;
+	--section-space: 15rem;
+	--section-space-md: 10rem;
+
+	--logo-width: 7.1rem;
+	--logo-height: 7.3rem;
+
+	--radius: 1.2rem;
+	--radius-sm: 0.8rem;
+	--radius-lg: 8rem;
+
+	--header-height: 14rem;
+	--header-height-fixed: 10rem;
+	--button-height: 6rem;
+	--button-height-sm: 4.8rem;
+	--input-height: 6rem;
+
+	--text-size-base: 1.6rem;
+	--text-line-height-base: 1.4;
+
+	--card-review-offset-x: 2rem;
+	--card-review-offset-y: 2rem;
+
+	--size-block-presentation: 12rem;
+
+	@include media(pc) {
+		--size-block-presentation: 10rem;
+	}
+
+	@include media(tab) {
+		--header-height: 12rem;
+		--section-space: 12rem;
+		--gutters: 3rem;
+	}
+
+	@include media(mob) {
+		--header-height: 8rem;
+		--header-height-fixed: 8rem;
+		--section-space: 8rem;
+		--section-space-md: 8rem;
+		--gutters: 2rem;
+		--logo-width: 4.9rem;
+		--logo-height: 5rem;
+		--button-height: 4.8rem;
+		--input-height: 5rem;
+	}
+
+	@include media(mob-m) {
+		--section-space: 5rem;
+		--section-space-md: 5rem;
+		--radius: 0.8rem;
+		--radius-lg: 5rem;
+		--card-review-offset-x: 1rem;
+		--size-block-presentation: 5.4rem;
+	}
+}

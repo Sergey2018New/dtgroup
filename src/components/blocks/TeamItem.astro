@@ -1,0 +1,55 @@
+---
+import Icon from '@components/modules/Icon.astro';
+import Button from '@components/modules/Button.astro';
+import Tags from '@components/blocks/Tags.astro';
+
+interface Props {
+    size?: "sm";
+    name?: string;
+    position?: string;
+    image?: string;
+    image2x?: string;
+    class?: string;
+    [x: string]: any;
+}
+
+const { 
+	size,
+	name, 
+	position, 
+	image, 
+	image2x,
+	class: className,
+	...rest
+} = Astro.props;
+
+---
+
+<div 
+	class:list={[
+		'team-item', 
+		size ? `team-item_size_${size}` : '',
+		className,
+	]}
+	{...rest}
+>
+	
+	<a href="" class="team-item__link">
+		<div class="team-item__photo team-item__photo_is_video">
+			<img class="team-item__photo-image lazy" data-src={image} data-srcset={image2x} width="370" height="435" alt="" />
+			<div class="team-item__arrow">
+				<Icon class='team-item__arrow-icon' name='arrow'></Icon>
+			</div>
+			<div class="team-item__video">
+                <video width="370" height="435" muted="muted" autoplay="autoplay" loop="loop">
+                    <source src="https://www.dtgroup.ru/files/638/db991ac0f5/lukyanica.mov" type="video/mp4">
+                </video>
+            </div>
+		</div>
+		
+		<div class="team-item__content">
+			<div class="team-item__name" set:html={name}></div>
+			<div class="team-item__position" set:html={position}></div>
+		</div>
+	</a>
+</div>

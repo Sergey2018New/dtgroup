@@ -1,0 +1,275 @@
+---
+import Button from '@components/modules/Button.astro';
+import Swiper from '@components/modules/swiper/Swiper.astro';
+import SwiperSlide from '@components/modules/swiper/SwiperSlide.astro';
+import SwiperControl from '@components/modules/swiper/SwiperControl.astro';
+
+interface Props {
+    class?: string;
+    type?: "clients" | "about";
+    [x: string]: any;
+}
+
+const { 
+	type, 
+	class: className,
+	...rest
+} = Astro.props;
+
+const partnersList = [
+	{
+		image: "img/partners/sber.png",
+		image2x: "img/partners/sber@2x.png 2x",
+		width: "109",
+		height: "46"
+	},
+	{
+		image: "img/partners/samsung.png",
+		image2x: "img/partners/samsung@2x.png 2x",
+		width: "109",
+		height: "46"
+	},
+	{
+		image: "img/partners/raiffeisenbank.png",
+		image2x: "img/partners/raiffeisenbank@2x.png 2x",
+		width: "109",
+		height: "39"
+	},
+	{
+		image: "img/partners/philips.png",
+		image2x: "img/partners/philips@2x.png 2x",
+		width: "91",
+		height: "38"
+	},
+	{
+		image: "img/partners/kaspersky.png",
+		image2x: "img/partners/kaspersky@2x.png 2x",
+		width: "112",
+		height: "23"
+	},
+	{
+		image: "img/partners/olympus.png",
+		image2x: "img/partners/olympus@2x.png 2x",
+		width: "110",
+		height: "37"
+	},
+	{
+		image: "img/partners/JTI.png",
+		image2x: "img/partners/JTI@2x.png 2x",
+		width: "97",
+		height: "40"
+	},
+	{
+		image: "img/partners/heineken.png",
+		image2x: "img/partners/heineken@2x.png 2x",
+		width: "113",
+		height: "33"
+	},
+	{
+		image: "img/partners/eventum-premo.png",
+		image2x: "img/partners/eventum-premo@2x.png 2x",
+		width: "115",
+		height: "48"
+	},
+	{
+		image: "img/partners/otkrytie.png",
+		image2x: "img/partners/otkrytie@2x.png 2x",
+		width: "132",
+		height: "32"
+	},
+	{
+		image: "img/partners/scania.png",
+		image2x: "img/partners/scania@2x.png 2x",
+		width: "108",
+		height: "32"
+	},
+	{
+		image: "img/partners/gals.png",
+		image2x: "img/partners/gals@2x.png 2x",
+		width: "104",
+		height: "24"
+	},
+	{
+		image: "img/partners/fanuc.png",
+		image2x: "img/partners/fanuc@2x.png 2x",
+		width: "108",
+		height: "18"
+	},
+	{
+		image: "img/partners/pernod-ricard.png",
+		image2x: "img/partners/pernod-ricard@2x.png 2x",
+		width: "89",
+		height: "42"
+	},
+	{
+		image: "img/partners/stada.png",
+		image2x: "img/partners/stada@2x.png 2x",
+		width: "125",
+		height: "52"
+	},
+	{
+		image: "img/partners/beeline.png",
+		image2x: "img/partners/beeline@2x.png 2x",
+		width: "127",
+		height: "54"
+	}
+]
+
+const partnersAbout = [
+	{
+		image: "img/partners/sber.png",
+		image2x: "img/partners/sber@2x.png 2x",
+		width: "109",
+		height: "46"
+	},
+	{
+		image: "img/partners/samsung.png",
+		image2x: "img/partners/samsung@2x.png 2x",
+		width: "109",
+		height: "46"
+	},
+	{
+		image: "img/partners/raiffeisenbank.png",
+		image2x: "img/partners/raiffeisenbank@2x.png 2x",
+		width: "109",
+		height: "39"
+	},
+	{
+		image: "img/partners/kaspersky.png",
+		image2x: "img/partners/kaspersky@2x.png 2x",
+		width: "112",
+		height: "23"
+	},
+	{
+		image: "img/partners/olympus.png",
+		image2x: "img/partners/olympus@2x.png 2x",
+		width: "110",
+		height: "37"
+	},
+	{
+		image: "img/partners/JTI.png",
+		image2x: "img/partners/JTI@2x.png 2x",
+		width: "97",
+		height: "40"
+	},
+	{
+		image: "img/partners/eventum-premo.png",
+		image2x: "img/partners/eventum-premo@2x.png 2x",
+		width: "115",
+		height: "48"
+	},
+	{
+		image: "img/partners/otkrytie.png",
+		image2x: "img/partners/otkrytie@2x.png 2x",
+		width: "132",
+		height: "32"
+	},
+	{
+		image: "img/partners/scania.png",
+		image2x: "img/partners/scania@2x.png 2x",
+		width: "108",
+		height: "32"
+	},
+	{
+		image: "img/partners/fanuc.png",
+		image2x: "img/partners/fanuc@2x.png 2x",
+		width: "108",
+		height: "18"
+	},
+	{
+		image: "img/partners/pernod-ricard.png",
+		image2x: "img/partners/pernod-ricard@2x.png 2x",
+		width: "89",
+		height: "42"
+	},
+	{
+		image: "img/partners/stada.png",
+		image2x: "img/partners/stada@2x.png 2x",
+		width: "125",
+		height: "52"
+	},
+]
+
+const partners = type === 'about' ? partnersAbout : partnersList;
+---
+
+<section class:list={[
+	"section partners",
+	type === "clients" ? "partners_slider" : "",
+	className
+]}>
+	<div class="partners__container container">
+		{
+			type == "clients" ? 	
+			<div class="partners__row">
+				<div class="partners__column">
+					<div class="partners__text partners__text_size_sm">
+						<p>Это наши клиенты которых мы&nbsp;любим и&nbsp;ценим</p>
+					</div>
+				</div>
+				<div class="partners__column">
+					<div class="partners__slider-wrapper">
+						<Swiper class="partners__slider js-slider-partners">
+							{
+								partners.map(item => (
+									<div class="swiper-slide partners__item">
+										<div class="partners__logo">
+											<img class="partners__logo-image lazy" data-src={item.image} data-srcset={item.image2x} width={item.width} height={item.height} alt="" />
+										</div>
+									</div>
+								))
+							}
+							<SwiperControl slot="after" class="partners__slider-prev js-slider-partners-prev" direction="prev"></SwiperControl>
+									
+							<SwiperControl slot="after" class="partners__slider-next js-slider-partners-next" direction="next"></SwiperControl>
+						</Swiper>
+					</div>
+				
+				</div>
+			</div> :
+			type == "about" ? 	
+			<div class="partners__row">
+				<div class="partners__column partners__column_content">
+					<div class="partners__text">
+						<p>Клиенты dt&nbsp;group video production&nbsp;&mdash; компании, проявляющие заботу и&nbsp;внимание к&nbsp;своей корпоративной культуре.</p>
+						<p>Наши заказчики&nbsp;&mdash; высокоэффективные руководители, берущие на&nbsp;себя ответственность перед своими сотрудниками и&nbsp;клиентами, и&nbsp;компании, старающиеся быть открытыми и&nbsp;максимально близкими к&nbsp;своему потребителю.</p>
+					</div>
+				</div>
+				<div class="partners__column partners__column_clients">
+					<div class="partners__items">
+						{partners.map(item => (
+							<div class="partners__item">
+								<div class="partners__logo">
+									<img class="partners__logo-image lazy" data-src={item.image} data-srcset={item.image2x} width={item.width} height={item.height} alt="" />
+								</div>
+							</div>
+						))}
+					</div>
+				</div>
+			</div> :
+			<div class="partners__row">
+				<div class="partners__column">
+					<div class="partners__text anim anim_fadeIn" data-anim>
+						<p>За&nbsp;более чем 20&nbsp;летний опыт мы&nbsp;успели поработать с&nbsp;крупными брендами и&nbsp;до&nbsp;сих пор у&nbsp;нас остаются партнерские отношения</p>
+					</div>
+					<div class="partners__button-wrapper anim anim_slideUp" data-anim data-delay="150">
+						<Button href="/" type={'link'} icon="arrow">О компании</Button>
+					</div>
+				</div>
+				<div class="partners__column">
+					<div class="partners__items anim" data-anim>
+						{partners.map(item => (
+							<div class="partners__item anim__item">
+								<div class="partners__logo">
+									<img class="partners__logo-image lazy" data-src={item.image} data-srcset={item.image2x} width={item.width} height={item.height} alt="" />
+								</div>
+							</div>
+						))}
+					</div>
+				</div>
+			</div> 
+		
+		}
+	
+	</div>
+</section>

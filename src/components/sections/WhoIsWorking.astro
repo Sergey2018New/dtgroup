@@ -1,0 +1,80 @@
+---
+import Swiper from '@components/modules/swiper/Swiper.astro';
+import SwiperSlide from '@components/modules/swiper/SwiperSlide.astro';
+import SwiperControl from '@components/modules/swiper/SwiperControl.astro';
+
+const items = [
+	{
+		photo: "img/who-working/1.jpg",
+		photo2x: "img/who-working/1@2x.jpg",
+		name: "Мария Мальцева",
+		position: "Монтаж видео",
+	},
+	{
+		photo: "img/who-working/2.jpg",
+		photo2x: "img/who-working/2@2x.jpg",
+		name: "Юрий Пижанков",
+		position: "Генеральный продюсер",
+	},
+	{
+		photo: "img/who-working/3.jpg",
+		photo2x: "img/who-working/3@2x.jpg",
+		name: "Алексей Антипов",
+		position: "Линейный продюсер",
+	},
+	{
+		photo: "img/who-working/4.jpg",
+		photo2x: "img/who-working/4@2x.jpg",
+		name: "Анастасия Маркович",
+		position: "Креативный продюсер",
+	},
+	{
+		photo: "img/who-working/1.jpg",
+		photo2x: "img/who-working/1@2x.jpg",
+		name: "Мария Мальцева",
+		position: "Монтаж видео",
+	},
+	{
+		photo: "img/who-working/2.jpg",
+		photo2x: "img/who-working/2@2x.jpg",
+		name: "Юрий Пижанков",
+		position: "Генеральный продюсер",
+	},
+	{
+		photo: "img/who-working/3.jpg",
+		photo2x: "img/who-working/3@2x.jpg",
+		name: "Алексей Антипов",
+		position: "Линейный продюсер",
+	},
+	{
+		photo: "img/who-working/4.jpg",
+		photo2x: "img/who-working/4@2x.jpg",
+		name: "Анастасия Маркович",
+		position: "Креативный продюсер",
+	},
+]
+---
+
+<section class="section who-is-working">
+	<div class="container">
+		<h2 class="who-is-working__title section-title">Кто работает над проектом</h2>
+		<div class="who-is-working__slider-wrapper">
+			<Swiper class="who-is-working__slider js-slider-who-is-working" >
+				{items.map((item, index) => (
+					<SwiperSlide class="who-is-working__item">
+						<div class="who-is-working__item-photo">
+							<img class="who-is-working__item-photo-image lazy" data-src={item.photo} data-srcset={item.photo} width="270" height="360" alt="" />
+						</div>
+						<div class="who-is-working__item-content">
+							<div class="who-is-working__item-name">{item.name}</div>
+							<div class="who-is-working__item-position">{item.position}</div>
+						</div>
+					</SwiperSlide>
+				))}
+				<SwiperControl slot="after" class="who-is-working__slider-prev js-slider-who-is-working-prev" direction="prev"></SwiperControl>
+				<SwiperControl slot="after" class="who-is-working__slider-next js-slider-who-is-working-next" direction="next"></SwiperControl>
+			</Swiper>
+	
+		</div>
+	</div>
+</section>

@@ -1,0 +1,99 @@
+---
+import Icon from '@components/modules/Icon.astro';
+import header from '@data/header.json';
+
+interface Props {
+    class?: string;
+}
+
+const {
+    class: className,
+    ...rest
+} = Astro.props;
+---
+<nav 
+	class:list={['menu js-menu', className]}
+	{...rest}
+>
+	<button class="menu__burger js-menu-burger" type="button" aria-label="Открыть меню">
+		<span></span>
+		<span></span>
+		<span></span>
+	</button>
+
+	<div class="menu__backdrop js-menu-backdrop"></div>
+	<div class="menu__popup js-menu-popup">
+		<div class="menu__container">
+			<ul class="menu__list">
+				<li class="menu__item">
+					<a href="" class="menu__link"><span>Портфолио</span></a>
+				</li>
+				<li class="menu__item menu__item_dropdown js-menu-dropdown">
+					<a href="" class="menu__link js-menu-link">
+						<span>Направления</span>
+						<Icon class="menu__arrow-icon" name="arrow-down"></Icon>
+					</a>
+					<div class="menu__submenu menu__submenu_full js-menu-submenu">
+						<div class="menu__submenu-inner">
+							<div class="container">
+								<div class="menu__submenu-row">
+									{
+										header.menu_directions.map(item => (
+										<div class="menu__submenu-column">
+											<div class="menu__submenu-heading">
+												<div class="menu__submenu-icon-box">
+													<img src={`img/directions/${item.icon}.svg`} alt="" />
+												</div>
+												<div class="menu__submenu-title" set:html={item.title}></div>
+											</div>
+											<ul class="menu__submenu-list">
+												{
+													item.list.map(submenuItem => (
+														<li>
+															<a href="" class="menu__submenu-link">
+																<Fragment set:html={submenuItem} />
+															</a>
+														</li>
+													))
+												}
+											</ul>
+										</div>
+										))
+									}
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="menu__item menu__item_dropdown js-menu-dropdown">
+					<a href="" class="menu__link js-menu-link">
+						<span>Компания</span>
+						<Icon class="menu__arrow-icon" name="arrow-down"></Icon>
+					</a>
+					<div class="menu__submenu js-menu-submenu">
+						<ul class="menu__submenu-list">
+							{
+								header.menu_company.map(submenuItem => (
+									<li>
+										<a href="" class="menu__submenu-link">
+											<Fragment set:html={submenuItem} />
+										</a>
+									</li>
+								))
+							}
+						</ul>
+					</div>
+				</li>
+				<li class="menu__item">
+					<a href="" class="menu__link"><span>Блог</span></a>
+				</li>
+				<li class="menu__item">
+					<a href="" class="menu__link"><span>Контакты</span></a>
+				</li>
+			</ul>
+		</div>
+		<button class="menu__close js-menu-close" type="button" aria-label="Закрыть меню">
+			<span>Закрыть меню</span>
+		</button>
+	</div>
+</nav>

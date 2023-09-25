@@ -1,0 +1,92 @@
+---
+import Layout from '@layouts/layout.astro';
+import Button from '@components/modules/Button.astro';
+import Icon from '@components/modules/Icon.astro';
+import Video from '@components/modules/Video.astro';
+import Heading from '@components/blocks/Heading.astro';
+import Portfolio from '@components/sections/Portfolio.astro';
+import Partners from '@components/sections/Partners.astro';
+import Reviews from '@components/sections/Reviews.astro';
+import HowWorkBuilt from '@components/sections/HowWorkBuilt.astro';
+import CostCreating from '@components/sections/CostCreating.astro';
+import Gallery from '@components/sections/Gallery.astro';
+import Faq from '@components/sections/Faq.astro';
+import WhoIsWorking from '@components/sections/WhoIsWorking.astro';
+import Feedback from '@components/sections/Feedback.astro';
+
+const portfolioList = [
+	{
+		title: "Газпромбанк. Вклады. Рекламный ролик",
+		category: "Проморолик",
+		tags: ["Съемка", "Графика", "Монтаж"],
+	},
+	{
+		title: "Культура и&nbsp;образование в&nbsp;партнерстве с&nbsp;Samsung",
+		category: "Клип",
+		tags: ["2D", "HR-видео"]
+	},
+	{
+		title: "Кейс о&nbsp;проекте: Контент для концертного тура Алсу",
+		category: "Презентация",
+		tags: ["Графика", "Монтаж"],
+	}
+]
+
+const items = [
+	{
+		title: "Обучающее видео",
+		text: "Это может быть один ролик или целый образовательный курс. Он&nbsp;может быть съемочно-графическим, например со&nbsp;спикерами и&nbsp;инфографикой в&nbsp;кадре, либо чисто графическим&nbsp;&mdash; в&nbsp;2d&nbsp;или 3d&nbsp;формате"
+	},
+	{
+		title: "HR-бренд видео",
+		text: "Имиджевые ролики, которые продвигают компанию как работодателя&nbsp;&mdash; на&nbsp;внешнем или внутреннем рынке"
+	},
+	{
+		title: "Рекрутинговый ролик",
+		text: "Такое видео помогает быстрее и&nbsp;качественнее закрыть вакансию, повысить количество откликов"
+	},
+	{
+		title: "Welcome-ролик",
+		text: "Первые дни нового сотрудника в&nbsp;компании очень важны для эффективности его дальнейшей работы. Welcome-ролик может быть информационным или мотивирующим."
+	},
+	{
+		title: "Поздравительный ролик",
+		text: "Корпоративный праздник&nbsp;&mdash; не&nbsp;праздник без видеообращения руководства и&nbsp;творческих поздравлений от&nbsp;коллег. Особенно популярным стал этот формат с&nbsp;переходом многих сотрудников на&nbsp;удаленку."
+	},
+]
+
+
+
+---
+
+<Layout title="Услуга">
+    <Heading type={'service'} title="HR-Видео"></Heading>
+	<div class="section p-service">
+		<div class="container">
+			<div class="p-service__description">
+				<p>Мы&nbsp;специализируемся на&nbsp;эффективных инструментах для внутренних коммуникаций и&nbsp;хорошо понимаем, какое видео решит ваши HR-задачи быстро и&nbsp;красиво.</p>
+			</div>
+			<Video class="p-service__video" image="img/service/video.jpg" image2x="img/service/video@2x.jpg 2x" type="youtube" src="https://www.youtube.com/embed/7yLvthHXsCA" isAnim={true}></Video>
+
+			<div class="p-service__items">
+				{items.map((item, index) => (
+					<div class={`p-service__item service__item_${index + 1}`}>
+						<div class="p-service__item-title" set:html={item.title}></div>
+						<div class="p-service__item-text">
+							<p set:html={item.text}></p>
+						</div>
+					</div>
+				  ))}
+			</div>
+		</div>
+	</div>
+	<Partners type='clients'></Partners>
+    <Portfolio type={'examples'} title="Примеры работ" list={portfolioList} moreText="Показать еще"></Portfolio>
+	<Reviews></Reviews>
+	<HowWorkBuilt></HowWorkBuilt>
+	<CostCreating></CostCreating>
+	<Gallery></Gallery>
+	<Faq></Faq>
+	<WhoIsWorking></WhoIsWorking>
+	<Feedback></Feedback>
+</Layout>

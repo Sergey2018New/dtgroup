@@ -1,0 +1,142 @@
+/* ------------ Tippy ------------ */
+/*	https://github.com/atomiks/tippyjs */
+/* -------------------------------- */
+
+@import "choices.js/public/assets/styles/choices.css";
+
+.choices {
+	margin-bottom: 0;
+	$choicesRadius: 0.4rem;
+	$choicesBorderColor: $input-border;
+
+	font-size: var(--text-size);
+
+	&__inner {
+		display: flex;
+		align-items: center;
+		border-radius: $choicesRadius;
+		border-color: $choicesBorderColor;
+		height: $input-height;
+		font-size: var(--text-size);
+		font-weight: 600;
+		background: $white;
+
+		.is-open & {
+			border-radius: $choicesRadius $choicesRadius 0 0;
+		}
+
+		.is-open &, .is-focused & {
+			border-color: $base-color;
+		}
+
+		.is-flipped.is-open & {
+			border-radius: 0 0 $choicesRadius $choicesRadius;
+		}
+	}
+
+	&__list {
+		&--single {
+			padding: 4px 4rem 4px 0;
+
+			.choices__item {
+				overflow: hidden;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+			}
+		}
+
+		&--dropdown,
+		&[aria-expanded] {
+			border-color: $base-color;
+			border-bottom-left-radius: $choicesRadius;
+			border-bottom-right-radius: $choicesRadius;
+
+			.choices__list {
+				max-height: 25rem;
+
+				@include media-min(1025) {
+					scrollbar-width: thin;
+					scrollbar-color: rgba($black, 0.3);
+				
+					&::-webkit-scrollbar {
+					  position: relative;
+					  width: 1rem;
+					  cursor: pointer;
+					}
+				
+					&::-webkit-scrollbar-thumb {
+					  border-left: 0.4rem solid $white;
+					  border-right: 0.4rem solid $white;
+					  background: rgba($black, 0.3);
+					  transition: $duration background;
+					}
+				
+					&::-webkit-scrollbar-track {
+					  margin: 0.5rem 0;
+					  background: transparent;
+					}
+				}
+
+			}
+
+			.choices__item {
+				padding: 1rem 2rem;
+				font-size: var(--text-size);
+				transition: $duration color, $duration background-color;
+
+				&--selectable {
+					&.is-highlighted {
+						color: $accent;
+						background-color: var(--color-grey-5);
+					}
+				}
+
+				&.choices__placeholder  {
+					display: none;
+				}
+			}
+
+			.is-open & {
+				border-color: $base-color;
+			}
+
+			.is-flipped & {
+				border-radius: $choicesRadius $choicesRadius 0 0;
+			}
+		}
+	}
+
+	&__placeholder {
+		color: var(--color-grey-6);
+		opacity: 1;
+	}
+
+	+ input {
+		margin-top: 2rem;
+	}
+
+	&[data-type*=select-one] {
+		&::after {
+			right: 1.5rem;
+			border: none;
+			width: 2.4rem;
+			height: 2.4rem;
+			margin-top: -1.2rem;
+			mask-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_1422_3757)'%3E%3Cpath d='M6 9L12 15L18 9' stroke='%232C2C2C' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_1422_3757'%3E%3Crect width='24' height='24' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A");
+			mask-size: 100%;
+			mask-repeat: no-repeat;
+			background-color: rgba(var(--color-base-rgb), 0.7);
+		}
+
+		.choices__inner {
+			padding: 0 1.5rem 0 2rem;
+		}
+
+		&.is-open {
+			&::after {
+				margin-top: -1.2rem;
+				transform: rotate(-180deg);
+			}
+		}
+	}
+}

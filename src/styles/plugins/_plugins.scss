@@ -1,0 +1,34 @@
+/* ------- Plugin styles ------- */
+
+/* Lozad */
+.lazy{
+	opacity: 0;
+	transition: $duration-lazy opacity;
+	
+	&.loaded{
+		opacity: 1;
+	}
+}
+
+.just-validate-error-label {
+	margin-top: 0.3rem;
+	font-size: 1.4rem;
+	// display: none;
+	color: $error;
+}
+
+.plyr--fullscreen-enabled {
+	// .plyr__video-embed>.plyr__video-embed__container {
+	// 	padding-bottom: 0;
+	// 	height: 100%;
+	// 	transform: none;
+	// }
+
+	// .plyr__video-wrapper {
+	// 	min-height: 100%;
+	// }
+}
+
+:root {
+	--plyr-color-main: var(--color-accent);
+  }

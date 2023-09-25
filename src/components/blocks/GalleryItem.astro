@@ -1,0 +1,37 @@
+---
+import Icon from '@components/modules/Icon.astro';
+
+interface Props {
+    image?: string;
+    image2x?: string;
+    imageBig?: string;
+    imageWidth?: boolean;
+    imageHeight?: boolean;
+    caption?: string;
+    class?: string;
+    [x: string]: any;
+}
+
+const { 
+	image, 
+	image2x, 
+	imageBig, 
+	imageWidth, 
+	imageHeight, 
+	caption,
+	class: className,
+	...rest
+} = Astro.props;
+---
+
+<div 
+	class:list={['gallery-item', className]}
+	data-src={imageBig}
+	{...rest}
+>
+	<a class="gallery-item__inner">
+		<img class="gallery-item__image lazy" data-src={image} data-srcset={image2x} width={imageWidth} height={imageHeight} alt=""/>
+		<span class="gallery-item__icon"></span>
+	</a>
+	<div class="gallery-item__caption">{caption}</div>
+</div>

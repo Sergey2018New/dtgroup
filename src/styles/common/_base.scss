@@ -1,0 +1,144 @@
+/* ------- Base ------- */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html {
+	position: relative;
+	height: 100%;
+	font-size: 62.5%;
+	background: $base-background;
+}
+
+body {
+	//width: 1440px;
+	height: 100%;
+	-webkit-font-smoothing: antialiased;
+	text-decoration-skip: objects;
+	text-rendering: optimizeLegibility;
+	text-size-adjust: 100%;
+	-webkit-tap-highlight-color: transparent;
+	font-family: $base-font-family;
+	font-weight: $base-font-weight;
+	font-size: $base-font-size;
+	line-height: $base-line-height;
+	color: $base-color;
+}
+
+p {
+	margin: 0 0 1.5rem;
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+a {
+	color: $link;
+	transition: color $duration;
+}
+
+img {
+	max-width: 100%;
+} 
+
+hr {
+	margin: 2rem 0;
+	border: none;
+	border-bottom: 1px solid $grey;
+	height: 0;
+}
+
+button {
+	appearance: none;
+	border: none;
+	border-radius: 0;
+	padding: 0;
+	box-shadow: none;
+	font-family: inherit;
+	font-size: inherit;
+	color: $primary;
+	background-color: transparent;
+	cursor: pointer;
+	user-select: none;
+}
+
+select {
+	display: block;
+	width: 100%;
+	padding: 0 2rem;
+	border-radius: 0.4rem;
+	border-color: $input-border;
+	height: $input-height;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+	text-align: left;
+
+	caption {
+		margin-bottom: 3rem;
+		font-size: 1.6rem;
+		text-align: left;
+	}
+
+	th, td {
+		padding: 1.5rem 2rem;
+		border-style: solid;
+		border-width: 0 1px 1px 0;
+		border-color: var(--color-line);
+		color: var(--color-base-70);
+
+		@include media(mob-m) {
+			padding-left: 1.5rem;
+			padding-right: 1.5rem;
+		}
+
+		&:first-child {
+			border-left-width: 1px;
+		}
+	}
+
+	th {
+		border-top-width: 1px;
+		font-weight: 600;
+		color: $base-color;
+		background: var(--color-grey-5);
+	}
+}
+
+.wrapper {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	min-width: $min-width;
+	min-height: 100vh;
+}
+
+.main {
+	flex: 1 0 auto;
+	width: 100%;
+}
+
+.container {
+	margin: 0 auto;
+	padding: 0 $gutters;
+	width: 100%;
+	max-width: calc($container + $gutters * 2);
+
+	&_fluid {
+		max-width: none;
+	}
+}
+
+.section {
+	padding-top: $section-space;
+
+	&:last-child {
+		padding-bottom: $section-space;
+	}
+}

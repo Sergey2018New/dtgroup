@@ -1,0 +1,172 @@
+/* ------------ Air-datepicker ------------ */
+/*	https://air-datepicker.com/ */
+/* -------------------------------- */
+
+@import "air-datepicker/air-datepicker.css";
+
+.air-datepicker {
+	--adp-font-family: $base-font-family;
+    --adp-font-size: 1.4rem;
+    --adp-width: 33.2rem;
+	--adp-padding: 2rem;
+	--adp-pointer-offset: 0;
+	--adp-pointer-size: 2.8rem;
+	--adp-border-radius: var(--radius-sm);
+	--adp-nav-action-size: 2.4rem;
+	--adp-nav-arrow-color: var(--color-base);
+	--adp-background-color-hover: transparent;
+    --adp-background-color-active: transparent;
+	--adp-day-cell-height: 4rem;
+	--adp-accent-color: var(--color-accent);
+    --adp-color-current-date: var(--adp-accent-color);
+	--adp-cell-background-color-selected: var(--color-accent);
+    --adp-cell-background-color-selected-hover: var(--color-accent);
+	--adp-day-name-color: var(--color-grey-6);
+	--adp-color-other-month: var(--color-line);
+	box-shadow: 0.8rem 0.8rem 3rem 0 rgba($black, 0.10);
+	border: none;
+	margin-top: -0.5rem;
+	font-weight: 600;
+
+	&--content {
+		padding-top: 0;
+	}
+
+	&--pointer {
+		&::after {
+			content: "";
+			position: absolute;
+			bottom: 0.5rem;
+			left: 0;
+			border: none;
+			width: 6rem;
+			height: 2rem;
+			mask-image: url("data:image/svg+xml,%3Csvg width='304' height='105' viewBox='0 0 304 105' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M304 8C304 3.58172 300.418 0 296 0H8C3.58172 0 0 3.58172 0 8V87C0 91.4183 3.58172 95 8 95H15.4002C17.9406 95 20 97.0594 20 99.5998C20 103.698 24.9546 105.75 27.8523 102.852L33.4047 97.2999C34.8773 95.8273 36.8746 95 38.9571 95H296C300.418 95 304 91.4183 304 87V8Z' fill='%232C2C2C'/%3E%3C/svg%3E%0A");
+			mask-size: 30.4rem 10.5rem;
+			mask-repeat: no-repeat;
+			mask-position: 0 bottom;
+			background-color: $white;
+		}
+	}
+}
+
+.air-datepicker-nav {
+	border-bottom: none;
+
+	&--title {
+		border-radius: 0.4rem;
+		font-weight: 700;
+		font-size: var(--text-size-base);
+		transition: $duration background;
+
+		i {
+			color: inherit;
+		}
+
+		&:hover,
+		&:active {
+			background: var(--color-grey-5);
+		}
+
+		&.-disabled- {
+			background: none;
+		}
+	}
+
+	&--action {
+		position: relative;
+
+		&::after {
+			content: "";
+			position: absolute;
+			left: -0.5rem;
+			right: -0.5rem;
+			bottom: -0.5rem;
+			top: -0.5rem;
+		}
+
+		svg {
+			width: 2.4rem;
+			height: 2.4rem;
+		}
+
+		path {
+			transition: $duration stroke;
+		}
+
+		&:hover,
+		&:active {
+			path {
+				stroke: $accent;
+			}
+		}
+
+		&.-disabled- {
+			visibility: visible;
+			user-select: none;
+			pointer-events: none;
+
+			path {
+				stroke: var(--color-line);
+			}
+		}
+	}
+}
+
+.air-datepicker-cell {
+	transition: $duration color, $duration background;
+
+	&:hover {
+		color: $accent;
+	}
+
+	&.-selected- {
+		color: $white;
+	}
+
+	&.-month-,
+	&.-year- {
+		font-size: 1.8rem;
+	}
+
+	&.-focus-:not(:hover) {
+		background: var(--color-grey-5);
+
+		&.-selected- {
+			background: $accent;
+		}
+	}
+
+	
+}
+
+.air-datepicker-body--cells.-days- {
+	gap: 0.2rem;
+}
+
+.air-datepicker-body--day-names {
+	margin-top: 0;
+	margin-bottom: 2px;
+	gap: 0.2rem;
+}
+
+.air-datepicker-body--day-name {
+	border-radius: var(--adp-cell-border-radius);
+	height: 4rem;
+	text-transform: capitalize;
+	font-size: inherit;
+	background: var(--color-grey-5);
+}
+
+.-top-left- .air-datepicker--pointer:after, .-top-center- .air-datepicker--pointer:after, .-top-right- .air-datepicker--pointer:after, [data-popper-placement^=top] .air-datepicker--pointer:after {
+	transform: none;
+}
+
+.air-datepicker.-is-mobile- {
+	margin-top: 0;
+}
+
+.air-datepicker-overlay {
+	--adp-overlay-z-index: 100;
+}
+

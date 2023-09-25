@@ -1,0 +1,111 @@
+---
+import Icon from '@components/modules/Icon.astro';
+
+interface Props {
+    type?: "button" | "submit" | "link" | "span" | "block";
+    size?: "sm";
+    style?: "outline" | "hover";
+    fill?: boolean;
+    center?: boolean;
+    href?: string;
+    ariaLabel?: string;
+    icon?: string;
+    class?: string;
+    [x: string]: any;
+}
+
+const {
+    type = "button",
+    size = "md",
+    style,
+    fill = false,
+    center = false,
+    href = "",
+    ariaLabel,
+    icon,
+    class: className,
+    ...rest
+} = Astro.props;
+
+let buttonClass = 'ui-button';
+
+const styles = {
+  outline: `${buttonClass}_style_outline`,
+  hover: `${buttonClass}_style_hover`,
+};
+
+const sizes = {
+  sm: `${buttonClass}_size_sm`,
+};
+
+const classList =[
+    buttonClass,
+    sizes[size],
+    styles[style],
+    fill ? `${buttonClass}_fill`: '',
+    center ? `${buttonClass}_center`: '',
+    icon ? `${buttonClass}_icon`: '',
+    className,
+]
+
+---
+{type === 'link' ? 
+    <a
+        href={href} 
+        class:list={classList}
+        {...rest}
+    >
+        {
+            icon ? 
+            <span class={`${buttonClass}__text`}>
+                <slot />
+            </span>
+            <span class={`${buttonClass}__icon-box`}>
+                <Icon class={`${buttonClass}__icon`} name={icon}></Icon>
+            </span>
+            : <slot />
+        }
+    </a>
+: type === 'block' ? 
+    <div
+        class:list={classList}
+        {...rest}
+    >
+        {
+            icon ? 
+            <span class={`${buttonClass}__text`}>
+                <slot />
+            </span>
+            <span class={`${buttonClass}__icon-box`}>
+                <Icon class={`${buttonClass}__icon`} name={icon}></Icon>
+            </span>
+            : <slot />
+        }
+    </div>
+:  type == 'span' ? 
+    <span
+        class:list={classList}
+        {...rest}
+    >
+        <slot />
+    </span>
+:  <button
+        type={type}
+        class:list={classList}
+        aria-label={ariaLabel}
+        {...rest}
+    >
+    {
+        icon ? 
+        
+        <span class={`${buttonClass}__text`}>
+            <slot />
+        </span>
+        <span class={`${buttonClass}__icon-box`}>
+            <Icon class={`${buttonClass}__icon`} name={icon}></Icon>
+        </span>
+        : <slot />
+    }
+    
+    </button>
+}

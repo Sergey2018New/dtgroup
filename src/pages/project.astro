@@ -1,0 +1,88 @@
+---
+import Layout from '@layouts/layout.astro';
+import Button from '@components/modules/Button.astro';
+import Icon from '@components/modules/Icon.astro';
+import Video from '@components/modules/Video.astro';
+import Heading from '@components/blocks/Heading.astro';
+import Portfolio from '@components/sections/Portfolio.astro';
+const portfolioList = [
+	{
+		title: "Из&nbsp;Японии в&nbsp;Сколково. Ролик об&nbsp;инжиниринговом центр Fanuc",
+		category: "Продуктовый ролик",
+		tags: ["Съемка", "Монтаж", "3D"],
+	},
+	{
+		title: "Кейс: поставка оборудования и&nbsp;ролик для тренинг-центра Olympus",
+		category: "Ролик",
+		tags: ["Продакшн", "Монтаж", "2D"]
+	},
+	{
+		title: "Имиджевый ролик для SCANIA. Владивосток",
+		category: "Реклама",
+		tags: ["Графика", "3D", "Монтаж"],
+	}
+]
+
+---
+
+<Layout title="Проект">
+    <Heading type={'project'} title="Культура и&nbsp;образование в&nbsp;партнерстве с&nbsp;Samsung"></Heading>
+	<div class="section p-project">
+		<div class="container">
+			<Video class="p-project__video" image="img/project/video.jpg" image2x="img/project/video@2x.jpg 2x" type="youtube" src="https://www.youtube.com/embed/7yLvthHXsCA" isAnim={true}></Video>
+			<div class="p-project__row">
+				<div class="p-project__column project__column_logo">
+					<div class="p-project__logo">
+						<img class="p-project__logo-image lazy" width="120" height="26" data-src="img/project/logo.png" alt="">
+					</div>
+				</div>
+				<div class="p-project__column">
+					<div class="p-project__info">
+						<div class="p-project__info-item">
+							<span>Клиент:</span><br>
+							Samsung
+						</div>
+						<div class="p-project__info-item">
+							<span>Агентство:</span><br>
+							Cheil Russia
+						</div>
+						<div class="p-project__info-item">
+							<span>Дата создания:</span><br>
+							12 октября 2022
+						</div>
+						<div class="p-project__info-item">
+							<span>Срок:</span><br>
+							2 недели
+						</div>
+						<div class="p-project__info-item">
+							<span>Целевая аудитория:</span><br>
+							Участники и посетители ПМЭФ
+						</div>
+					</div>
+				</div>
+				<div class="p-project__column">
+					<div class="p-project__description">
+						<p>Уже 30&nbsp;лет Samsung помогает развивать социально-значимые проекты в&nbsp;России. Компания оказывает поддержку музеям Петергофа, Государственному Эрмитажу, Большому театру, Третьяковской галерее и&nbsp;многим другим объектам культуры.</p>
+
+						<p>В&nbsp;этих великолепных локациях мы&nbsp;сняли для Samsung двухминутный имиджевый ролик.</p>
+					</div>
+				</div>
+			</div>
+			<div class="p-project__presentation">
+				<Button class="p-project__presentation-button">Презентационные ролики</Button>
+				<div class="p-project__presentation-block">
+					<div class="p-project__presentation-box">
+						<div class="p-project__presentation-number">24</div>
+						<div class="p-project__presentation-more">Узнать больше</div>
+					</div>
+					<div class="p-project__presentation-arrow">
+						<Icon class="p-project__presentation-arrow-icon" name="arrow"></Icon>
+					</div>
+					<div class="p-project__presentation-ellipse"></div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+    <Portfolio type={'similar'} title="Похожие проекты" list={portfolioList} isMore={false}></Portfolio>
+</Layout>

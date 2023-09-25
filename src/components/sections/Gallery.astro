@@ -1,0 +1,66 @@
+---
+import Swiper from '@components/modules/swiper/Swiper.astro';
+import SwiperControl from '@components/modules/swiper/SwiperControl.astro';
+import GalleryItem from '@components/blocks/GalleryItem.astro';
+
+const gallery = [
+	{
+		image: "img/gallery/1.jpg",
+		image2x: "img/gallery/1@2x.jpg",
+		imageBig: "img/gallery/1_big.jpg",
+		caption: "Монтаж видео",
+	},
+	{
+		image: "img/gallery/2.jpg",
+		image2x: "img/gallery/2@2x.jpg",
+		imageBig: "img/gallery/2_big.jpg",
+		caption: "Фотосъемка",
+	},
+	{
+		image: "img/gallery/3.jpg",
+		image2x: "img/gallery/3@2x.jpg",
+		imageBig: "img/gallery/3_big.jpg",
+		caption: "Съемка видео",
+	},
+	{
+		image: "img/gallery/1.jpg",
+		image2x: "img/gallery/1@2x.jpg",
+		imageBig: "img/gallery/1_big.jpg",
+		caption: "Монтаж видео",
+	},
+	{
+		image: "img/gallery/2.jpg",
+		image2x: "img/gallery/2@2x.jpg",
+		imageBig: "img/gallery/2_big.jpg",
+		caption: "Фотосъемка",
+	},
+	{
+		image: "img/gallery/3.jpg",
+		image2x: "img/gallery/3@2x.jpg",
+		imageBig: "img/gallery/3_big.jpg",
+		caption: "Съемка видео",
+	},
+]
+---
+
+<section class="section gallery">
+	<div class="container">
+		<div class="gallery__row">
+			<div class="gallery__column">
+				<h2 class="gallery__title section-title section-title_size_sm">Процесс в фотографиях</h2>
+			</div>
+			<div class="gallery__column">
+				<div class="gallery__slider-wrapper">
+					<Swiper class="gallery__slider js-slider-gallery" isGallery={true}>
+						{gallery.map((item, index) => (
+							<GalleryItem class="swiper-slide gallery__item" image={item.image} image2x={item.image2x} imageBig={item.imageBig} imageWidth={400} imageHeight={300} caption={item.caption}></GalleryItem>
+						))}
+						<SwiperControl slot="after" class="gallery__slider-prev js-slider-gallery-prev" direction="prev"></SwiperControl>
+						<SwiperControl slot="after" class="gallery__slider-next js-slider-gallery-next" direction="next"></SwiperControl>
+					</Swiper>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

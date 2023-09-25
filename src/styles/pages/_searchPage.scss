@@ -1,0 +1,25 @@
+/* ------- Search page -------- */
+.search-rusult-list {
+    display: grid;
+    gap: 3rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    h3 {
+        margin-top: 0;
+    }
+
+    a {
+        &:hover {
+            color: $accent;
+        }
+    }
+}
+
+.p-search {
+
+    @include media-min(mob) {
+        padding-top: 7rem;
+    }
+}

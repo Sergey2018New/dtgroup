@@ -1,0 +1,174 @@
+/* ------- Team page -------- */
+.p-team {
+    padding-top: var(--section-space-md);
+
+    @include media(pc) {
+        padding-top: calc(var(--section-space-md) - 3rem);;
+    }
+
+    @include media(mob-m) {
+        padding-top: calc(var(--section-space-md) - 1.5rem);
+    }
+
+
+    &__row {
+        display: grid;
+        grid-template-columns: minmax(0, 52fr) minmax(0, 48fr);
+        gap: 4rem;
+        margin-bottom: var(--section-space-md);
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        @include media(tab) {
+            margin-bottom: 6rem;
+            @include grid-columns(1);
+        }
+        
+        @include media(mob) {
+            margin-bottom: 4rem;
+            gap: 3rem;
+        }
+
+        @include media(mob-m) {
+            margin-bottom: 3rem;
+        }
+    }
+
+    &__column {
+    }
+
+    &__text {
+        font-size: 2rem;
+        line-height: 1.4;
+
+        p {
+            margin-bottom: 3rem;
+
+            @include media(mob-m) {
+                margin-bottom: 2rem;
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        @include media(mob) {
+            font-size: 1.6rem;
+        }
+
+        &_citation {
+            position: relative;
+            padding-left: 11rem;
+            font-size: 4rem;
+            line-height: 120%;
+
+            @include media(tab) {
+                padding-left: 8rem;
+                max-width: 50rem;
+            }
+
+            @include media(mob) {
+                max-width: 34rem;
+                padding-left: 6rem;
+            }
+
+            &::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 0.9rem;
+                width: 5rem;
+                height: 4.7rem;
+                mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='47' viewBox='0 0 50 47' fill='none'%3E%3Cpath d='M0 46.5727L1.15304 37.9826C4.08805 38.1896 6.28931 37.6376 7.75681 36.3267C9.22432 35.0158 10.1677 33.2219 10.587 30.945C11.0063 28.6681 11.0762 26.1497 10.7966 23.3898H0V0H20.5451V26.4947C20.5451 33.7393 18.7282 39.1901 15.0943 42.8469C11.5304 46.5037 6.49895 47.7457 0 46.5727ZM29.4549 46.5727L30.608 37.9826C33.543 38.1896 35.7442 37.6376 37.2117 36.3267C38.6792 35.0158 39.6226 33.2219 40.0419 30.945C40.4612 28.6681 40.5311 26.1497 40.2516 23.3898H29.4549V0H50V26.4947C50 33.7393 48.1831 39.1901 44.5493 42.8469C40.9853 46.5037 35.9539 47.7457 29.4549 46.5727Z' fill='%23FF4400'/%3E%3C/svg%3E");
+                mask-repeat: no-repeat;
+                mask-size: 100% 100%;
+                background: $accent;
+
+                @include media(tab) {
+                    width: 4re;
+                    height: 4rem;
+                }
+                
+                @include media(mob) {
+                    width: 3rem;
+                    height: 3rem;
+                }
+                
+            }
+
+            @include media(tab) {
+                font-size: 3rem;
+            }
+
+            @include media(mob) {
+                font-size: 2rem;
+            }
+        }
+    }
+
+    &__items {
+        display: grid;
+        gap: 7rem;
+
+        @include grid-columns(3);
+
+        @include media(pc) {
+            gap: 4rem;
+        }
+
+        @include media(mob) {
+            @include grid-columns(2);
+        }
+
+        @include media(mob-m) {
+            gap: 3rem 2rem;
+        }
+
+        &_col_5 {
+            @include media-min(tab) {
+                row-gap: 5rem;
+
+                @include grid-columns(5);
+            }
+        }
+
+        &:not(.is-visible-all) {
+            .p-team__item {
+                &:nth-child(n + 16) {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    &__show-more {
+        gap: 4rem;
+        margin-top: var(--section-space-md);
+        
+        @include media-min(tab) {
+            max-width: 50rem;
+            margin-left: auto;
+            margin-right: auto;
+            grid-template-columns: auto auto;
+        }
+
+        @include media(mob-m) {
+            gap: 2rem;
+        }
+
+        .show-more__text {
+            max-width: 19.6rem;
+
+            @include media(mob-m) {
+                max-width: 17rem;
+            }
+
+            @include media-min(mob-m) {
+                text-align: right;
+            }
+        }
+    }
+}

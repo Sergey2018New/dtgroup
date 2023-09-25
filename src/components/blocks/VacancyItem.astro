@@ -1,0 +1,70 @@
+---
+import Icon from '@components/modules/Icon.astro';
+import Button from '@components/modules/Button.astro';
+import Tags from '@components/blocks/Tags.astro';
+
+interface Props {
+    title?: string;
+    class?: string;
+    [x: string]: any;
+}
+
+const { 
+	title,
+	tags = [], 
+	class: className,
+	...rest
+} = Astro.props;
+
+---
+
+<div 
+	class:list={[
+		'vacancy-item', 
+		className
+	]}
+	data-accordion 
+	data-accordion-one
+	{...rest}
+>
+	<div  class="vacancy-item__header">
+		<button type="button" class="vacancy-item__button-toggle" data-accordion-button aria-expanded="false" aria-label={title}><span></span></button>
+		<div class="vacancy-item__title" set:html={title}></div>
+		<Tags class="vacancy-item__tags" type="block" list={tags}></Tags>
+		<div class="vacancy-item__icon-box"></div>
+		
+	</div>
+	<div class="vacancy-item__content" data-accordion-content>
+		<div class="vacancy-item__inner">
+			<div class="vacancy-item__description description">
+				<p>Приглашаем в&nbsp;штат арт-директора с&nbsp;опытом работы в&nbsp;видеопроизводстве от&nbsp;3&nbsp;лет.</p>
+				<p><strong>Что предстоит делать:</strong></p>
+				<ul>
+					<li>участие в&nbsp;креативных сессиях, подбор референсов;</li>
+					<li>разработка художественной концепции и&nbsp;единого визуального стиля видео-проектов;</li>
+					<li>контроль качества работ, создаваемых студией;</li>
+					<li>экспертиза клиентских правок, контроль соблюдения гайдлайнов и&nbsp;концепций проекта от&nbsp;идей до&nbsp;финальных версий.</li>
+				</ul>
+
+				<p><strong>Что требуется:</strong></p>
+				<ul>
+					<li>опыт работы от&nbsp;3-х лет в&nbsp;видеопроизводстве;</li>
+					<li>глубокое знание графических пакетов Adobe, Cinema 4D, Blender и&nbsp;другие;</li>
+					<li>креативность, насмотренность, наличие портфолио видеороликов и&nbsp;медиа-проектов;</li>
+					<li>пунктуальность и&nbsp;педантичность как основа подхода к&nbsp;работе;</li>
+					<li>твердый характер, но&nbsp;гибкость в&nbsp;принятии решений, когда главное&nbsp;&mdash; результат;</li>
+					<li>желательно: профессиональное художественное образование.</li>
+				</ul>
+
+				<p><strong>Что дадим:</strong></p>
+				<ul>
+					<li>работу в&nbsp;креативном отделе (5&nbsp;человек) и&nbsp;взаимодействие с&nbsp;остальными командами;</li>
+					<li>широкую линейку проектов (2d, 3d, съемочные);</li>
+					<li>разный командный спорт и&nbsp;возможность для обучения, внутренние бранчи по&nbsp;обмену опытом, внутристудийные кинопремии, корпоративы, тусовки;</li>
+					<li>денег от&nbsp;150 000₽ + бонусы.</li>
+				</ul>
+			</div>
+			<Button class="vacancy-item__button" icon="arrow" data-modal-open="#modal_respond">Откликнуться</Button>
+		</div>
+	</div>
+</div>

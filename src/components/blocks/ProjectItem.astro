@@ -1,0 +1,77 @@
+---
+import Icon from '@components/modules/Icon.astro';
+import Tags from '@components/blocks/Tags.astro';
+import Video from '@components/modules/Video.astro';
+
+interface Props {
+    title?: string;
+    category?: string;
+    image?: string;
+    image2x?: string;
+    isVideo?: boolean;
+    class?: string;
+    [x: string]: any;
+}
+
+const { 
+	title, 
+	category, 
+	tags = [], 
+	info = [], 
+	image, 
+	image2x,
+	isVideo,
+	class: className,
+	...rest
+} = Astro.props;
+
+---
+
+<div 
+	class:list={[
+		'project-item', 
+		className
+	]}
+	{...rest}
+>
+	<div class:list={
+		[
+			"project-item__image-box",
+		]
+	}>
+		{
+			isVideo ? 
+			<div class="project-item__image-link">
+				<img class="project-item__image lazy" data-src={image} data-srcset={image2x} width="840" height="472" alt="" />
+				<Video isIframe={true} class="project-item__video"></Video>
+			</div>
+			 : 
+			 <a href="" class="project-item__image-link">
+				<img class="project-item__image lazy" data-src={image} data-srcset={image2x} width="840" height="472" alt="" />
+			</a>
+		}
+	</div>
+	<div class="project-item__content">
+		<a href="" class="project-item__link">
+			<div class="project-item__title" set:html={title}></div>
+			<div class="project-item__category" set:html={category}></div>
+		</a>
+		{
+			tags.length ? 
+			<Tags class="project-item__tags" list={tags}></Tags>
+			: ''
+		}
+		{
+			info.length ? 
+			<div class="project-item__info">
+				{info.map(item => (
+					<div class="project-item__info-item">
+						<div class="project-item__info-title" set:html={item.title}></div>
+						<div class="project-item__info-text" set:html={item.text}></div>
+					</div>
+				))}
+			</div>
+			: ''
+		}
+	</div>
+</div>

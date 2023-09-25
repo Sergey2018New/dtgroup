@@ -1,0 +1,105 @@
+// Mixins
+@import "mixins";
+
+// Functions
+@import "functions";
+
+// Variables
+@import "vars"; 
+
+// Fonts
+@import "fonts";
+
+// Vendor
+@import "vendor";
+
+// Base
+@import "./common/base";
+@import "./common/utilites";
+@import "./common/animation";
+
+// Plugins
+@import "./plugins/plugins";
+@import "./plugins/swiper";
+@import "./plugins/tippy";
+@import "./plugins/choices";
+@import "./plugins/datepicker";
+
+// Modules
+@import "./modules/icon";
+@import "./modules/button";
+@import "./modules/input";
+@import "./modules/checkbox";
+@import "./modules/radioBlock";
+@import "./modules/video";
+@import "./modules/modal";
+
+// Common elements
+@import "./common/elements";
+@import "./common/form";
+@import "./blocks/social";
+
+// Header
+@import "./header/menu";
+@import "./header/searchForm";
+@import "./header/header";
+
+// Footer
+@import "./footer/footer";
+
+// Site blocks
+@import "./blocks/showMore";
+@import "./blocks/tabMenu";
+@import "./blocks/pagination";
+@import "./blocks/tags";
+@import "./blocks/cardSlider";
+@import "./blocks/heading";
+@import "./blocks/blockquote";
+@import "./blocks/description";
+@import "./blocks/projectItem";
+@import "./blocks/articleItem";
+@import "./blocks/galleryItem";
+@import "./blocks/vacancyItem";
+@import "./blocks/teamItem";
+@import "./blocks/share";
+@import "./blocks/photosSlider";
+@import "./blocks/figurePicture";
+@import "./blocks/sliderPagination";
+
+// Site sections
+@import "./sections/homeSection";
+@import "./sections/bestClip";
+@import "./sections/executiveProducer";
+@import "./sections/partners";
+@import "./sections/portfolio";
+@import "./sections/reviews";
+@import "./sections/blogSection";
+@import "./sections/whatDoing";
+@import "./sections/howWorkBuilt";
+@import "./sections/costCreating";
+@import "./sections/gallery";
+@import "./sections/whoIsWorking";
+@import "./sections/faq";
+@import "./sections/feedback";
+@import "./sections/likedArticles";
+@import "./sections/workPrice";
+
+// Pages
+@import "./pages/projectPage";
+@import "./pages/servicePage";
+@import "./pages/historyPage";
+@import "./pages/briefPage";
+@import "./pages/blogPage";
+@import "./pages/articlePage";
+@import "./pages/contactsPage";
+@import "./pages/aboutPage";
+@import "./pages/vacanciesPage";
+@import "./pages/awardsPage";
+@import "./pages/teamPage";
+@import "./pages/teamSinglePage";
+@import "./pages/404Page";
+@import "./pages/searchPage";
+
+// Modals
+@import "./modals/modalContact";
+@import "./modals/modalAlert";

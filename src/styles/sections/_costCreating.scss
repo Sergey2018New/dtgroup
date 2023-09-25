@@ -1,0 +1,249 @@
+/* ------- costCreating -------- */
+.cost-creating {
+
+    &__inner {
+        position: relative;
+    }
+
+    &__box {
+     
+        border: 1px solid $primary;
+        border-radius: $radius $radius-lg $radius $radius;
+    }
+
+    &__row {
+        display: grid;
+        grid-template-columns: minmax(0, 34.4fr) minmax(0, 65.6fr);
+
+        @include media(tab) {
+            grid-template-columns: minmax(0, 1fr);
+        }
+    } 
+
+    &__column {
+        padding: 8rem 6rem 7rem 8rem;
+
+        @include media(pc) {
+            padding-left: 5rem;
+            padding-right: 4rem;
+        }
+
+        @include media(tab) {
+            padding: 5rem;
+        }
+
+        @include media(mob-m) {
+            padding: 3rem;
+        }
+
+        &_main {
+           
+        }
+
+        &_info {
+            display: flex;
+            flex-direction: column;
+           
+            border-right: 1px solid $primary;
+
+            @include media(netbook) {
+                padding-left: 6rem;
+            }
+
+            @include media(pc) {
+                padding-left: 5rem;
+            }
+
+            @include media-min(tab) {
+                order: -1;
+            }
+
+            @include media(tab) {
+                padding-top: 0;
+                border-right: none;
+            }
+
+            @include media(mob-m) {
+                padding-left: 3rem;
+            }
+        }
+    }
+
+    &__title {
+        margin: 0 0 6rem;
+
+        @include media(tab) {
+            margin-bottom: 4rem;
+        }
+
+        @include media(mob-m) {
+            margin-bottom: 3rem;
+        }
+
+        span {
+            color: $accent;
+        }
+    }
+
+    &__included {
+        padding-right: 2rem;
+
+        @include media(mob) {
+            padding-right: 0;
+        }
+    }
+
+    &__included-main-title {
+        margin: 0 0 4rem;
+        font-weight: 800;
+        font-size: 3.2rem;
+        line-height: 100%;
+        letter-spacing: -0.02em;
+
+        @include media(mob-m) {
+            font-size: 2.2rem;
+        }
+    }
+
+    &__included-items {
+    }
+
+    &__included-item {
+        margin-bottom: 4rem;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__included-title {
+        position: relative;
+        padding-left: 6rem;
+        margin-top: 0;
+        margin-bottom: 2rem;
+        font-weight: 700;
+        font-size: 2.4rem;
+        line-height: 100%;
+
+        letter-spacing: -0.02em;
+
+        @include media(mob-m) {
+            font-size: 2rem;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 1.2rem;
+            left: 0;
+            width: 4rem;
+            height: 1px;
+            background: $primary;
+
+            @include media(mob-m) {
+                top: 1rem;
+            }
+        }
+    }
+
+    &__included-text {
+        line-height: 140%;
+
+    }
+
+    &__info {
+      margin-bottom: 6rem;
+
+      @include media(mob-m) {
+        margin-bottom: 4rem;
+      }
+    }
+
+    &__info-item {
+        margin-bottom: 4rem;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__info-title {
+        margin-bottom: 1rem;
+        font-weight: 800;
+        line-height: 100%;
+        letter-spacing: -0.02em;
+
+
+
+      
+    }
+
+    &__info-value {
+        font-weight: 800;
+        font-size: 3.6rem;
+        line-height: 100%;
+        letter-spacing: -0.02em;
+
+        @include media(pc) {
+            font-size: 2.8rem;
+        }
+
+        span {
+            color: $accent;
+        }
+        
+    }
+
+    &__button-wrapper {
+    }
+
+    &__button {
+    }
+
+    &__note {
+        margin-top: auto;
+        padding-top: 3rem;
+        font-size: 14px;
+        line-height: 140%;  
+        color: rgba(var(--color-base-rgb), 0.5);    
+
+        p {
+            margin-bottom: 3rem;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+
+    &__graphic-item {
+        position: absolute;
+     
+
+        &_ball {
+            top: 48%;
+            right: -4rem;
+
+            @include media(mob) {
+                bottom: 20rem;
+                top: auto;
+                right:  m(-10);
+            }
+        }
+    }
+
+    &__graphic-ball {
+        display: block;
+        border-radius: 50%;
+        width: 11rem;
+        height: 11rem;
+        background: radial-gradient(89.25% 89.25% at 31.78% 13.08%, var(--color-gradient-1) 0%, var(--color-gradient-2) 53.78%, var(--color-gradient-3) 100%);
+
+        @include media(mob) {
+            width: m(60);
+            height: m(60);
+        }
+
+    }
+}

@@ -1,0 +1,242 @@
+/* ------- best-clip -------- */
+.best-clip {
+    position: relative;
+    padding-bottom: 9.8rem;
+
+    @include media(pc) {
+        padding-bottom: 5rem;
+    }
+
+    @include media(tab) {
+        padding-bottom: 0;
+    }
+
+    @include media(mob) {
+        padding-bottom: 3.3rem;
+    }
+
+    &__ellipse {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        margin-left: 20rem;
+        width: 75.4rem;
+        height: 38.4rem;
+        border-top-left-radius: 75.4rem * 0.5;
+        border-top-right-radius: 75.4rem * 0.5;
+        background: var(--color-grey-5);
+
+        @include media(pc) {
+            width: 75.4rem * 0.7;
+            height: 38.4rem * 0.7;
+        }
+
+        @include media(tab) {
+            width: 75.4rem * 0.5;
+            height: 38.4rem * 0.5;
+        }
+
+        @include media(mob) {
+            margin-left: 12rem;
+        }
+
+        @include media(mob-m) {
+            left: auto;
+            right: calc(-18rem);
+            margin-left: 0;
+            width: 34.1rem;
+            height: 17.2rem;
+        }
+    }
+
+    &__container {
+        position: relative;
+    }
+
+    &__video {
+        margin-top: 3rem;
+        
+        .video__inner {
+            border-radius: $radius-lg $radius $radius;
+        }
+
+        .video__image {
+            border-radius: $radius-lg $radius $radius;
+        }
+
+        .video__button-box {
+            @include media(mob) {
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: auto;
+            }
+        }
+
+        .video__footer {
+            position: relative;
+            margin-top: -7.1rem;
+            padding: 0 6.8rem 0 10.3rem;
+
+            @include media(netbook) {
+                padding-left: 5rem;
+                padding-right: 5rem;
+            }
+
+            @include media(pc) {
+                margin-top: -5rem;
+            }
+
+            @include media(tab) {
+                margin-top: -3.2rem;
+            }
+
+            @include media(mob) {
+                position: absolute;
+                left: 0;
+                top: -4rem;
+                bottom: -2.5rem;
+                width: 100%;
+                display: grid;
+                grid-template-columns: auto auto;
+                grid-template-rows: auto 1fr;
+                grid-template-areas: 
+                "year time"
+                "button button";
+                align-items: flex-start;
+                justify-content: center;
+                margin-top: 0;
+                padding-left: 3rem;
+                padding-right: 3rem;
+            }
+        }
+
+        &.is-visible-mobile {
+            @include media(mob) {
+                .video__button  {
+                    border-color: var(--color-accent);
+                    color: $white;
+                    background: var(--color-accent);
+                }
+            } 
+        }
+
+     
+    }
+    
+    &__row {
+        display: grid;
+        grid-template-columns: minmax(0, 33fr) minmax(0, 67fr);
+        gap: 5rem 3rem;
+        margin-top: calc($section-space + 3.3rem);
+
+        @include media(pc) {
+            margin-top: $section-space;
+        }
+
+        @include media(tab) {
+            grid-template-columns: minmax(0,40fr) minmax(0, 60fr);
+        }
+
+        @include media(mob) {
+            grid-template-columns: minmax(0, 1fr) ;
+        }
+
+        @include media(mob-m) {
+            margin-top: calc($section-space + 2.5rem);
+        }
+
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+
+    &__column {
+    }
+
+    &__title {
+        margin: 1rem 0 9.3rem;     
+        max-width: 20rem;
+        font-weight: 500;
+        font-size: 1.6rem;
+        line-height: 1.4;
+
+        @include media(mob-m) {
+            font-size: 1.4rem;
+        }
+    }
+
+    &__diploma {
+        position: relative;
+        left: -0.7rem;
+        margin: 0 auto;
+        max-width: 18.2rem;
+
+        @include media(mob) {
+            left: 0;
+        }
+        
+    }
+
+    &__graphic-item {
+        position: absolute;
+
+        &_circle {
+            position: absolute;
+            top: -8.7rem;
+            left: 50%;
+            margin-left: -13rem;
+        }
+
+        &_lines {
+            position: absolute;
+            top: 5rem;
+            right: 50%;
+            margin-right: 4.4rem;
+        }
+    }
+
+    &__graphic-circle {
+        display: block;
+        border-radius: 50%;
+        width: 26rem;
+        height: 26rem; 
+        background: $accent;
+    }
+
+    &__diploma-box {
+        position: relative;
+        padding-top: 130.22%;
+    }
+
+    &__diploma-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    &__description {
+        font-weight: 500;
+        font-size: 4rem;
+        line-height: 120%;
+
+        @include media(pc) {
+            font-size: 3.2rem;
+        }
+
+        @include media(tab) {
+            font-size: 2.6rem;
+        }
+
+        @include media(mob-m) {
+            font-size: 2rem;
+            line-height: 140%;
+        }
+
+        strong {
+            font-weight: 800;
+        }
+    }
+}

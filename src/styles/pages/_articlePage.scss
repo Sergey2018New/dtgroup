@@ -1,0 +1,114 @@
+/* ------- Article page -------- */
+.p-article {
+    padding-top: var(--section-space-md);
+
+    @include media(mob) {
+        padding-top: 4rem;
+    }
+    
+    &__row {
+        display: grid;
+        grid-template-columns: 21rem minmax(0, 1fr) 21rem;
+        gap: 4rem;
+
+        &::after {
+            content: "";
+            display: block;
+
+            @include media(pc) {
+                display: none;
+            }
+        }
+
+        @include media(pc) {
+            grid-template-columns: 21rem minmax(0, 1fr);
+        }
+
+        @include media(tab) {
+            grid-template-columns: minmax(0, 1fr);
+        }
+    }
+
+    &__sidebar {
+        @include media(tab) {
+            display: none;
+        }
+    }
+
+    &__author {
+        display: grid;
+        gap: 2rem;
+    }
+
+    &__author-photo {
+        position: relative;
+        overflow: hidden;
+        width: 10rem;
+        height: 10rem;
+    }
+
+    &__author-photo-image {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+
+    &__author-name {
+        font-weight: 500;
+        line-height: 140%;
+
+        span {
+            color: var(--color-grey-6);
+        }
+    }
+
+    &__published {
+        margin-top: 2rem;
+        font-weight: 500;
+        line-height: 140%;
+
+        span {
+            color: var(--color-grey-6);
+        }
+
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+
+    &__tags {
+        margin-top: 3rem;
+        margin-right: -1rem;
+        flex-direction: column;
+        align-items: flex-start;
+
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+
+    &__content {
+        margin: 0 auto;
+        width: 100%;
+        max-width: 62rem;
+
+        @include media-between(tab, pc) {
+            margin-right: 0;
+            margin-left: 0;
+        }
+
+        @include media(mob) {
+            max-width: none;
+        }
+    }
+
+    &__description {
+
+    }
+
+    &__share {
+        margin-top: 5rem;
+    }
+}

@@ -1,0 +1,303 @@
+---
+import Layout from '@layouts/layout.astro';
+import Icon from '@components/modules/Icon.astro';
+import Button from '@components/modules/Button.astro';
+import Heading from '@components/blocks/Heading.astro';
+
+const items = [
+	{
+		year: "2023",
+		awards: [
+			{
+				image: 1,
+				title: 'Лучшее корпоративное видео&nbsp;&mdash; 2023',
+				text: 'EXPO Video',
+				textInfo: 'Продуктовый ролик о&nbsp;платформе CommuniGate',
+				isButton: true,
+			},
+		],
+	},
+	{
+		year: "2022",
+		awards: [
+			{
+				image: 1,
+				title: 'LIME&nbsp;&mdash; XII Международный фестиваль социальной рекламы и&nbsp;коммуникаций',
+				text: 'Корпоративная социальная ответственность',
+				textInfo: 'Культура и образование в партнерстве с Samsung',
+				isButton: true,
+			},
+			{
+				image: 2,
+				title: 'Лучший видеопродакшн по&nbsp;мнению АКМР (Ассоциации директоров по&nbsp;коммуникациям и&nbsp;корпоративным медиа России)',
+				text: '',
+				textInfo: '',
+				isButton: false,
+			},
+			{
+				image: 3,
+				title: 'Маркетинговый креатон Moscow Travel Create',
+				text: 'Победитель в номинации «Сити-брейк»',
+				textInfo: '',
+				isButton: false,
+			},
+			{
+				image: 4,
+				title: 'Конкурс &laquo;Лучшее корпоративное видео&raquo; Ассоциации директоров по&nbsp;коммуникациям и&nbsp;корпоративным медиа России',
+				text: '&laquo;Маркетинговые коммуникации B2B и&nbsp;B2C&raquo;',
+				textInfo: 'Kaspersky Endpoint Security для Windows. Продуктовый ролик',
+				isButton: true,
+			},
+			{
+				image: 5,
+				title: 'Конкурс &laquo;Лучшее корпоративное видео&raquo; Ассоциации директоров по&nbsp;коммуникациям и&nbsp;корпоративным медиа России',
+				text: '«Лучшая операторская работа»',
+				textInfo: 'Культура и&nbsp;образование в&nbsp;партнерстве с&nbsp;Samsung',
+				isButton: true,
+			},
+			{
+				image: 6,
+				title: 'Конкурс &laquo;Лучшее корпоративное видео&raquo; Ассоциации директоров по&nbsp;коммуникациям и&nbsp;корпоративным медиа России',
+				text: '«Имиджевые фильмы»',
+				textInfo: 'Культура и&nbsp;образование в&nbsp;партнерстве с&nbsp;Samsung',
+				isButton: true,
+			},
+			{
+				image: 7,
+				title: 'Конкурс &laquo;Лучшее корпоративное видео&raquo; Ассоциации директоров по&nbsp;коммуникациям и&nbsp;корпоративным медиа России',
+				text: '&laquo;ESG-видео, социальная ответственность и&nbsp;устойчивое развитие&raquo;',
+				textInfo: 'Видеоконтент для курса &laquo;Социальное предпринимательство&raquo;',
+				isButton: true,
+			},
+			{
+				image: 8,
+				title: 'Конкурс &laquo;Лучшее корпоративное видео&raquo; Ассоциации директоров по&nbsp;коммуникациям и&nbsp;корпоративным медиа России',
+				text: '&laquo;Лучшая графика и&nbsp;спецэффекты видеофильмов&raquo;',
+				textInfo: 'Kaspersky Lab. Small Office Security. Продуктовый ролик',
+				isButton: true,
+			},
+		],
+	},
+	{
+		year: "2021",
+		awards: [
+			{
+				image: 1,
+				title: 'Лучшее видеопродакшн агентство по&nbsp;мнению Ассоциации директоров по&nbsp;коммуникациям и&nbsp;корпоративным медиа России',
+				text: '',
+				textInfo: '',
+				isButton: false,
+			},
+			{
+				image: 2,
+				title: 'Лучшее корпоративное видео&nbsp;&mdash; 2021',
+				text: 'HR-видео и&nbsp;внутренние коммуникации. Ролик для Mercedes-Benz.',
+				textInfo: '',
+				isButton: false,
+			},
+			{
+				image: 3,
+				title: 'Лучшее корпоративное видео&nbsp;&mdash; 2021',
+				text: 'PR-видео Ролик про профессию горного инженера. Клиент&nbsp;&mdash; Борис Курцев.',
+				textInfo: 'Горный инженер. Ролик для абитуриентов',
+				isButton: true,
+			},
+			{
+				image: 4,
+				title: 'Лучшее корпоративное видео&nbsp;&mdash; 2021',
+				text: 'Маркетинговые коммуникации B2B и&nbsp;B2C. Ролик для продукта Kaspersky Sandbox',
+				textInfo: '',
+				isButton: false,
+			},
+			{
+				image: 5,
+				title: 'Премия на&nbsp;кинофестивале MineMovie',
+				text: 'Лучший рекламный ролик',
+				textInfo: 'Горный инженер. Ролик для абитуриентов',
+				isButton: true,
+			},
+		],
+	},
+	{
+		year: "2020",
+		awards: [
+			{
+				image: 1,
+				title: 'Лучшее корпоративное видео&nbsp;&mdash; 2020',
+				text: 'HR&nbsp;видео и&nbsp;внутренние коммуникации',
+				textInfo: 'Лаборатория Касперского. Клип-поздравление.&nbsp;23&nbsp;февраля 2019 года',
+				isButton: true,
+			},
+			{
+				image: 2,
+				title: 'Лучшее корпоративное видео&nbsp;&mdash; 2020',
+				text: 'Corporate news, Videoblog, TV',
+				textInfo: '',
+				isButton: false,
+			},
+			{
+				image: 3,
+				title: 'Лучшее корпоративное видео&nbsp;&mdash; 2020',
+				text: 'Маркетинговые коммуникации B2B и&nbsp;B2C',
+				textInfo: 'Global Partner Program Kaspersky United',
+				isButton: true,
+			},
+			{
+				image: 4,
+				title: 'Лучшее видеопродакшн агентство, сертифицированное АКМР',
+				text: 'Лучшее видеопродакшн агентство, сертифицированное АКМР.',
+				textInfo: '',
+				isButton: false,
+			},
+		],
+	},
+	{
+		year: "2019",
+		awards: [
+			{
+				image: 1,
+				title: '&laquo;Лучшее корпоративное видео&nbsp;&mdash; 2019&raquo; АКМР',
+				text: 'Corporatenews, videoblog',
+				textInfo: '',
+				isButton: false,
+			},
+			{
+				image: 1,
+				title: '&laquo;Лучшее корпоративное видео&nbsp;&mdash; 2019&raquo; АКМР',
+				text: 'EXPO-видео',
+				textInfo: 'Мегафон.&nbsp;25&nbsp;лет. ПМЭФ. Ролик для кинетического экрана',
+				isButton: true,
+			},
+			{
+				image: 1,
+				title: '&laquo;Лучшее корпоративное видео&nbsp;&mdash; 2019&raquo; АКМР',
+				text: 'Корпоративные рекламные ролики (до&nbsp;1&nbsp;мин)',
+				textInfo: '',
+				isButton: false,
+			},
+		],
+	},
+	{
+		year: "2018",
+		awards: [
+			{
+				image: 1,
+				title: '&laquo;Лучшее корпоративное видео&nbsp;&mdash; 2018&raquo; АКМР',
+				text: 'Победители в&nbsp;номинации &laquo;Имиджевые фильмы&raquo;',
+				textInfo: 'Balvenie. Мастера ручного труда',
+				isButton: true,
+			},
+			{
+				image: 1,
+				title: '&laquo;Лучшее корпоративное видео&nbsp;&mdash; 2018&raquo; АКМР',
+				text: 'Победители в&nbsp;номинации &laquo;Лучшая объясняющая инфографика&raquo;',
+				textInfo: 'Kaspersky Fraud Prevention. How it&nbsp;works',
+				isButton: true,
+			},
+			{
+				image: 2,
+				title: 'Корпоративный чемпионат по&nbsp;волейболу Moscow Premier League',
+				text: 'Обладатели бронзовых медалей',
+				textInfo: '',
+				isButton: false,
+			},
+		],
+	},
+	{
+		year: "2017",
+		awards: [
+			{
+				image: false,
+				title: '&laquo;Событие года&raquo;&nbsp;&mdash; 2017',
+				text: 'Победители в&nbsp;специальной номинации &laquo;Лучший #mannequinchallenge события 2016&raquo;',
+				textInfo: 'Kaspersky Mannequin Challenge',
+				isButton: true,
+			},
+		],
+	},
+	{
+		year: "2016",
+		awards: [
+			{
+				image: 1,
+				title: 'Премия &laquo;Созвездие&raquo;',
+				text: 'Лучший video production: &laquo;За&nbsp;самое качественное и&nbsp;креативное решение задач по&nbsp;организации мероприятий и&nbsp;развитие индустрии событийного менеджмента и&nbsp;маркетинга&raquo;',
+				textInfo: '',
+				isButton: false,
+			},
+			{
+				image: 2,
+				title: '&laquo;Событие года&raquo;&nbsp;&mdash; 2016',
+				text: 'Финалисты в&nbsp;номинации &laquo;Лучший видео-продакшн мероприятия&raquo;',
+				textInfo: 'Лаборатория Касперского. Kick-Off 2015. Видеокейс о&nbsp;проекте',
+				isButton: true,
+			},
+		],
+	},
+]
+---
+
+<Layout title="Награды">
+    <Heading type="awards" title="Награды"></Heading>
+	<div class="section p-awards">
+		<div class="container">
+			<div class="p-awards__items js-awards-items is-timeline">
+				{items.map((item) => (
+					<div class={`p-awards__item p-awards__item_${item.year}`}>
+						<div class="p-awards__item-year-wrapper">
+							<div class="p-awards__item-year-box">
+								<span class="p-awards__item-graphic"></span>
+								<span class="p-awards__item-year" set:html={item.year}></span>
+							</div>
+							<span class="p-awards__item-circle"></span>
+						</div>
+						<div class="p-awards__item-content">
+							{item.awards.map((award) => (
+								<div class={`p-awards__item-row`}>
+									{
+										award.image ? 
+										<div class="p-awards__item-column p-awards__item-column_image">
+											<div class="p-awards__item-image-box">
+												<img class="p-awards__item-image lazy" data-src={`img/awards/${item.year}/${award.image}.png`} data-srcset={`img/awards/${item.year}/${award.image}@2x.png 2x`} width="360" height="240" alt="" />
+											</div>
+										</div>
+										: ''
+									}
+									
+									<div class="p-awards__item-column p-awards__item-column_content">
+										<div class="p-awards__item-title" set:html={award.title}></div>
+										{
+											award.text || award.textInfo || award.isButton ? 
+											<div class="p-awards__item-box">
+												<div class="p-awards__item-text">
+													{
+														award.text ? <p><strong set:html={award.text}></strong></p>
+													: ''
+													}
+													
+													{
+														award.textInfo ? <p set:html={award.textInfo}></p> : ''
+													}
+												</div>
+												{
+													award.isButton ? 
+													<a href="/" class="p-awards__item-view">
+														<span>Посмотреть проект</span>
+														<span class="p-awards__item-view-icon-box">
+															<Icon class="p-awards__item-view-icon" name="arrow-out"></Icon>
+														</span>
+													</a> : ''
+												}
+											</div> : ''
+										}
+										
+									</div>
+								</div>
+							))}
+						</div>
+					</div>
+				))}
+			</div>
+		</div>
+	</div>
+</Layout>

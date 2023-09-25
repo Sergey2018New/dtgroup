@@ -1,0 +1,108 @@
+/* ------------ Swiper ------------ */
+/*	https://swiperjs.com/swiper-api */
+/* -------------------------------- */
+
+@import 'swiper/css/bundle';
+
+.swiper-button-next,
+.swiper-button-prev {
+	width: 4rem;
+	height: 4rem;
+	margin-top: 0;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: $white;
+	background: $primary;
+	
+	transition: $duration background, $duration color, $duration border-color, $duration opacity;
+	cursor: pointer;
+	transform: translateY(-50%);
+
+	@include media(mob-m) {
+		
+	}
+
+	&::after {
+		display: none;
+	}
+
+	svg {
+		position: relative;
+		width: 1.9rem;
+		height: 1.6rem;
+		fill: currentColor;
+	}
+
+	@include hover {
+		background: $accent;
+	}
+
+	&.swiper-button-disabled {
+		opacity: 0;
+	}
+	
+	@media (hover: hover) {
+       opacity: 0;
+    }
+}
+
+.swiper-button-prev {
+	left: 0;
+
+	svg {
+		transform: rotate(-180deg);
+	}
+}
+
+.swiper-button-next {
+	right: 0;
+}
+
+.swiper-pagination-bullet {
+	width: 0.8rem;
+	height: 0.8rem;
+	margin: 0;
+	background-color: var(--color-grey-5);
+	opacity: 1;
+	transition: $duration background-color, $duration opacity;
+	pointer-events: auto;
+
+	@include media(mob-m) {
+		
+	}
+}
+
+.swiper-pagination-bullet-active {
+	background-color: $primary;
+	opacity: 1;
+}
+
+.swiper-pagination {
+	z-index: 10;
+	display: flex;
+	justify-content: center;
+	padding: 1rem 0;
+	pointer-events: none;
+}
+
+.swiper-horizontal > .swiper-pagination-bullets {
+	bottom: 0;
+
+	.swiper-pagination-bullet {
+		margin: 0 0.4rem;
+	}
+}
+
+.swiper {
+	@include hover {
+		.swiper-button-next,
+		.swiper-button-prev {
+			opacity: 1;
+		}
+		.swiper-button-disabled {
+			opacity: 0;
+		}
+	}
+}

@@ -1,0 +1,164 @@
+/* ------- Card slider -------- */
+.card-slider {
+	position: relative;
+
+	&__items {
+		position: relative;
+        min-height: 42rem;
+	}
+
+	&__prev,
+	&__next {
+		position: absolute;
+ 
+        bottom: 2rem;
+        z-index: 10;
+        width: 4rem;
+        height: 4rem;
+        margin-top: 0;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $white;
+        background: $primary;
+        
+        transition: $duration background, $duration color, $duration border-color, $duration opacity;
+        cursor: pointer;
+
+        svg {
+            position: relative;
+            width: 1.9rem;
+            height: 1.6rem;
+            fill: currentColor;
+        }
+
+        @include hover {
+            background: $accent;
+        }
+
+        @include media(tab) {
+            bottom: 3rem;
+        }
+	}
+
+	&__prev {
+		left: 4rem;
+
+        svg {
+            transform: rotate(-180deg);
+        }
+
+		@include media(tab) {
+			left: 2rem;
+		}
+	}
+
+	&__next {
+		right: 2rem;
+
+		@include media(tab) {
+            right: 3rem;
+        }
+	}
+
+	&__pagination {
+        position: absolute;
+        z-index: 10;
+        bottom: 3.6rem;
+        right: 9rem - 0.4rem;
+        left: 9rem - 0.4rem;
+        justify-content: center;
+
+        @include media(tab) {
+            bottom: 4.6rem;
+            right: 0;
+            left: 0;
+            justify-content: center;
+        }
+	}
+
+    $offset-y: var(--card-review-offset-y);
+    $offset-x: var(--card-review-offset-x);
+
+    &__item {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        width: 100%;
+        min-height: 100%;
+        opacity: 0;
+       
+        transition: $duration opacity, $duration width;
+        transition: transform 200ms ease-in-out;
+      
+
+        &:nth-child(1) {
+            z-index: 6;
+        }
+
+        @for $i from 1 through 5 {
+            &:nth-child(#{$i + 1}) {
+                z-index: 6 - $i;
+                transform: translate(calc($offset-x * $i));
+
+                .card-slider__item-inner {
+                    &::after {
+                        height: calc(100% - $offset-y * $i);
+                    }
+                }
+            }
+        }
+
+        @for $i from 1 through 3 {
+            &:nth-child(#{$i}) {
+                opacity: 1;
+            }
+        }
+
+        @include media-min(tab) {
+            @for $i from 4 through 5 {
+                &:nth-child(#{$i}) {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    &__item-inner {
+        position: relative;
+        // width: 120rem;
+        padding: 6rem 8rem 8rem 4rem;
+        width: 100%;
+        min-height: 100%;
+        // border: 1px solid $primary;
+        border-radius: $radius $radius $radius $radius-lg;
+        background: $white;
+
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: calc(100%);
+            height: calc(100%);
+            border: 1px solid $primary;
+            border-radius: $radius $radius $radius $radius-lg;
+            pointer-events: none;
+            transform-origin: 100% 100%;
+            // transform: translate(2rem);
+            transition: $duration transform, $duration height;
+            will-change: transform, height;
+        }
+
+        @include media(tab) {
+            padding: 14rem 3rem 12rem;
+        }
+
+        @include media(mob-m) {
+            padding-right: 2rem;
+        }
+    }
+}
+

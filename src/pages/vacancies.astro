@@ -1,0 +1,49 @@
+---
+import Layout from '@layouts/layout.astro';
+import Heading from '@components/blocks/Heading.astro';
+import VacancyItem from '@components/blocks/VacancyItem.astro';
+import ModalRespond from '@components/modals/ModalRespond.astro';
+
+const items = [
+	{
+		title: "CG-generalist/motion-designer",
+		tags: ['Полная занятость', 'Работа в&nbsp;офисе'],
+	},
+	{
+		title: "Исполнительный продюсер графических проектов",
+		tags: ['Полная занятость', 'Фриланс'],
+	},
+	{
+		title: "Арт-директор",
+		tags: ['Полная занятость', 'Работа в&nbsp;офисе'],
+	},
+	{
+		title: "Концепт-дизайнер",
+		tags: ['Полная занятость', 'Фриланс'],
+	},
+	{
+		title: "Менеджер по&nbsp;продажам графического направления",
+		tags: ['Полная занятость', 'Работа в&nbsp;офисе'],
+	},
+	{
+		title: "Видеооператор-фотограф",
+		tags: ['Полная занятость', 'Фриланс'],
+	},
+]
+
+---
+
+<Layout title="Вакансии">
+    <Heading type={'vacancies'} title="Вакансии"></Heading>
+	<div class="section p-vacancies">
+		<div class="container">
+			<div class="p-vacancies__items" data-accordions>
+				{items.map((item, index) => (
+					<VacancyItem class="p-vacancies__item" title={item.title} tags={item.tags}></VacancyItem>
+				))} 
+			</div>
+		</div>
+		<ModalRespond></ModalRespond>
+	</div>
+	
+</Layout>

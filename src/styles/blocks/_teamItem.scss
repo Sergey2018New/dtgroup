@@ -1,0 +1,198 @@
+/* ------- team-item -------- */
+.team-item {
+    &__name {
+        font-size: 2.4rem;
+        line-height: 140%;
+        transition: $duration color;
+
+        @include media(tab) {
+            font-size: 2rem;
+        }
+
+        @include media(mob-m) {
+            font-size: 1.8rem;
+        }
+
+        @include media(mob-xxs) {
+            font-size: 1.6rem;
+        }
+    }
+
+    &__position {
+        margin-top: 1rem;
+        font-weight: 500;
+        line-height: 140%;
+
+        @include media(mob-m) {
+            font-size: 1.2rem;
+        }
+    }
+
+    &__link {
+        position: relative;
+        display: block;
+        text-decoration: none;
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: -3.4rem;
+            left: 5.4rem;
+            width: 5.7rem;
+            height: 5.7rem;
+            border-radius: 50%;
+            background: radial-gradient(78.97% 78.97% at 31.78% 13.08%, var(--color-gradient-1) 0%, var(--color-gradient-2) 53.78%, var(--color-gradient-3) 100%);
+            opacity: 0;
+            transition: $duration opacity;
+            pointer-events: none;
+        }
+
+        @include hover {
+            &::after {
+                opacity: 1;
+            }
+
+            .team-item {
+                &__arrow {
+                    opacity: 1;
+                }
+        
+                &__name {
+                    color: $accent;
+                }
+
+                &__photo_is_video {
+                    .team-item__photo-image {
+                        transform: translateZ(0)rotateY(-180deg);
+                    }
+                }
+
+                &__video {
+                    transform: translateZ(0) rotateY(0);
+                }
+            }
+        }
+    }
+
+    &__photo {
+        position: relative;
+        padding-top: calc(435 / 370 * 100%);
+        border-radius: $radius;
+        overflow: hidden;
+
+        &_is_video {
+            .team-item__photo-image {
+                backface-visibility: hidden;
+                transform: translateZ(0);
+                transition: $duration transform;
+            } 
+        }
+    }
+
+    &__photo-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: inherit;
+    }
+
+    &__video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: inherit;
+        overflow: hidden;
+        transform: translateZ(0) rotateY(-180deg);
+        backface-visibility: hidden;
+        transition: $duration transform;
+
+        iframe, 
+        video {
+            display: block;
+            width: 100%;
+            height: 100%;
+            aspect-ratio: 1/1.185;
+            object-fit: cover;
+        }
+    }
+
+    &__content {
+        position: relative;
+        margin-top: 2rem;
+        padding-right: 6rem;
+
+        @include media(tab) {
+            padding-right: 0;
+        }
+
+        @include media(mob-m) {
+            margin-top: 1rem;
+        }
+
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+
+    &__arrow {
+        position: absolute;
+        bottom: -6rem;
+        right: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        width: 4rem;
+        height: 4rem;
+        color: $white;
+        opacity: 0;
+        background: $accent;
+        transition: $duration opacity;
+
+        @include media(tab) {
+            display: none;
+        }
+    }
+
+    &__arrow-icon {
+        width: 1.8rem;
+        height: 1.4rem;
+    }
+
+    &_size_sm {
+        @include media-min(tab) {
+            .team-item {
+                &__name {
+                    font-size: 1.8rem;
+                }
+    
+                &__position {
+                    font-size: 1.2rem;
+                }
+    
+                &__arrow {
+                    right: 1rem;
+                    bottom: 1rem;
+                }
+    
+                &__link {
+                    &::after {
+                        left: 6rem;
+                        top: -1.9rem;
+                        width: 3.5rem;
+                        height: 3.5rem;
+                    }
+                }
+    
+                &__content {
+                    padding-right: 0;
+                }
+            }
+        }
+    }
+}

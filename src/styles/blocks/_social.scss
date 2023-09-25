@@ -1,0 +1,83 @@
+/* ------- Social -------- */
+.social {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: flex-start;
+    gap: 1rem;
+    // grid-template-columns: repeat(5, 5rem);
+    margin: 0;
+    padding: 0;
+
+    &__link {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid;
+        border-radius: $radius-sm;
+        color: $base-color;
+        width: 5rem;
+        height: 5rem;
+        transition: $duration border-color, $duration color, $duration background;
+
+        svg {
+            fill: currentColor;
+        }
+
+        &:hover {
+            color: $white;
+            background: $accent;
+        }
+
+        &_rounded {
+            border-radius: 50%;
+        }
+
+        &_disabled {
+            border-color: rgba(var(--color-base-rgb), 0.1);
+            pointer-events: none;
+            cursor: default;
+
+            &::after {
+                content: "";
+                position: absolute;
+                top: 0.5rem;
+                right: 0.5rem;
+                width: 0.5rem;
+                height: 0.5rem;
+                mask-image: url("data:image/svg+xml,%3Csvg width='5' height='5' viewBox='0 0 5 5' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.512 4.746L0.595 4.081L1.68 2.716L0 2.226L0.35 1.148L1.988 1.757L1.925 0H3.059L2.996 1.757L4.634 1.148L4.984 2.226L3.304 2.716L4.382 4.081L3.465 4.746L2.492 3.304L1.512 4.746Z' fill='%23B2B2B2'/%3E%3C/svg%3E%0A");
+                mask-repeat: no-repeat;
+                mask-size: 100% 100%;
+                opacity: 0.5;
+                background: $base-color;
+            }
+
+            svg {
+                fill-opacity: 0.3;
+            }
+        }
+    }
+
+    &_style_light {
+        .social {
+            &__link {
+                border-color: rgba($white, 0.2);
+                color: $white;
+
+                &:hover {
+                    border-color: $white;
+                    color: $base-color;
+                    background: $white;
+                }
+
+                &_disabled {
+                    border-color: rgba($white, 0.1);
+        
+                    &::after {
+                        background-color: $white;
+                    }
+                }
+            }
+        }
+    }
+}

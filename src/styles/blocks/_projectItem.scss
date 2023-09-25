@@ -1,0 +1,235 @@
+/* ------- project-item -------- */
+.project-item {
+	&__image-box {
+        position: relative;
+        padding-top: 56.25%;
+        border-radius: $radius;
+        overflow: hidden;
+        transition: $duration border-radius;
+        will-change: border-radius;
+
+        @include hover {
+            border-top-left-radius: $radius-lg;
+        }
+
+        &.is-played {
+            @include media(mob) {
+                .project-item__video {
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+        }
+    }
+
+    &__image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-radius: $radius;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: $duration opacity, $duration border-radius, 0.5s transform;
+        will-change: transform, border-radius;
+    }
+
+    &__image-link {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+
+        &:hover {
+            @include media-min(mob) {
+                .project-item__video {
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+        }
+
+        @include hover {
+            .project-item__image {
+                border-top-left-radius: $radius-lg;
+                transform: scale(1.05);
+            }
+
+            .project-item__video-icon-box {
+                opacity: 1;
+            }
+        }
+    }
+
+    &__content {
+    }
+
+    &__link {
+        display: block;
+        padding-top: 2rem;
+        text-decoration: none;
+
+        @include hover {
+            .project-item__title {
+                color: $accent;
+            }
+        }
+    }
+
+    &__title {
+        margin-bottom: 1rem;
+        max-width: 39rem;
+        font-size: 2rem;
+        line-height: 120%;
+        font-weight: 500;
+        transition: $duration color;
+    }
+
+    &__category {
+        line-height: 1.2;
+        font-weight: 500;
+
+        &::before {
+            content: "—\a0\a0";
+            display: inline;
+        }
+
+        @include media(mob-m) {
+            font-size: 1.4rem;
+        }
+    }
+
+    &__tags {
+        padding-top: 2rem;
+
+        @include media(mob-m) {
+            padding-top: 1rem;
+        }
+    }
+
+    &__info {
+        display: flex;
+        flex-wrap: wrap;
+        margin-right: -2rem;
+
+        @include media(mob-m) {
+            margin-right: 0;
+            display: block;
+            padding-top: 0.5rem;
+        }
+    }
+
+    &__info-item {
+        margin-top: 2rem;
+        margin-right: 5rem;
+        font-size: 14px;
+        line-height: 140%;
+
+        @include media(mob-m) {
+            margin-right: 0;
+            margin-top: 1rem;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__info-title {
+        color: var(--color-grey-6);
+    }
+
+    &__info-text {
+    }
+
+    &__video {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        opacity: 0;
+        transition: $duration opacity;
+        cursor: pointer;
+
+        video,
+        iframe {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .video__inner  {
+            height: 100%;
+            padding-top: 0;
+        }
+
+        .video__footer {
+            padding: 2rem;
+            height: 100%;
+        }
+
+        .video__button-box {
+            margin: auto;
+        }
+
+        .video__button  {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+            border: none;
+            width: var(--button-height-sm);
+            height: var(--button-height-sm);
+            background: $accent;
+            border-radius: $radius-sm calc(var(--button-height-sm) * 0.5) calc(var(--button-height-sm) * 0.5) $radius-sm;
+            transition: $duration opacity;
+
+            .ui-button__text {
+                display: none;
+            }
+
+            .ui-button__icon-box {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                border: none;
+            }
+
+            .ui-button__icon {
+                left: 0;
+                width: 1.4rem;
+                height: 1.5rem;
+                fill: $white;
+            }
+        }
+
+        .video__frame-wrapper  {
+            visibility: hidden;
+            transition: $duration opacity, $duration visibility;
+        }
+
+        &.is-active {
+            opacity: 1;
+
+            .video__frame-wrapper  {
+                visibility: visible;
+            }
+        }
+
+        &.is-visible-mobile {
+            @include media(mob) {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    }
+
+    &__video-close {
+        
+    }
+
+ 
+}

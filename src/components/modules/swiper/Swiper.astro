@@ -1,0 +1,33 @@
+---
+interface Props {
+    class?: string;
+    isGallery?: boolean;
+    [x: string]: any;
+}
+
+const { 
+	isGallery,
+	class: className,
+	...rest
+} = Astro.props;
+
+---
+
+<div 
+	class:list={[
+		'swiper', 
+		className
+	]}
+	{...rest}
+>
+	{
+		isGallery ?  <div class={'swiper-wrapper'} data-gallery>
+			<slot /> 
+		</div> : 
+		<div class={'swiper-wrapper'}>
+			<slot /> 
+		</div> 
+	}
+   
+    <slot name="after"/>
+</div>

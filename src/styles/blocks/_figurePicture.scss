@@ -1,0 +1,20 @@
+/* ------- Figure picture -------- */
+.figure-picture {
+    display: block;
+    margin: 0;
+
+    &__image {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: $radius;
+    }
+
+    &__figcaption {
+        margin-top: 1rem;
+        font-size: 1.4rem;
+        font-weight: 500;
+        line-height: 140%;
+        color: var(--color-grey-6);
+    }
+}

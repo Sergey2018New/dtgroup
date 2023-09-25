@@ -1,0 +1,111 @@
+---
+import Layout from '@layouts/layout.astro';
+import Heading from '@components/blocks/Heading.astro';
+import Button from '@components/modules/Button.astro';
+import Partners from '@components/sections/Partners.astro';
+
+const features = [
+	{
+		text: "Стремительно движется к&nbsp;цели",
+		icon: `<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+			<rect width="60" height="60" fill="white"/>
+			<circle cx="30" cy="30" r="30"/>
+			<circle cx="30" cy="30" r="20" fill="white"/>
+			<circle cx="30" cy="30" r="10"/>
+			</svg>`,
+	},
+	{
+		text: "Управляет процессами для комфорта заказчика и&nbsp;лучшего результата",
+		icon: `<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+			<rect width="60" height="60" fill="white"/>
+			<rect y="20" width="20" height="20" />
+			<rect x="40" y="20" width="20" height="20" />
+			<rect x="20" width="20" height="20"/>
+			<rect x="20" y="40" width="20" height="20"/>
+			</svg>
+			`,
+	},
+	{
+		text: "Опирается на&nbsp;мощный опыт видеопроизводства",
+		icon: `<svg width="60" height="61" viewBox="0 0 60 61" xmlns="http://www.w3.org/2000/svg">
+			<rect y="0.00439453" width="60" height="60" fill="white"/>
+			<path d="M30 30V0L60 30H30Z"/>
+			<path d="M0 30H30V60L0 30Z" />
+			</svg>`,
+	},
+]
+---
+
+<Layout title="О нас">
+    <Heading type={'about'} title="О нас"></Heading>
+	<div class="section p-about">
+		<div class="container">
+			<div class="p-about__section p-about__company">
+				<div class="p-about__company-row">
+					<div class="p-about__company-column">
+						<div class="p-about__company-logo">
+							<img class="lazy p-about__company-logo-image" data-src="img/logo.svg" width="233" height="240" alt="">
+						</div> 
+					</div>
+					<div class="p-about__company-column">
+						<div class="p-about__company-description">
+							<p>Фирменный знак компании&nbsp;&mdash; интерпретация кадра &laquo;Лошадь в&nbsp;движении&raquo;, английского фотографа Эдварда Мейбриджа, который впервые в&nbsp;истории в&nbsp;съемках начал применять несколько фотоаппаратов одновременно.</p>
+
+							<p>В&nbsp;1878 году Мейбридж с&nbsp;помощью последовательных снимков с&nbsp;двенадцати фотокамер получил изображение скакуна на&nbsp;разных стадиях движения. А&nbsp;изобретенный им&nbsp;зоопраксископ позволил сделать из&nbsp;них первое движущееся изображение.</p>
+
+							<p>Так&nbsp;же, как изобретение Мейбриджа запустило процесс кинематографа, мы&nbsp;активизируем бизнес-процессы наших клиентов. Поэтому схематическое изображение скакуна с&nbsp;наездником стало основой нашего фирменного знака.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="p-about__section p-about__production">
+				<div class="p-about__production-row">
+					<div class="p-about__production-column">
+						<div class="p-about__production-title-wrapper">
+							<span class="p-about__production-graphic-sector"></span>
+							<div class="p-about__production-title">dt group video production</div>
+						</div>
+					</div>
+					<div class="p-about__production-column">
+						<div class="p-about__production-features">
+							{features.map((item) => (
+								<div class="p-about__production-feature">
+									<div class="p-about__production-feature-icon-box" set:html={item.icon}></div>
+									<div class="p-about__production-feature-text">
+										<p set:html={item.text}></p>
+									</div>
+								</div>
+							))}
+						</div>
+					</div>
+				</div>
+			</div>
+			<Partners class="p-about__section p-about__partners" type='about'></Partners>
+			<div class="p-about__section p-about__confidence">
+				<div class="p-about__confidence-row">
+					<div class="p-about__confidence-graphic">
+						<span class="p-about__confidence-graphic-circle">
+							<svg width="108" height="108" viewBox="0 0 108 108" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M107.199 53.7C107.199 24.2 83.1992 0.199951 53.6992 0.199951C24.1992 0.199951 0.199219 24.2 0.199219 53.7C0.199219 83.2 24.1992 107.2 53.6992 107.2C83.1992 107.2 107.199 83.2 107.199 53.7ZM3.59923 53.7C3.59923 26.1 26.0992 3.59995 53.6992 3.59995C81.2992 3.59995 103.799 26.1 103.799 53.7C103.799 81.2999 81.2992 103.8 53.6992 103.8C25.9992 103.8 3.59923 81.2999 3.59923 53.7Z" fill="white"/>
+								<path d="M100.4 53.7C100.4 27.9 79.4 7 53.7 7C27.9 7 7 28 7 53.7C7 79.5 28 100.5 53.7 100.5C79.5 100.4 100.4 79.5 100.4 53.7ZM10.3 53.7C10.3 29.8 29.8 10.3 53.7 10.3C77.6 10.3 97.1 29.8 97.1 53.7C97.1 77.6 77.6 97.1 53.7 97.1C29.8 97.1 10.3 77.6 10.3 53.7Z" fill="white"/>
+								<path d="M93.6992 53.7C93.6992 31.6 75.6992 13.7 53.6992 13.7C31.5992 13.7 13.6992 31.7 13.6992 53.7C13.6992 75.7999 31.6992 93.7 53.6992 93.7C75.7992 93.7 93.6992 75.7999 93.6992 53.7ZM16.9992 53.7C16.9992 33.5 33.4992 17 53.6992 17C73.8992 17 90.3992 33.5 90.3992 53.7C90.3992 73.9 73.8992 90.3999 53.6992 90.3999C33.4992 90.3999 16.9992 73.9 16.9992 53.7Z" fill="white"/>
+								<path d="M86.9984 53.6999C86.9984 35.2999 72.0984 20.3999 53.6984 20.3999C35.2984 20.3999 20.3984 35.2999 20.3984 53.6999C20.3984 72.0999 35.2984 86.9999 53.6984 86.9999C72.0984 86.9999 86.9984 72.0999 86.9984 53.6999ZM23.6984 53.6999C23.6984 37.1999 37.0984 23.6999 53.6984 23.6999C70.1984 23.6999 83.6984 37.0999 83.6984 53.6999C83.6984 70.1999 70.2984 83.6999 53.6984 83.6999C37.1984 83.6999 23.6984 70.1999 23.6984 53.6999Z" fill="white"/>
+								<path d="M80.2996 53.6999C80.2996 39.0999 68.3996 27.0999 53.6996 27.0999C39.0996 27.0999 27.0996 38.9999 27.0996 53.6999C27.0996 68.2999 38.9996 80.2999 53.6996 80.2999C68.2996 80.2999 80.2996 68.2999 80.2996 53.6999ZM30.4996 53.6999C30.4996 40.8999 40.8996 30.4999 53.6996 30.4999C66.4996 30.4999 76.8996 40.8999 76.8996 53.6999C76.8996 66.4999 66.4996 76.8999 53.6996 76.8999C40.8996 76.8999 30.4996 66.4999 30.4996 53.6999Z" fill="white"/>
+								<path d="M73.4984 53.6999C73.4984 42.7999 64.5984 33.8999 53.6984 33.8999C42.7984 33.8999 33.8984 42.7999 33.8984 53.6999C33.8984 64.5999 42.7984 73.4999 53.6984 73.4999C64.5984 73.4999 73.4984 64.5999 73.4984 53.6999ZM37.1984 53.6999C37.1984 44.5999 44.5984 37.1999 53.6984 37.1999C62.7984 37.1999 70.1984 44.5999 70.1984 53.6999C70.1984 62.7999 62.7984 70.1999 53.6984 70.1999C44.5984 70.1999 37.1984 62.7999 37.1984 53.6999Z" fill="white"/>
+								<path d="M66.7996 53.6999C66.7996 46.4999 60.8996 40.5999 53.6996 40.5999C46.4996 40.5999 40.5996 46.4999 40.5996 53.6999C40.5996 60.8999 46.4996 66.7999 53.6996 66.7999C60.8996 66.7999 66.7996 60.8999 66.7996 53.6999ZM43.8996 53.6999C43.8996 48.2999 48.2996 43.8999 53.6996 43.8999C59.0996 43.8999 63.4996 48.2999 63.4996 53.6999C63.4996 59.0999 59.0996 63.4999 53.6996 63.4999C48.2996 63.4999 43.8996 59.0999 43.8996 53.6999Z" fill="white"/>
+								<path d="M60.0988 53.7001C60.0988 50.2001 57.1988 47.3 53.6988 47.3C50.1988 47.3 47.2988 50.2001 47.2988 53.7001C47.2988 57.2001 50.1988 60.1 53.6988 60.1C57.1988 60.1 60.0988 57.2001 60.0988 53.7001ZM50.5988 53.7001C50.5988 52.0001 51.9988 50.6 53.6988 50.6C55.3988 50.6 56.7988 52.0001 56.7988 53.7001C56.7988 55.4001 55.3988 56.8 53.6988 56.8C51.9988 56.7 50.5988 55.4001 50.5988 53.7001Z" fill="white"/>
+							</svg>
+						</span>
+						<span class="p-about__confidence-graphic-circle"></span>
+					</div>
+					<div class="p-about__confidence-content">
+						<div class="p-about__confidence-text">
+							<p>Мы&nbsp;уверены, что вы&nbsp;&#8211; именно такая компания. Стало быть, вы&nbsp;&#8211; наш клиент!</p>
+						</div>
+						<Button class="p-about__confidence-button" href="/" type={'link'} icon="arrow">Связаться</Button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</Layout>

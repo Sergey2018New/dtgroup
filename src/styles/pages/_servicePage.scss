@@ -1,0 +1,169 @@
+/* ------- Service page -------- */
+.p-service {
+
+    &__description {
+        position: relative;
+        padding-left: 44rem;
+        max-width: 121.6rem;
+        margin-bottom: $section-space;
+        font-size: 4rem;
+        line-height: 120%;
+
+        @include media(pc) {
+            font-size: 3rem;
+        }
+
+        @include media(tab) {
+            padding-left: 24rem;
+            font-size: 2.4rem;
+        }
+
+        @include media(mob) {
+            padding-left: 8rem;
+        }
+
+        @include media(mob-m) {
+            padding-left: 6.4rem;
+            font-size: 1.8rem;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 2.5rem; 
+            width: 18rem;
+            height: 1px;
+            background: $primary;
+
+            @include media(tab) {
+                width: 14rem;
+                top: 1.5rem;
+            }
+
+            @include media(mob) {
+                width: 5rem;
+            }
+
+            @include media(mob-m) {
+                width: 4rem;
+                top: 1.2rem;
+            }
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__video {
+        margin-bottom: 10rem;
+
+        @include media(mob) {
+            margin-bottom: 6rem;
+        }
+    }
+
+    &__items {
+        display: grid;
+        gap: 10rem 4rem;
+
+        @include grid-columns(3);
+
+        @include media(tab) {
+            gap: 6rem 4rem;
+            
+            @include grid-columns(2);
+        }
+
+        @include media(mob) {
+            gap: 4rem;
+            @include grid-columns(1);
+        }
+    }
+
+    &__item {
+        position: relative;
+        padding-left: 7rem;
+
+        @include media(pc) {
+            
+        }
+        
+        &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 1.5rem; 
+            width: 4rem;
+            height: 1px;
+            background: $primary;
+
+
+        }
+
+        &_2 {
+            .p-service__item-text {
+                max-width: 25rem;
+
+                @include media(mob) {
+                    max-width: none;
+                }
+            }
+        }
+
+        &_3 {
+            .p-service__item-text {
+                max-width: 28rem;
+
+                @include media(mob) {
+                    max-width: none;
+                }
+            }
+        }
+
+        &_4 {
+            .p-service__item-text {
+                max-width: 30.2rem;
+
+                @include media(mob) {
+                    max-width: none;
+                }
+            }
+        }
+    }
+
+    &__item-title {
+        margin-top: 0;
+        margin-bottom: 3rem;
+        font-weight: 800;
+        font-size: 2.4rem;
+        line-height: 120%;
+        letter-spacing: -0.02em;
+
+        @include media(mob) {
+            margin-bottom: 2rem;
+        }
+
+        @include media(mob-m) {
+            font-size: 2.2rem;
+        }
+    }
+
+    &__item-text {
+        max-width: 32rem;
+        line-height: 140%;
+
+        @include media(mob) {
+            max-width: none;
+        }
+    }
+
+    &_short {
+        padding-top: calc(var(--section-space-md) - 3rem);
+
+        @include media(mob-m) {
+            padding-top: 3rem;
+        }
+    }
+}

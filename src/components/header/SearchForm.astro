@@ -1,0 +1,33 @@
+---
+import Icon from '@components/modules/Icon.astro';
+
+interface Props {
+    class?: string;
+}
+
+const {
+    class: className,
+    ...rest
+} = Astro.props;
+
+---
+<form
+	action="" 
+	class:list={['search-form', className, 'js-search-form']}
+	{...rest}
+>
+	<div class="search-form__backdrop js-search-form-backdrop"></div>
+	<div class="search-form__title">Поиск по сайту</div>
+   
+	<div class="search-form__popup js-search-form-popup">
+		<div class="search-form__box">
+			<input type="text" name="search" class="ui-input search-form__input js-search-form-input" placeholder="Поиск" autocomplete="off" >
+			<button type="button" class="search-form__close js-search-form-close" title="Закрыть строку поиска" aria-label="Закрыть строку поиска" >
+				<Icon class="search-form__close-icon" name="close"></Icon>
+			</button>
+		</div>
+	</div>
+	<button class="search-form__button js-search-form-button" type="button" aria-label="Открыть строку поиска" data-aria-label="Найти" title="Найти" >
+        <Icon class="search-form__button-icon" name="search"></Icon>
+    </button>
+</form>

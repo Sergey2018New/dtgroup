@@ -1,0 +1,97 @@
+---
+import Layout from '@layouts/layout.astro';
+import Heading from '@components/blocks/Heading.astro';
+import TeamItem from '@components/blocks/TeamItem.astro';
+import ShowMore from '@components/blocks/ShowMore.astro';
+
+const items = [
+	{
+		name: "Антон Лукьяница",
+		position: "Генеральный директор",
+	},
+	{
+		name: "Дмитрий Никонов",
+		position: "Заместитель генерального директора",
+	},
+	{
+		name: "Антон Денисов",
+		position: "Технический директор",
+	},
+	{
+		name: "Юрий «Компот» Пижанков",
+		position: "Генеральный продюсер",
+	},
+	{
+		name: "Мария Мальцева",
+		position: "Исполнительный продюсер",
+	},
+	{
+		name: "Антон Лукьяница",
+		position: "Генеральный директор",
+	},
+	{
+		name: "Дмитрий Никонов",
+		position: "Заместитель генерального директора",
+	},
+	{
+		name: "Антон Лукьяница",
+		position: "Генеральный директор",
+	},
+	{
+		name: "Дмитрий Никонов",
+		position: "Заместитель генерального директора",
+	},
+	{
+		name: "Дмитрий Никонов",
+		position: "Заместитель генерального директора",
+	},
+	{
+		name: "Антон Лукьяница",
+		position: "Генеральный директор",
+	},
+	{
+		name: "Дмитрий Никонов",
+		position: "Заместитель генерального директора",
+	},
+	{
+		name: "Антон Лукьяница",
+		position: "Генеральный директор",
+	},
+	{
+		name: "Дмитрий Никонов",
+		position: "Заместитель генерального директора",
+	},
+	{
+		name: "Дмитрий Никонов",
+		position: "Заместитель генерального директора",
+	},
+]
+
+---
+
+<Layout title="Команда">
+	<Heading title="Команда" titleSize='lg'></Heading>
+	<div class="section p-team">
+		<div class="container">
+			<div class="p-team__row">
+				<div class="p-team__column">
+					<div class="p-team__text p-team__text_citation">
+						<p>Главное в&nbsp;нашем деле&nbsp;&mdash; собрать правильную команду.</p>
+					</div>
+				</div>
+				<div class="p-team__column">
+					<div class="p-team__text">
+						<p>У&nbsp;нас большой штат собственных сотрудников, и&nbsp;при этом мы&nbsp;привлекаем к&nbsp;проектам самых разных специалистов&nbsp;&mdash; продюсеров, арт-директоров, дизайнеров и&nbsp;операторов, техников и&nbsp;инженеров.</p>
+						<p>Какова&nbsp;бы ни&nbsp;была специфика конкретного проекта&nbsp;&mdash; мы&nbsp;всегда знаем, кто с&nbsp;ней справится лучше всего и&nbsp;знаем, кого привлечь в&nbsp;проект.</p>
+					</div>
+				</div>
+			</div>
+			<div class="p-team__items p-team__items_col_5">
+				{items.map((item, index) => (
+					<TeamItem class="p-team__item" name={item.name} position={item.position} image={`img/team/${index + 1}.jpg`} image2x={`img/team/${index + 1}@2x.jpg 2x`} size="sm"></TeamItem>
+				))}
+			</div>
+			<ShowMore class="p-team__show-more" moreText="Наша команда больше чем ты&nbsp;думаешь" buttonText={'Показать всех'} isSelf={true}></ShowMore>
+		</div>
+	</div>
+</Layout>

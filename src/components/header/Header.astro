@@ -1,0 +1,113 @@
+---
+import Button from '@components/modules/Button.astro';
+import Icon from '@components/modules/Icon.astro';
+import Menu from './Menu.astro';
+import SearchForm from './SearchForm.astro';
+
+const divisions = [
+	{
+		title: "Видео для <br>медицины",
+		image: "img/divisions/1.jpg",
+		image2x: "img/divisions/1@2x.jpg 2x",
+		logo: "dt-medical",
+		logoWidth: 156,
+		logoHeight: 45,
+		site: "dtmedical.ru"
+	},
+	{
+		title: "Аренда <br>видеооборудования",
+		image: "img/divisions/2.jpg",
+		image2x: "img/divisions/2@2x.jpg 2x",
+		logo: "dt-rent",
+		logoWidth: 112,
+		logoHeight: 44,
+		site: "dtrent.ru"
+	},
+	{
+		title: "Реклама, <br>клипы, сериалы",
+		image: "img/divisions/3.jpg",
+		image2x: "img/divisions/3@2x.jpg 2x",
+		logo: "darkhorse",
+		logoWidth: 168,
+		logoHeight: 56,
+		site: "darkhorse.ru"
+	}
+]
+---
+<header class="header">
+	<div class="header__inner">
+		<div class="header__container container">
+			<div class="header__logo-wrapper header__divisions js-header-divisions">
+				<div class="header__logo-box">
+					<a href="#" class="header__logo logo">
+						<img class="logo__img" src="img/logo.svg" width="71" height="73" alt="" />
+					</a>
+					<button type="button" class="header__divisions-button js-header-divisions-button" aria-label="Открыть меню подразделений">
+						<Icon class="header__divisions-button-icon" name="arrow-down"></Icon>
+					</button>
+				</div>
+				<div class="header__divisions-backdrop js-header-divisions-backdrop"></div>
+				<div class="header__divisions-popup">
+					<div class="header__divisions-container container">
+						<div class="header__divisions-items">
+							{
+								divisions.map(item => (
+									<div class="header__divisions-item">
+										<a href={`http://${item.site}`} class="header__divisions-link" target="_blank">
+											<div class="header__divisions-title" set:html={item.title}></div>
+											<div class="header__divisions-image-box">
+												<img class="header__divisions-image" src={item.image} srcset={item.image2x} alt="" width="400" height="200" loading="lazy" />
+												<div class="header__divisions-logo">
+													<img class="header__divisions-logo-image" src={`img/divisions/${item.logo}.svg`} width={item.logoWidth} height={item.logoHeight} alt="" loading="lazy" />
+												</div>
+											</div>
+											<div class="header__divisions-site">
+												<span class="header__divisions-site-name" set:html={item.site}></span>
+												<div class="header__divisions-site-icon-box">
+													<Icon class="header__divisions-site-icon" name="arrow-out"></Icon>
+												</div>
+											</div>
+										</a>
+									</div>
+								))
+							}
+						</div>
+					</div>
+
+					<button class="header__divisions-close js-header-divisions-close" aria-label="Закрыть меню подразделений"><span></span></button>
+				</div>
+			</div>
+			<div class="header__center">
+				<div class="header__center-row">
+					<div class="header__menu-wrapper">
+						<Menu class="header__menu"></Menu>
+					</div>
+					<div class="header__search">
+						<button type="button" class="header__search-button js-search-button-open" aria-label="Открыть строку поиска">
+							<Icon class="header__search-button-icon" name="search"></Icon>
+						</button>
+						<SearchForm class="header__search-form"></SearchForm>
+					</div>
+					<!-- <div class="header__phone">
+						<Button type={'link'} href="tel:+74956650248" class="header__button header__button_phone" icon="phone" size={'sm'}></Button>
+					</div> -->
+				</div>
+			</div>
+			
+			<div class="header__button-wrapper">
+				<div class="header__contact">
+					<Button type={'link'} href="tel:+74956650248" class="header__button header__button_default header__button_phone" icon="phone" size={'sm'} title="Позвонить" ariaLabel='Позвонить'></Button>
+					<div class="header__contact-info">
+						<div class="header__contact-title">Используйте для связи</div>
+						<a href="tel:+74956650248" class="header__contact-phone">+7 (495) 665-02-48</a>
+						<a href="mailto:info@dtgroup.ru" class="header__contact-email">info@dtgroup.ru</a>
+					</div>
+				</div>
+				<Button type={'link'} href="" class="header__button header__button_default header__button_whatsapp" icon="whatsapp" size={'sm'} title="Whatsapp" ariaLabel='Whatsapp'></Button>
+				<Button type={'link'} href="" class="header__button header__button_default header__button_telegram" icon="telegram" size={'sm'} title="Telegram" ariaLabel='Telegram'></Button>
+
+				<Button class="header__button header__button_brief" icon="arrow" size={'sm'} data-modal-open="#modal_contact">Заказать</Button>
+			</div>
+		</div>
+	</div>
+</header>

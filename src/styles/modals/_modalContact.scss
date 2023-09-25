@@ -1,0 +1,182 @@
+/* ------- Modal -------- */
+.modal-contact {
+    .modal__title {
+        position: absolute;
+        z-index: 1;
+        max-width: calc(50% - 6rem);
+
+        @include media(mob) {
+            position: relative;
+            max-width: none;
+        }
+    }
+
+    .modal__content {
+        overflow: hidden;
+
+        @include media(mob) {
+            padding-bottom: 10.4rem;
+        }
+
+        @include media(mob-m) {
+            padding-bottom: 5rem;
+        }
+    }
+
+	&__graphic {
+        position: absolute;
+        top: 16.7rem;
+        left: -7.4rem;
+        width: 21.5rem;
+        height: 21.5rem;
+
+        @include media(mob) {
+            top: auto;
+            right: 5rem;
+            bottom: 4rem;
+            left: auto;
+            width: 12.7rem;
+            height: 12.7rem;
+        }
+
+        @include media(mob-m) {
+            display: none;
+        }
+
+        @include media(mob-xs) {
+            right: 3rem;
+        }
+
+        @include media(mob-xxs) {
+            right: -2rem;
+        }
+    }
+
+    &__graphic-strip {
+        position: absolute;
+        top: 7.6rem;
+        left: 12.7rem;
+        width: 18.5rem;
+        height: 2rem;
+        background: var(--color-grey-5);
+
+        @include media(mob) {
+            top: 5rem;
+            left: 8rem;
+            width: 10.9rem; 
+            height: 1.2rem;
+        }
+    }
+
+    &__graphic-ball {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 21.5rem;
+        height: 21.5rem;
+        border-radius: 50%;
+        background: radial-gradient(78.97% 78.97% at 31.78% 13.08%, var(--color-gradient-1) 0%, var(--color-gradient-2) 53.78%, var(--color-gradient-3) 100%);
+        transform: rotate(64.86deg);
+
+        @include media(mob) {
+            width: 12.7rem;
+            height: 12.7rem;
+        }
+    }
+
+    &__graphic-waves {
+        position: absolute;
+        top: 14.2rem;
+        left: 16.2rem;
+        width: 8rem;
+        height: 8rem;
+
+        @include media(mob) {
+            top: 8.5rem;
+            left: 9.5rem;
+            width: 4.7rem;
+            height: 4.7rem;
+        }
+    }
+
+    &__form {
+        position: relative;
+    }
+
+    &__form-row {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 4rem;
+
+        @include media(mob) {
+            grid-template-columns: minmax(0, 1fr);
+        }
+
+        &::before {
+            content: "";
+            display: block;
+
+            @include media(mob) {
+                display: none;
+            }
+        }
+    }
+
+    &__form-footer {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 4rem;
+        padding-top: 4rem;
+
+        @include media(mob) {
+            grid-template-columns: minmax(0, 1fr);
+            padding-top: 2rem;
+            gap: 3rem;
+        }
+    }
+
+    &__form-agreement-wrapper {
+        @include media-min(mob) {
+            order: -1;
+        }
+    }
+
+    &__form-agreement {
+        max-width: 26.3rem;
+        margin-bottom: 3rem;
+
+        @include media(mob) {
+            margin-bottom: 2rem;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        @include media(mob) {
+            max-width: 38rem;
+        }
+
+        @include media(mob-m) {
+            max-width: 36rem;
+        }
+    }
+
+    &__form-button-wrapper {
+        display: grid;
+        gap: 4rem;
+        grid-template-columns: minmax(0, 1fr);
+
+        @include media(mob) {
+            gap: 3rem;
+        }
+    }
+
+    &__form-attach-wrapper {
+        margin-top: -2rem;
+
+        @include media(mob) {
+            margin-top: 0;
+        }
+    }
+}

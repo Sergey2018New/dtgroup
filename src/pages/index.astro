@@ -1,0 +1,22 @@
+---
+import Layout from '@layouts/layout.astro';
+import HomeSection from '@components/sections/HomeSection.astro';
+import BestClip from '@components/sections/BestClip.astro';
+import ExecutiveProducer from '@components/sections/ExecutiveProducer.astro';
+import Partners from '@components/sections/Partners.astro';
+import Portfolio from '@components/sections/Portfolio.astro';
+import Reviews from '@components/sections/Reviews.astro';
+import BlogSection from '@components/sections/BlogSection.astro';
+import WhatDoing from '@components/sections/WhatDoing.astro';
+---
+
+<Layout title="Главная">
+    <HomeSection></HomeSection>
+    <BestClip></BestClip>
+    <ExecutiveProducer></ExecutiveProducer>
+    <Partners></Partners>
+    <Portfolio type={'home'} title="Портфолио" isAmount={true}></Portfolio>
+    <Reviews></Reviews>
+    <BlogSection title="Блог"></BlogSection>
+    <WhatDoing></WhatDoing>
+</Layout>

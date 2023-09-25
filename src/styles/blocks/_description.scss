@@ -1,0 +1,238 @@
+/* ------- Description -------- */
+.description {
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 140%;
+
+    @include media(mob) {
+        font-size: 1.6rem;
+    }
+
+    a {
+        color: $accent;
+    }
+
+    p {
+        margin: 3rem 0;
+
+        @include media(mob) {
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        &:first-child {
+            margin-top: 0;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+        
+    }
+
+    h2 {
+        margin: 5rem 0;
+        font-size: 3.2rem;
+        font-weight: 700;
+        line-height: 130%;
+
+        @include media(mob) {
+            margin-top: 3rem;
+            margin-bottom: 3rem;
+            font-size: 2.4rem;
+        }
+
+        &:first-child {
+            margin-top: 0;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    h3 {
+        margin: 5rem 0 3rem;
+        font-size: 2.4rem;
+        font-weight: 700;
+        line-height: 140%;
+
+        @include media(mob) {
+            margin-top: 3rem;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+
+        &:first-child {
+            margin-top: 0;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    h4 {
+        margin: 5rem 0 2rem;
+        font-size: 2rem;
+        font-weight: 700;
+        line-height: 140%;
+
+        @include media(mob) {
+            margin-top: 3rem;
+            font-size: 1.8rem;
+        }
+
+        &:first-child {
+            margin-top: 0;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    ul,
+    ol {
+        margin: 3rem 0;
+        padding: 0;
+        list-style: none;
+        font-size: 1.6rem;
+        line-height: 1.4;
+
+        @include media(mob) {
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        > li {
+            margin-bottom: 1.5rem;
+
+            &::marker {
+                font-weight: 700;
+            }
+            
+            &:last-child {
+                margin-bottom: 0;
+            }
+        } 
+
+        &:first-child {
+            margin-top: 0;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    ul {
+        list-style: none;
+
+        > li {
+            position: relative;
+            padding-left: 3rem;
+ 
+            &::before {
+                content: "";
+                position: absolute;
+                top: 1rem;
+                left: 0;
+                width: 2rem;
+                height: 1px;
+                background: $accent;
+ 
+                @include media(mob-m) {
+                    top: 1.2rem;
+                }
+            }
+        }
+     }
+ 
+     ol { 
+         counter-reset: list;
+ 
+         > li {
+            position: relative;
+            padding-left: 3rem;
+ 
+            &::before {
+                content: counter(list) '.';
+                counter-increment: list;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 3rem;
+                font-weight: 700;
+                font-size: 100%;
+                color: $accent;
+            }
+         }
+     }
+
+    table {
+        margin: 2rem 0 5rem;
+
+        @include media(mob) {
+            margin-bottom: 3rem;
+        }
+    }
+
+    .blockquote {
+        margin: 5rem 0;
+
+        @include media(mob) {
+            margin-top: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+
+        &:first-child {
+            margin-top: 0;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    .figure-picture,
+    .photos-slider-wrapper,
+    > img,
+    > .post-meta {
+        margin: 5rem 0;
+
+        @include media(mob) {
+            margin-top: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        &:first-child {
+            margin-top: 0;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    img,
+    .post-meta {
+        display: block;
+        border-radius: var(--radius);
+    }
+
+    p {
+        &:first-child {
+            > img {
+                margin-top: 0;
+            }
+        }
+        
+        &:last-child {
+            > img {
+                margin-bottom: 0;
+            }
+        }
+    }
+}

@@ -1,0 +1,58 @@
+/* ------- Modal -------- */
+.modal-alert {
+    .modal__title {
+        font-size: 2.8rem;
+        font-weight: 700;
+        text-align: center;
+        letter-spacing: 0;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        @include media(mob-m) {
+            font-size: 2.4rem;
+            line-height: 1.2;
+        }
+    }
+
+    .modal__close {
+        @include media(mob-m) {
+            position: absolute;
+            top: -1rem;
+            right: -1rem;
+            background: $base-color;
+
+            &::before,
+            &::after {
+                display: none;
+            }
+        }
+    }
+
+    .modal__close-icon {
+        @include media(mob-m) {
+            display: block;
+        }
+    }
+
+    .modal__wrap  {
+        @include media(mob-m) {
+            display: flex;
+            padding: var(--gutters);
+            height: auto;
+            background: none;
+        }
+    }
+
+    .modal__window {
+        @include media(mob-m) {
+            height: auto;
+            padding: 0;
+        }
+    }
+    
+    .modal__content {
+        border-radius: 1.2rem;
+    }
+}

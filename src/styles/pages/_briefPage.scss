@@ -1,0 +1,408 @@
+/* ------- Brief page -------- */
+.accordion {
+    &__header {
+        position: relative;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        padding: 2rem;
+        text-align: left;
+        background: #eee;
+        cursor: pointer;
+        user-select: none;
+    }
+
+    &__icon {
+        position: relative;
+        flex: none;
+        width: 3rem;
+        height: 3rem;
+        margin-left: auto;
+
+        svg {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -1rem;
+            margin-top: -1rem;
+            width: 2rem;
+            height: 2rem;
+            transition: $duration transform;
+            will-change: transform;
+        }
+
+        span {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -1rem;
+            margin-top: -1rem;
+            width: 2rem;
+            height: 2rem;
+
+            &::before,
+            &::after {
+                content: "";
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                margin-left: -1rem;
+                margin-top: -1px;
+                width: 2rem;
+                height: 2px;
+                background: #000;
+                transition: $duration opacity;
+            }
+
+            &::after {
+                transform: rotate(90deg);
+            }
+        }
+    }
+
+    &__inner {
+        padding: 2rem 2rem;
+    }
+
+    &__content {
+       
+    }
+
+   
+}
+.p-brief {
+    position: relative;
+    padding-top: var(--section-space-md);
+
+    @include media(tab) {
+        padding-top: 6rem;
+    }
+
+    &__box {
+        position: relative;
+        margin: 0 auto;
+        border: 1px solid;
+        border-radius: $radius $radius-lg $radius $radius;
+        max-width: 84rem;
+        background: $white;
+    }
+
+    &__graphic-sector {
+        position: relative;
+        display: block;
+        width: 27rem;
+        height: 27rem;
+        overflow: hidden;
+
+        &::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            border-radius: 50%;
+            width: 200%;
+            height: 200%;
+            background: var(--color-grey-5);
+        }
+
+        @include media(tab) {
+            display: none;
+        }
+    }
+
+    &__graphic-triangle {
+        display: block;
+        width: 27.2rem;
+        height: 27.2rem;
+
+        @include triangle(bottomRight, 27.2rem, 27.2rem, $accent);
+
+        @include media(mob-m) {
+            width: 20rem;
+            height: 20rem;
+            border-bottom-width: 20rem;
+            border-left-width: 20rem;
+        }
+    }
+
+    &__graphic {
+        position: absolute;
+
+        &_sector {
+            top: 100%;
+            left: -17rem;
+            z-index: -1;
+        }
+
+        &_triangle {
+            bottom: -7rem;
+            right: -4rem;
+            z-index: -1;
+
+            @include media(mob) {
+                bottom: -4rem;
+            }
+            
+            @include media(mob-m) {
+                bottom: -3rem;
+            }
+
+        }
+    }
+
+    &__block {
+        position: relative;
+        border-top: 1px solid $base-color;
+
+        &:first-child {
+            border-top: none;
+        }
+
+        &_personal {
+            padding: 2rem 0;
+
+            @include media(mob-m) {
+                padding-top: 1rem;
+                padding-bottom: 1rem;
+            }
+        }
+
+        &_send {
+            .p-brief__block-inner {
+                padding-top: 4rem;
+                padding-bottom: 3rem;
+
+                @include media(mob-m) {
+                    padding-top: 3rem;
+                }
+            }
+        }
+
+        &.is-active {
+            .p-brief__block-content {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .p-brief__block-header-icon {
+                background: $base-color;
+
+                &::after {
+                    opacity: 0;
+                }
+            }
+        }
+    
+        &.is-visible {
+            .p-brief__block-content {
+                overflow: visible;
+                max-height: none;
+            }
+        }
+    }
+
+    &__block-header {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) max-content;
+        align-items: center;
+        padding: 4rem 6rem;
+        gap: 4rem;
+        width: 100%; 
+        text-align: left;
+
+        @include media(tab) {
+            padding-left: 4rem;
+            padding-right: 4rem;
+        }
+
+        @include media(mob-m) {
+            gap: 2rem;
+            padding: 3rem;
+        }
+
+        &:focus-visible {
+            outline: none;
+
+            .p-brief__block-header-icon {
+                background: $accent;
+            }
+        }
+
+        @include hover {
+            .p-brief__block-header-icon {
+                background: $base-color;
+            }     
+        }
+    }
+
+    &__block-title {
+        min-height: 100%;
+        display: flex;
+        align-items: center;
+        font-size: 3.2rem;
+        font-weight: 500;
+        line-height: 1.2;
+        letter-spacing: -0.015em;
+
+        @include media(tab) {
+            font-size: 2.4rem;
+        }
+
+        @include media(mob-m) {
+            font-size: 2rem;
+        }
+    }
+
+    &__block-content {
+        overflow: hidden;
+        max-height: 0;
+        opacity: 0;
+        visibility: hidden;
+        transition: max-height $duration, opacity $duration, visibility $duration;
+    }
+
+    &__block-header-icon {
+        position: relative;
+        border-radius: 50%;
+        width: 4rem;
+        height: 4rem;
+        background: var(--color-line);
+        transition: $duration background;
+
+        @include media(mob-m) {
+            width: 3rem;
+            height: 3rem;
+        }
+
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: -1rem;
+            margin-top: -1px;
+            width: 2rem;
+            height: 2px;
+            background: $white;
+
+            @include media(mob-m) {
+                width: 1.4rem;
+                margin-left: -0.7rem;
+            }
+        }
+
+        &::after {
+            transform: rotate(90deg);
+            transition: $duration opacity;
+        }
+    }
+
+    &__block-inner {
+        padding: 0 6rem 4rem;
+
+        @include media(tab) {
+            padding-left: 4rem;
+            padding-right: 4rem;
+        }
+
+        @include media(mob-m) {
+            padding-left: 3rem;
+            padding-right: 3rem;
+            padding-bottom: 3rem;
+        }
+    }
+
+    &__form {
+        .just-validate-error-label {
+            display: block;
+        }
+
+        .form__field_size_sm {
+            @include media(mob) {
+                max-width: none;
+            }
+        }
+    }
+
+    &__form-grid {
+        gap: 4rem;
+
+        @include media(mob-m) {
+            gap: 3rem;
+        }
+    }
+
+    &__form-label {
+        display: grid;
+        grid-template-columns: auto auto;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 0.8rem;
+        margin-bottom: 2rem;
+        font-size: 2rem;
+        font-weight: 500;
+        line-height: 1.2;
+        letter-spacing: -0.01em;
+
+        @include media(tab) {
+            font-size: 1.8rem;
+        }
+
+        @include media(mob-m) {
+            gap: 0.6rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.6rem;
+        }
+
+        .hint {
+            @include media(tab) {
+                top: 1px;
+            }
+
+            @include media(mob-m) {
+                top: 0;
+                width: 2rem;
+                height: 2rem;
+            }
+
+            &__icon {
+                @include media(mob-m) {
+                    width: 1.4rem;
+                    height: 1.4rem;
+                }
+            }
+        }
+    }
+
+    &__form-agreement {
+        margin-top: 2rem;
+        line-height: 1.8;
+
+        + .p-brief__form-agreement {
+            margin-top: 0;
+        }
+    }
+
+    &__form-deadline {
+        .ui-radio-block__item {
+            @include media(mob-m) {
+                width: 100%;
+                margin-right: 0;
+            }
+        }
+
+        .ui-radio-block {
+            @include media(mob-m) {
+                width: 100%;
+            }
+        }
+    }
+
+    &__form-datepicker {
+        @include media(mob-m) {
+            max-width: none;
+        }
+    }
+}

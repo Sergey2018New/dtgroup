@@ -1,0 +1,414 @@
+---
+import Layout from '@layouts/layout.astro';
+import Icon from '@components/modules/Icon.astro';
+import Input from '@components/modules/Input.astro';
+import Select from '@components/modules/Select.astro';
+import Checkbox from '@components/modules/Checkbox.astro';
+import RadioBlock from '@components/modules/RadioBlock.astro';
+import Button from '@components/modules/Button.astro';
+import Heading from '@components/blocks/Heading.astro';
+
+const items = [
+	{
+		year: "2003",
+		mainText: "Студия dt&nbsp;group была основана тремя студентами-первокурсниками МГУ. Увлечение видеопродакшном, хотя такого слова в&nbsp;2003 году особо никто не&nbsp;знал, пришло из&nbsp;первых школьных любительских фильмов.",
+		text: "<p>В университете простор для творчества был больше: КВН, студенческие мероприятия, выезды, вечеринки. Мы обросли знакомствами, появились первые заказчики. Тогда основные наши работы начинались со слов «Выпускной», «Свадьба», «День рождения». Первым «офисом» была небольшая съемная квартира, а весь парк нашего оборудования помещался в пару рюкзаков.</p>",
+	},
+	{
+		year: "2005",
+		mainText: "Мы&nbsp;получили первый серьезный заказ&nbsp;&mdash; видеоконтент для мероприятия журнала &laquo;Афиша&raquo;, и&nbsp;вместе с&nbsp;этим первого серьезного заказчика в&nbsp;лице крупного рекламного агентства.",
+		text: "",
+	},
+	{
+		year: "2006",
+		mainText: "С&nbsp;такими заказами и&nbsp;такими серьезными клиентами пришло время обзавестись и&nbsp;первым офисом. Это было небольшое полуподвальное помещение в&nbsp;жилом доме в&nbsp;районе метро Семеновская.",
+		text: "<p>Офис постепенно загружался компьютерами, съемочным оборудованием, а&nbsp;общая папка &laquo;АРХИВ&raquo; на&nbsp;одном из&nbsp;жестких дисков уже позволяла сделать несколько скроллов мышкой, чтобы пролистать все проекты: количество заказов постоянно росло.</p>",
+	},
+	{
+		year: "2007",
+		mainText: "К&nbsp;этому моменту мы&nbsp;не&nbsp;только снимали, монтировали и&nbsp;рисовали компьютерную графику, но&nbsp;и&nbsp;делали свои первые трансляции на&nbsp;мероприятиях.",
+		text: "",
+	},
+	{
+		year: "2008",
+		mainText: "Выездные съемки серьезных корпоративных фильмов и различных мероприятий стали регулярными, и пришло время первой заграничной командировки: съемочная группа по заказу крупного туроператора вылетела в Иорданию.",
+		text: "",
+	},
+	{
+		year: "2009",
+		mainText: "Примерно тогда во&nbsp;всем мире случился кризис, а&nbsp;у&nbsp;нас приключилось кое-что поинтереснее. В&nbsp;разгар майских праздников полуподвальная история внезапно драматически закончилась: кто-то украл почти все наше съемочное оборудование и&nbsp;другие ценности из&nbsp;офиса.",
+		text: "<p>&laquo;Другие&nbsp;бы опустили руки...&raquo; &copy;&nbsp;Одним словом, мы&nbsp;собрали все, что осталось и&nbsp;срочно переехали в&nbsp;новый просторный офис на&nbsp;Электродной улице. У&nbsp;нас в&nbsp;прямом смысле появились новые рабочие места и&nbsp;мы&nbsp;принялись увеличивать команду специалистов и&nbsp;по&nbsp;мере возможности наращивать свой парк оборудования. Теперь над нами были не&nbsp;квартиры несчатных соседей, а&nbsp;настоящая стеклянная панорамная крыша.</p>",
+	},
+	{
+		year: "2010",
+		mainText: "Настал момент, когда возможности программы Excel иссякли, и&nbsp;мы&nbsp;внедрили первую CRM-систему, всерьез взялись за&nbsp;организацию производства на&nbsp;совсем &laquo;взрослый&raquo; манер. Перестроили структуру компании, перераспределили обязанности между руководителями и&nbsp;даже оборудовали свою профессиональную звукозаписывающую студию.",
+		text: "",
+	},
+	{
+		year: "2012",
+		mainText: "У&nbsp;нас появился свой собственный хромакейный павильон, и&nbsp;с&nbsp;этого момента мы&nbsp;официально стали видеопродакшном полного цикла.",
+		text: "<p>Тем временем производство стало занимать уже два этажа офисного здания, и&nbsp;появились даже атрибуты комфорта: лаундж-зона с&nbsp;диванами и&nbsp;игровой приставкой, и&nbsp;целых две кофемашины. В&nbsp;это&nbsp;же время мы&nbsp;стали одними из&nbsp;пионеров коммерческой аэросъемки с&nbsp;использованием мультикоптеров (тогда практически нельзя было купить готовый аппарат, и&nbsp;каждый дрон был произведением искусства ручной работы).</p>",
+	},
+	{
+		year: "2014",
+		mainText: "В&nbsp;студии оформился в&nbsp;отдельное подразделение креативный отдел. А&nbsp;в&nbsp;парке оборудования появилась первая по-настоящему киношная камера RED. Активно развивается новое эксклюзивное медицинское направление: мы&nbsp;проводим прямые трансляции хирургических операций, а&nbsp;также занимаемся установкой видеосистем в&nbsp;операционных крупных российских больниц.",
+		text: "",
+	},
+	{
+		year: "2016",
+		mainText: "Тем временем наши съемочные группы исколесили уже более 20&nbsp;стран, склад доверху забит трансляционным, съемочным и&nbsp;осветительным оборудованием, в&nbsp;команде работает более 50&nbsp;человек, а&nbsp;общее количество реализованных проектов перевалило за&nbsp;2&nbsp;000&nbsp;штук.",
+		text: "<p>Тем временем производство стало занимать уже два этажа офисного здания, и&nbsp;появились даже атрибуты комфорта: лаундж-зона с&nbsp;диванами и&nbsp;игровой приставкой, и&nbsp;целых две кофемашины. В&nbsp;это&nbsp;же время мы&nbsp;стали одними из&nbsp;пионеров коммерческой аэросъемки с&nbsp;использованием мультикоптеров (тогда практически нельзя было купить готовый аппарат, и&nbsp;каждый дрон был произведением искусства ручной работы).</p>",
+	},
+	{
+		year: "2017",
+		mainText: "Количество работы продолжает расти. Мы&nbsp;решили не&nbsp;отставать от&nbsp;прогресса: разработали и&nbsp;внедрили у&nbsp;себя систему работы на&nbsp;основе актуальной методологии SCRUM, свой собственный Agile. Отныне, за&nbsp;исключением продаж и&nbsp;бек-офиса, наша студия состояла из&nbsp;нескольких полноценных команд, каждая из&nbsp;которых могла реализовывать проекты самостоятельно, без централизованного управления.",
+		text: "",
+	},
+	{
+		year: "2018",
+		mainText: "Мы&nbsp;получили две престижных награды в&nbsp;конкурсе АКМР, вдобавок к&nbsp;уже имеющимся дипломам и&nbsp;наградам (Событие Года, премия Созвездие и&nbsp;прочим). А&nbsp;буквально в&nbsp;день нашего 15-летия у&nbsp;офиса мы&nbsp;впервые припарковали свой собственный корпоративный фургон для перевозки оборудования.",
+		text: "",
+	},
+	{
+		year: "2019",
+		mainText: "Пришло время освежить структуру компании&nbsp;&mdash; мы&nbsp;пригласили к&nbsp;руководству студией новых партнеров, которые встали во&nbsp;главе отдельных направлений. Перестали предлагать отдельные услуги, а&nbsp;сфокусировались на&nbsp;конечных продуктах, которые и&nbsp;нужны клиентам: HR-видео, Внутренние коммуникации, Реклама и&nbsp;прочее.",
+		text: "<p>В&nbsp;это время dt&nbsp;medical празднует первого клиента из&nbsp;Европы и&nbsp;строит операционную в&nbsp;Вологде. Мы&nbsp;на&nbsp;всех парах неслись в&nbsp;коронавирусный 2020-й...</p>",
+	},
+	{
+		year: "2020",
+		mainText: "Весной в&nbsp;мире случилась пандемия, но&nbsp;мы&nbsp;быстро перестроились: наладили работу на&nbsp;удаленке, сберегли людей и&nbsp;рабочие места. Заодно удвоили техническую команду, с&nbsp;партнерами построили студии и&nbsp;наладили настоящий конвейер онлайн-мероприятий: только за&nbsp;2020 год провели 200 прямых эфиров, суммарно организовали более 400 прямых включений из&nbsp;операционных c&nbsp;dt&nbsp;medical.",
+		text: "<p>Возросла нагрузка на&nbsp;всю нашу инфраструктуру, поэтому именно в&nbsp;этот момент мы&nbsp;обзавелись вторым складом, серьезно обновили оборудование, вдвое расширили офис и&nbsp;сделали ремонт. Помимо этого запустили новый бренд Dark Horse Production и&nbsp;производство полного цикла устройств собственной разработки Tally&nbsp;2.0 (это такие устройства для индикации работающих в&nbsp;эфире камер).</p><p>В&nbsp;итоге 2020-й, который должен был стать годом апокалипсиса, для dt&nbsp;group, как и&nbsp;все предыдущие кризисы, стал годом максимально быстрого и&nbsp;смелого развития. Едем дальше!</p>",
+	},
+	{
+		year: "2021",
+		mainText: "Мир ещё потряхивает отголосками пандемии, но&nbsp;бизнес повсюду активно возобновляет все процессы. А&nbsp;у&nbsp;нас процессы и&nbsp;не&nbsp;останавливались: мы&nbsp;купили еще один корпоративный фургон, пополнили команду новыми специалистами, а&nbsp;также приняли в&nbsp;семью dt&nbsp;group отдельный бренд&nbsp;&mdash; студию анимации Tushite Svet с&nbsp;собственным офисом и&nbsp;штатом специалистов.",
+		text: "",
+	},
+	{
+		year: "2022",
+		mainText: "Этот год запомнится геополитическими потрясениями, волатильным курсом валют, перебоями с&nbsp;поставками оборудования и&nbsp;уходом из&nbsp;России многих зарубежных брендов&nbsp;&mdash; это не&nbsp;могло не&nbsp;сказаться и&nbsp;на&nbsp;нашей студии.",
+		text: "<p>Часть клиентов вынужденно приостановила проекты, кто-то сильно сократил бюджеты, но&nbsp;мы&nbsp;помним: каждый кризис должен делать нас сильнее, не&nbsp;смотря ни&nbsp;на&nbsp;что.</p><p>В&nbsp;течение года мы&nbsp;перестроили процессы и&nbsp;работу с&nbsp;клиентами, запустили разработку и&nbsp;производство собственных систем медицинского видеонаблюдения dt&nbsp;multiview и&nbsp;мобильный комплект оборудования для телемедицины dt&nbsp;telecart. И&nbsp;продолжаем заботиться о&nbsp;команде, потому что люди&nbsp;&mdash; это наша главная ценность.</p>",
+	},
+]
+---
+
+<Layout title="Бриф">
+    <Heading type={'brief'} title="Бриф на&nbsp;создание видеоролика"></Heading>
+	<div class="section p-brief">
+		<div class="container">
+			<div class="p-brief__box">
+				<div class="p-brief__graphic p-brief__graphic_triangle" data-parallax data-parallax-orientation="up" data-parallax-scale="1.8">
+					<span class="p-brief__graphic-triangle"></span>
+				</div>
+				<form action="#" class="p-brief__form" data-js-form>
+					<div data-accordions>
+						<div class="p-brief__block p-brief__block_personal is-visible is-active">
+							<div class="p-brief__graphic p-brief__graphic_sector" data-parallax data-parallax-orientation="up" data-parallax-scale="1.7">
+								<span class="p-brief__graphic-sector"></span>
+							</div>
+							<div class="p-brief__block-header">
+								<span class="p-brief__block-title">Личные данные</span>
+							</div>
+							<div class="p-brief__block-content">
+								<div class="p-brief__block-inner">
+									<div class="form__grid">
+										<div class="form__field form__field_size_sm">
+											<Input name="name" placeholder="Имя" required data-js-form-field></Input>
+										</div>
+										<div class="form__field form__field_size_sm">
+											<Input type='email' name="email" placeholder="E-mail" required data-js-form-field aria-required="true"></Input>
+										</div>
+										<div class="form__field form__field_size_sm">
+											<Input type='phone' name="phone" placeholder="Телефон" required data-js-form-field aria-required="true"></Input>
+										</div>
+										<div class="form__field">
+											<Input name="project" placeholder="Проект (Что будем делать)" required data-js-form-field aria-required="true"></Input>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="p-brief__block is-visible is-active" data-accordion>
+							<button type="button" class="p-brief__block-header" data-accordion-button aria-expanded="true">
+								<span class="p-brief__block-title">Цели и задачи ролика</span>
+								<span class="p-brief__block-header-icon"></span>
+							</button>
+							<div class="p-brief__block-content" data-accordion-content>
+								<div class="p-brief__block-inner">
+									<div class="p-brief__form-grid form__grid">
+										<div class="form__field-box">
+											<div class="p-brief__form-label form__label">Какой ролик вам нужен?</div>	
+											<div class="form__field">
+												<Select name="what_video" placeholder="Выбрать" options={[
+													'Видеопрезентация',
+													'Обучающее видео',
+													'Корпоративный фильм',
+													'Корпоративное видео',
+													'Видеопрезентация',
+													'Обучающее видео',
+													'Корпоративный фильм',
+													'Корпоративное видео',
+													'Видеопрезентация',
+													'Обучающее видео',
+													'Корпоративный фильм',
+													'Корпоративное видео',
+												]}></Select>
+											</div>
+										</div>
+										<div class="form__field-box">
+											<div class="p-brief__form-label form__label">О чем делаем ролик?&nbsp;<span class="hint" tabindex="0" role="tooltip" aria-label="О чем делаем ролик?" data-tooltip data-tooltip-content="Ожидаемая реакция (какое должен принять решение/совершить действие зритель после просмотра видеоролика)"><Icon class="hint__icon" name="question"></Icon></span></div>
+											<div class="form__field">
+												<Input type="textarea" name="what_video_about" aria-label="О чем делаем ролик?"></Input>
+											</div>
+										</div>
+										<div class="form__field-box">
+											<div class="p-brief__form-label form__label">Кому показываем?&nbsp;<span class="hint" tabindex="0" role="tooltip" aria-label="Кому показываем?" data-tooltip data-tooltip-content="Ожидаемая реакция (какое должен принять решение/совершить действие зритель после просмотра видеоролика)"><Icon class="hint__icon" name="question"></Icon></span></div>	
+											<div class="form__field">
+												<Input type="textarea" name="whom_show" aria-label="Кому показываем?"></Input>
+											</div>
+										</div>
+										<div class="form__field-box">
+											<div class="p-brief__form-label form__label">Что нужно донести до&nbsp;зрителя?&nbsp;<span class="hint" tabindex="0" role="tooltip" aria-label="Что нужно донести до&nbsp;зрителя?" data-tooltip data-tooltip-content="Ожидаемая реакция (какое должен принять решение/совершить действие зритель после просмотра видеоролика)"><Icon class="hint__icon" name="question"></Icon></span></div>	
+											<div class="form__field">
+												<Input type="textarea" name="what_needs_conveyed" aria-label="Что нужно донести до&nbsp;зрителя?"></Input>
+											</div>
+										</div>
+										<div class="form__field-box">
+											<div class="p-brief__form-label form__label">Что зритель должен сделать, увидев ролик?&nbsp;<span class="hint" tabindex="0" role="tooltip" aria-label="Что зритель должен сделать, увидев ролик?" data-tooltip data-tooltip-content="Ожидаемая реакция (какое должен принять решение/совершить действие зритель после просмотра видеоролика)"><Icon class="hint__icon" name="question"></Icon></span></div>	
+											<div class="form__field">
+												<Input type="textarea" name="what_needs_conveyed" aria-label="Что зритель должен сделать, увидев ролик?"></Input>
+											</div>
+										</div>
+									</div>
+								</div> 
+							</div>
+						</div>
+						<div class="p-brief__block is-visible is-active" data-accordion>
+							<button type="button" class="p-brief__block-header" data-accordion-button aria-expanded="true">
+								<span class="p-brief__block-title">Характеристики ролика</span>
+								<span class="p-brief__block-header-icon"></span>
+							</button>
+							<div class="p-brief__block-content" data-accordion-content>
+								<div class="p-brief__block-inner">
+									<div class="p-brief__form-grid form__grid">
+										<div class="form__field-box">
+											<div class="p-brief__form-label form__label">Тип ролика&nbsp;<span class="hint" tabindex="0" role="tooltip" aria-label="Тип ролика" data-tooltip data-tooltip-content="Ожидаемая реакция (какое должен принять решение/совершить действие зритель после просмотра видеоролика)"><Icon class="hint__icon" name="question"></Icon></span></div>	
+											<div class="form__field">
+												<Select name="video_type" placeholder="Выбрать" options={[
+													'Видеопрезентация',
+													'Обучающее видео',
+													'Корпоративный фильм',
+													'Корпоративное видео',
+													'Видеопрезентация',
+													'Обучающее видео',
+													'Корпоративный фильм',
+													'Корпоративное видео',
+													'Видеопрезентация',
+													'Обучающее видео',
+													'Корпоративный фильм',
+													'Корпоративное видео',
+												]}></Select>
+											</div>
+										</div>
+										<div class="form__field-box">
+											<div class="p-brief__form-label form__label">Продолжительность&nbsp;<span class="hint" tabindex="0" role="tooltip" aria-label="Продолжительность" data-tooltip data-tooltip-content="Ожидаемая реакция (какое должен принять решение/совершить действие зритель после просмотра видеоролика)"><Icon class="hint__icon" name="question"></Icon></span></div>
+											<div class="form__field">
+												<Input name="video_duration" aria-label="Продолжительность" placeholder="Указать"></Input>
+											</div>
+										</div>
+										<div class="form__field-box">
+											<div class="p-brief__form-label form__label">Размещение&nbsp;<span class="hint" tabindex="0" role="tooltip" aria-label="Размещение" data-tooltip data-tooltip-content="Ожидаемая реакция (какое должен принять решение/совершить действие зритель после просмотра видеоролика)"><Icon class="hint__icon" name="question"></Icon></span></div>	
+											<div class="form__checkboxes">
+												<Checkbox checked={true} name="placement" value="Интернет">Интернет</Checkbox>
+												<Checkbox name="placement" value="ТВ">ТВ</Checkbox>
+												<Checkbox name="placement" value="Выставки">Выставки</Checkbox>
+												<Checkbox name="placement" value="Мероприятия">Мероприятия</Checkbox>
+											</div>
+											<div class="form__field form__field_size_sm">
+												<Input name="other_placement" placeholder="Введите другой вариант"></Input>
+											</div>
+										</div>
+										<div class="form__field-box">
+											<div class="p-brief__form-label form__label">Язык ролика&nbsp;<span class="hint" tabindex="0" role="tooltip" aria-label="Язык ролика" data-tooltip data-tooltip-content="Ожидаемая реакция (какое должен принять решение/совершить действие зритель после просмотра видеоролика)"><Icon class="hint__icon" name="question"></Icon></span></div>	
+											<div class="form__checkboxes">
+												<Checkbox checked={true} name="language" value="Русский">Русский</Checkbox>
+												<Checkbox name="language" value="Английский">Английский</Checkbox>
+											</div>
+											<div class="form__field form__field_size_sm">
+												<Input name="other_language" placeholder="Укажите если другой язык"></Input>
+											</div>
+										</div>
+										<div class="form__field-box p-brief__form-deadline">
+											<div class="p-brief__form-label form__label">Указать дедлайн&nbsp;<span class="hint" tabindex="0" role="tooltip" aria-label="Дедлайн" data-tooltip data-tooltip-content="Ожидаемая реакция (какое должен принять решение/совершить действие зритель после просмотра видеоролика)"><Icon class="hint__icon" name="question"></Icon></span></div>	
+											<div class="form__field-row">
+												<RadioBlock name="deadline" ariaLabel="Указать дедлайн" items={[
+													{
+														text: "Вчера",
+														value: "Вчера",
+													},
+													{
+														text: "Через пару недель",
+														value: "Через пару недель",
+													},
+													{
+														text: "Через месяц",
+														value: "Через месяц",
+													},
+												]}></RadioBlock>
+												<div class="form__field form__field_size_xs p-brief__form-datepicker">
+													<Input type="datepicker" name="deadline_date" aria-label="Выбрать дату дедлайна" ></Input>
+												</div>
+											</div>
+										</div>
+										<div class="form__field-box">
+											<div class="p-brief__form-label form__label">Максимальный бюджет&nbsp;<span class="hint" tabindex="0" role="tooltip" aria-label="Максимальный бюджет" data-tooltip data-tooltip-content="Ожидаемая реакция (какое должен принять решение/совершить действие зритель после просмотра видеоролика)"><Icon class="hint__icon" name="question"></Icon></span></div>	
+											<div class="form__field form__field_size_sm">
+												<Input name="maximum_budget" aria-label="Максимальный бюджет" placeholder="Укажите сумму в рублях"></Input>
+											</div>
+										</div>
+									</div>
+								</div> 
+							</div>
+						</div>
+						<div class="p-brief__block is-visible is-active" data-accordion>
+							<button type="button" class="p-brief__block-header" data-accordion-button aria-expanded="true">
+								<span class="p-brief__block-title">PreProduction (подготовка)</span>
+								<span class="p-brief__block-header-icon"></span>
+							</button>
+							<div class="p-brief__block-content" data-accordion-content>
+								<div class="p-brief__block-inner">
+									<div class="p-brief__form-grid form__grid">
+										<div class="form__field-box">
+											<div class="p-brief__form-label form__label">Есть задумка?&nbsp;<span class="hint" tabindex="0" role="tooltip" aria-label="Есть задумка?" data-tooltip data-tooltip-content="Ожидаемая реакция (какое должен принять решение/совершить действие зритель после просмотра видеоролика)"><Icon class="hint__icon" name="question"></Icon></span></div>
+											<div class="form__field">
+												<Input type="textarea" name="have_an_idea" aria-label="Есть задумка?"></Input>
+											</div>
+										</div>
+										<div class="form__field-box">
+											<div class="p-brief__form-label form__label">Есть конкретное видение ролика?&nbsp;<span class="hint" tabindex="0" role="tooltip" aria-label="Есть конкретное видение ролика?" data-tooltip data-tooltip-content="Ожидаемая реакция (какое должен принять решение/совершить действие зритель после просмотра видеоролика)"><Icon class="hint__icon" name="question"></Icon></span></div>	
+											<fieldset class="form__checkboxes" role="group" aria-label="Есть конкретное видение ролика?">
+												<Checkbox type="radio" checked={true} name="got_a_vision" value="Нет сценария">Нет сценария</Checkbox>
+												<Checkbox type="radio" name="got_a_vision" value="Есть сценарий">Есть сценарий</Checkbox>
+												<Checkbox type="radio" name="got_a_vision" value="Нужна доработка">Нужна доработка</Checkbox>
+											</fieldset>
+										</div>
+										<div class="form__field-box">
+											<div class="p-brief__form-label form__label">Что нужно задействовать?&nbsp;<span class="hint" tabindex="0" role="tooltip" aria-label="Что нужно задействовать?" data-tooltip data-tooltip-content="Ожидаемая реакция (какое должен принять решение/совершить действие зритель после просмотра видеоролика)"><Icon class="hint__icon" name="question"></Icon></span></div>	
+											<div class="form__field">
+												<Input type="textarea" name="what_needs_involved" aria-label="Что нужно задействовать?"></Input>
+											</div>
+										</div>
+										<div class="form__field-box">
+											<div class="p-brief__form-label form__label">Чего хотелось бы избежать?&nbsp;<span class="hint" tabindex="0" role="tooltip" aria-label="Чего хотелось бы избежать?" data-tooltip data-tooltip-content="Ожидаемая реакция (какое должен принять решение/совершить действие зритель после просмотра видеоролика)"><Icon class="hint__icon" name="question"></Icon></span></div>	
+											<div class="form__field">
+												<Input type="textarea" name="what_would_avoid" aria-label="Чего хотелось бы избежать?"></Input>
+											</div>
+										</div>
+										<div class="form__field-box">
+											<div class="p-brief__form-label form__label">Дополнительные комментарии к креативной части</div>	
+											<div class="form__field">
+												<Input type="textarea" name="additional_comments" aria-label="Дополнительные комментарии к креативной части"></Input>
+											</div>
+										</div>
+									</div>
+								</div> 
+							</div>
+						</div>
+						<div class="p-brief__block" data-accordion>
+							<button type="button" class="p-brief__block-header" data-accordion-button aria-expanded="false">
+								<span class="p-brief__block-title">Production (съемка)</span>
+								<span class="p-brief__block-header-icon"></span>
+							</button>
+							<div class="p-brief__block-content" data-accordion-content>
+								<div class="p-brief__block-inner">
+									<div class="p-brief__form-grid form__grid">
+										<div class="form__field-box">
+											<div class="p-brief__form-label form__label">Есть задумка?&nbsp;<span class="hint" tabindex="0" role="tooltip" aria-label="Есть задумка?" data-tooltip data-tooltip-content="Ожидаемая реакция (какое должен принять решение/совершить действие зритель после просмотра видеоролика)"><Icon class="hint__icon" name="question"></Icon></span></div>
+											<div class="form__field">
+												<Input type="textarea" name="have_an_idea_production" aria-label="Есть задумка?"></Input>
+											</div>
+										</div>
+									</div>
+								</div> 
+							</div>
+						</div>
+						<div class="p-brief__block" data-accordion>
+							<button type="button" class="p-brief__block-header" data-accordion-button aria-expanded="false">
+								<span class="p-brief__block-title">PostProduction (монтажно-тонировочные работы)</span>
+								<span class="p-brief__block-header-icon"></span>
+							</button>
+							<div class="p-brief__block-content" data-accordion-content>
+								<div class="p-brief__block-inner">
+									<div class="p-brief__form-grid form__grid">
+										<div class="form__field-box">
+											<div class="p-brief__form-label form__label">Есть задумка?&nbsp;<span class="hint" tabindex="0" role="tooltip" aria-label="Есть задумка?" data-tooltip data-tooltip-content="Ожидаемая реакция (какое должен принять решение/совершить действие зритель после просмотра видеоролика)"><Icon class="hint__icon" name="question"></Icon></span></div>
+											<div class="form__field">
+												<Input type="textarea" name="have_an_idea_postProduction" aria-label="Есть задумка?"></Input>
+											</div>
+										</div>
+									</div>
+								</div> 
+							</div>
+						</div>
+						<div class="p-brief__block is-visible is-active" data-accordion>
+							<button type="button" class="p-brief__block-header" data-accordion-button aria-expanded="true">
+								<span class="p-brief__block-title">Дополнительная информация</span>
+								<span class="p-brief__block-header-icon"></span>
+							</button>
+							<div class="p-brief__block-content" data-accordion-content>
+								<div class="p-brief__block-inner">
+									<div class="p-brief__form-grid form__grid">
+										<div class="form__field-box">
+											<div class="p-brief__form-label form__label">Технические требования&nbsp;<span class="hint" tabindex="0" role="tooltip" aria-label="Технические требования" data-tooltip data-tooltip-content="Ожидаемая реакция (какое должен принять решение/совершить действие зритель после просмотра видеоролика)"><Icon class="hint__icon" name="question"></Icon></span></div>
+											<div class="form__field">
+												<Input type="textarea" name="technical_requirements" aria-label="Технические требования"></Input>
+											</div>
+										</div>
+										<div class="form__field-box">
+											<div class="p-brief__form-label form__label">Информация о&nbsp;правах на&nbsp;ролик&nbsp;<span class="hint" tabindex="0" role="tooltip" aria-label="Информация о&nbsp;правах на&nbsp;ролик" data-tooltip data-tooltip-content="Ожидаемая реакция (какое должен принять решение/совершить действие зритель после просмотра видеоролика)"><Icon class="hint__icon" name="question"></Icon></span></div>	
+											<div class="form__field">
+												<Input type="textarea" name="video_rights_information" aria-label="Информация о&nbsp;правах на&nbsp;ролик"></Input>
+											</div>
+										</div>
+										<div class="form__field-box">
+											<div class="p-brief__form-label form__label">Комментарии&nbsp;<span class="hint" tabindex="0" role="tooltip" aria-label="Комментарии" data-tooltip data-tooltip-content="Ожидаемая реакция (какое должен принять решение/совершить действие зритель после просмотра видеоролика)"><Icon class="hint__icon" name="question"></Icon></span></div>	
+											<div class="form__field">
+												<Input type="textarea" name="comments" aria-label="Комментарии"></Input>
+											</div>
+										</div>
+										<div class="form__field-box">
+											<div class="p-brief__form-label form__label">Добавить файлы&nbsp;<span class="hint" tabindex="0" role="tooltip" aria-label="Добавить файлы" data-tooltip data-tooltip-content="Ожидаемая реакция (какое должен принять решение/совершить действие зритель после просмотра видеоролика)"><Icon class="hint__icon" name="question"></Icon></span></div>	
+											<div class="form__field">
+												<!-- <Attach class="form__attach"></Attach> -->
+												<label class="form__attach" data-attach>
+													<input class="form__attach-input" type="file" name="file"  data-attach-input aria-label="Загрузить файл" accept=".doc,.docx,.pdf">
+													<span class="form__attach-text" data-attach-text>Загрузить файл (DOC, PDF)</span>
+													<span class="form__attach-focused"></span>
+												</label>
+											</div>
+										</div>
+									</div>
+								</div> 
+							</div>
+						</div>
+						<div class="p-brief__block p-brief__block_send is-visible is-active">
+							<div class="p-brief__block-content">
+								<div class="p-brief__block-inner">
+									<div class="form__button-wrapper">
+										<Button type={'submit'} class="form__button" icon="arrow">Отправить бриф</Button>
+									</div>
+									<div class="p-brief__form-agreement form__agreement">
+										Нажимая на кнопку "Отправить бриф" вы даете <a href="">согласие</a> на обработку персональных данных.
+									</div>
+									<div class="p-brief__form-agreement form__agreement">
+										This site is&nbsp;protected by&nbsp;reCAPTCHA and the Google <a href="">Privacy Policy</a> and <a href="">Terms of&nbsp;Service</a> apply.
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</Layout>

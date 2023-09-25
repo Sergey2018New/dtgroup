@@ -1,0 +1,74 @@
+/* ------- Photos slider -------- */
+.photos-slider-wrapper {
+    position: relative;
+}
+
+.photos-slider {
+    position: static;
+    margin: 0;
+
+    &__item {
+        user-select: none;
+    }
+
+    &__image-box {
+        position: relative;
+        overflow: hidden;
+        padding-top: 63.548%;
+
+        @include media(mob) {
+            padding-top: 0;
+            height: m(248);
+        }
+    }
+
+    &__image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: $radius;
+    }
+
+    &__figure {
+        margin: 0;
+    }
+
+    &__figcaption {
+        margin-top: 1rem;
+        padding-right: 1rem;
+        font-size: 1.4rem;
+        font-weight: 500;
+        line-height: 140%;
+        color: var(--color-grey-6);
+    }
+
+    &__prev,
+    &__next {
+        top: 17.7rem;
+        opacity: 1;
+        transform: none;
+
+        @include media(mob) {
+            top: calc(m(248) * 0.5 - 2rem);
+        }
+    }
+
+    &__prev {
+        left: -2rem;
+
+        @include media(mob) {
+            left: -1rem;
+        }
+    }
+
+    &__next {
+        right: -2rem;
+
+        @include media(mob) {
+            right: -1rem;
+        }
+    }
+}

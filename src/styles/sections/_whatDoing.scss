@@ -1,0 +1,316 @@
+/* ------- what-doing -------- */
+.what-doing {
+
+    &__content {
+        position: relative;
+        padding-top: $section-space;
+        padding-bottom: 11.2rem;
+        border-top: 1px solid var(--color-grey-5);
+
+        @include media(tab) {
+            padding-bottom: 18.7rem;
+        }
+
+        @include media(mob-m) {
+            padding-bottom: 12.5rem;
+        }
+    }
+
+    &__row {
+        display: grid;
+        grid-template-columns: minmax(0, 32.25fr) minmax(0, 67.75fr);
+        gap: 4rem;
+
+        @include media(tab) {
+            grid-template-columns: minmax(0, 1fr);
+        }
+
+        @include media(mob-m) {
+            gap: 3rem;
+        }
+    }
+
+    &__column {
+        position: relative;
+        min-height: 45rem;
+
+        @include media(tab) {
+            position: static;
+            min-height: 0;
+        }
+    }
+
+    &__graphic-item {
+        position: absolute;
+
+        &_triangles {
+            top: 39rem;
+            left: 16.8rem;
+
+            @include media(tab) {
+                top: auto;
+                bottom: 0;
+                left: calc($gutters * (-1));
+            }
+    
+            @include media(mob-m) {
+                width: 9.5rem;
+                height: 9.5rem;
+            }
+        }
+
+        &_square {
+            top: 26.8rem;
+            left: 25.5rem;
+
+            @include media(tab) {
+                top: auto;
+                bottom: 3rem;
+                left: 5.7rem;
+            }
+    
+            @include media(mob-m) {
+                bottom: 2.1rem;
+                left: 3.3rem;
+                width: 14.7rem;
+                height: 14.7rem;
+            }
+        }
+
+        &_circle {
+            top: 22.5rem;
+            left: 29rem;
+
+            @include media(tab) {
+                top: auto;
+                bottom: 0;
+                left: 16rem;
+            }
+    
+            @include media(mob-m) {
+                left: 10rem;
+            }
+        }
+    }
+
+    &__graphic-triangles {
+        display: block;
+        width: 15.7rem;
+        height: 15.7rem;
+
+        @include media(mob-m) {
+            width: 9.5rem;
+            height: 9.5rem;
+        }
+    }
+
+    &__graphic-square {
+        position: relative;
+        width: 24.4rem;
+        height: 24.4rem;
+        display: block;
+
+        &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(108.67% 108.67% at 88.52% 10.66%, var(--color-gradient-1) 0%, var(--color-gradient-2) 44.59%,  var(--color-gradient-3) 79.16%,  var(--color-gradient-4) 100%);
+            transform: rotate(-90deg);
+        }
+
+
+        @include media(mob-m) {
+            width: 14.7rem;
+            height: 14.7rem;
+        }
+
+    }
+
+    &__graphic-circle {
+        position: relative;
+        border-radius: 50%;
+        width: 6.5rem;
+        height: 6.5rem;
+        display: block;
+        background: $accent;
+
+        @include media(mob-m) {
+            width: 4rem;
+            height: 4rem; 
+        }
+
+    }
+
+    &__title {
+        margin: 0 0 4rem;
+        max-width: 24.2rem;
+        font-weight: 800;
+        font-size: 4rem;
+        line-height: 100%;
+        letter-spacing: -0.02em;
+
+        @include media(tab) {
+            max-width: none;
+        }
+
+        @include media(mob-m) {
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            line-height: 120%;
+        }
+    }
+
+    &__text {
+        max-width: 23.5rem;
+        font-weight: 500;
+
+        @include media(tab) {
+            max-width: 36rem;
+        }
+
+        @include media(mob-m) {
+            max-width: 32rem;
+            font-size: 1.4rem;
+            line-height: 140%;
+        }
+    }
+
+    &__box {
+        position: relative;
+        padding: 6rem 6rem 5rem;
+        border-radius: $radius $radius $radius-lg $radius;
+        background: var(--color-grey-5);
+
+        @include media(mob) {
+            padding: 4rem 3rem;
+        }
+    }
+
+    &__items {
+        display: grid;
+        gap: 4rem;
+
+        @include grid-columns(2);
+
+        @include media(mob-m) {
+            gap: 3rem;
+
+            @include grid-columns(1);
+        }
+    }
+
+    &__item {
+        &.anim {
+            @include media-min(tab) {
+                &:nth-child(1) {
+                    transition-delay: 0.3s;
+                }
+    
+                &:nth-child(2) {
+                    transition-delay: 0.45s;
+                }
+    
+                &:nth-child(3) {
+                    transition-delay: 0.6s;
+                }
+
+                &:nth-child(4) {
+                    transition-delay: 0.75s;
+                }
+            }
+        }
+    }
+
+    &__item-link {
+        display: block; 
+        text-decoration: none;
+
+        &:hover {
+            .what-doing {
+
+                &__item-title {
+                    color: $accent;
+                }
+
+                &__item-site {
+                    color: $primary;
+                }
+            }
+        }
+
+        @include hover {
+            .what-doing {
+                &__item-image {
+                    transform: scale(1.05);
+                }
+            }
+        }
+    }
+
+    &__item-image-box {
+        position: relative;
+        margin-bottom: 3rem;
+        border-radius: $radius;
+        padding-top: 67.65%;
+        overflow: hidden;
+    }
+
+    &__item-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-radius: $radius;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: $duration opacity, 0.5s transform;
+        will-change: transform;
+    }
+
+    &__item-logo {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: $radius 0;
+        padding: 0 1.7rem;
+        height: 6rem;
+        min-width: 14rem;
+        background: $primary;
+    }
+
+    &__item-logo-image {
+
+    }
+
+    &__item-title {
+        margin-bottom: 1.8rem;
+        line-height: 120%;
+        transition: $duration color;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__item-site {
+        display: flex;
+        align-items: center;
+        color: var(--color-grey-4);
+        transition: $duration color;
+    }
+
+    &__item-site-name {
+    }
+
+    &__item-site-icon {
+        margin-left: 0.6rem;
+        flex-shrink: 0;
+        fill: currentColor;
+    }
+}

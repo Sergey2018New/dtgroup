@@ -1,0 +1,29 @@
+---
+interface Props {
+	type?: 'block';
+    class?: string;
+    [x: string]: any;
+}
+
+const { 
+	type,
+	list = [], 
+	class: className,
+	...rest
+} = Astro.props;
+
+---
+
+<div 
+	class:list={[
+		'tags', 
+		className
+	]}
+	{...rest}
+>
+	{list.map(item => (
+		type === 'block' ?
+		<div class="tags__item" set:html={item}></div>
+		: <a href="" class="tags__link" set:html={item}></a>
+	))}
+</div>

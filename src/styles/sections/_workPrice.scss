@@ -1,0 +1,65 @@
+/* ------- Work price -------- */
+.price-table {
+    width: 100%
+}
+
+.price-table th:last-child {
+    text-align: right
+}
+
+.price-table td {
+    vertical-align: top;
+}
+
+.price-table tr td:nth-child(1) {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #333;
+    vertical-align: top;
+    width: 25%;
+
+
+}
+
+.price-table tr td:nth-child(2) {
+    vertical-align: top;
+}
+
+.price-table tr td:nth-child(3) {
+    font-size: 2.4rem;
+    vertical-align: top;
+    width: 22%;
+    color: var(--color-base);
+    text-align: right;
+
+    @include media(mob) {
+        font-size: 1.8rem;
+        width: 29%;
+    }
+}
+
+.work-price {
+
+    &__title {
+        margin: 0 0 6rem;
+
+        @include media(mob) {
+            margin-bottom: 4rem;
+        }
+    }
+
+    @include media(mob) {
+        .table-wrapper {
+            margin-left: calc($gutters * -1);
+            margin-right: calc($gutters * -1);
+            padding-left: $gutters;
+            padding-right: $gutters;
+        }
+    }
+
+    .price-table {
+        @include media(mob) {
+            width: 70rem;
+        }
+    }
+}

@@ -1,0 +1,88 @@
+---
+import Button from '@components/modules/Button.astro';
+import Icon from '@components/modules/Icon.astro';
+
+interface Props {
+    image?: string;
+    image2x?: string;
+    imageWidth?: string;
+    imageHeight?: string;
+    src?: string;
+    type?: string;
+    time?: string;
+    year?: string;
+    buttonText?: string;
+    isAnim?: boolean;
+    isIframe?: boolean;
+    class?: string;
+    [x: string]: any;
+}
+
+const {
+    image,
+    image2x,
+    imageWidth,
+    imageHeight,
+	src,
+	type,
+	time,
+	year,
+	buttonText,
+	isAnim,
+	isIframe,
+    class: className,
+    ...rest
+} = Astro.props;
+---
+
+<div 
+	class:list={[
+		'video', 
+		className,
+		'js-video'
+	]}
+	data-src={src}
+	data-type={type}
+	{...rest}
+>
+	<div class="video__inner ">
+		{
+			image ?  <img class="video__image lazy" data-src={image} data-srcset={image2x} width={imageWidth ? imageWidth : 1280} height={imageWidth ? imageHeight : 720} alt="" /> : ''
+		}
+	
+		<div class="video__frame-wrapper ">
+			{
+				<div class="video__frame js-video-frame">
+					<iframe src="https://player.vimeo.com/video/698952613?muted=1" width="100%" height="100%" 
+					allowtransparency
+					webkitallowfullscreen
+					mozallowfullscreen
+					allowfullscreen
+					></iframe>
+				</div>
+			}
+			<button type="button" class="video__close js-video-close" aria-label="Остановить видео" title="Остановить видео"></button>
+		</div>
+		<div class="video__play js-video-play"></div>
+		
+	</div>
+	{
+		isAnim ? 
+		<div class="video__footer">
+			{year ? <div class="video__year anim anim_slideRight" data-anim>{year}</div> : ''}
+			{time ? <div class="video__time anim anim_slideRight" data-anim>{time}</div> : ""}
+			
+			<div class="video__button-box anim anim_slideLeft" data-anim>
+				<Button class="video__button js-video-play-button" icon="play" aria-label="Воспроизвести видео">{buttonText ? buttonText : "Play"}</Button>
+			</div>
+		</div> : 
+		<div class="video__footer">
+			{year ? <div class="video__year">{year}</div> : ''}
+			{time ? <div class="video__time">{time}</div> : ""}
+			
+			<div class="video__button-box">
+				<Button class="video__button js-video-play-button" icon="play" aria-label="Воспроизвести видео">{buttonText ? buttonText : "Play"}</Button> 
+			</div>
+		</div>
+	}
+</div>

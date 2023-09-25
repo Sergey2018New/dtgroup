@@ -1,0 +1,50 @@
+/* ------- Liked articles -------- */
+.liked-articles {
+    padding-top: var(--section-space-md);
+   
+
+    &__inner {
+        padding-top: var(--section-space-md);
+        border-top: 1px solid var(--color-line);
+        
+        @include media(mob) {
+            padding-top: 4rem;
+        }
+    }
+    
+    &__title {
+        margin: 0 0 10rem;
+
+        @include media(pc) {
+            margin-bottom: 6rem;
+        }
+
+        @include media(mob-m) {
+            margin-bottom: 3rem;
+        }
+    }
+
+    &__item {
+        @include media(tab) {
+            width: 38rem;
+        }
+
+        @include media(mob-m) {
+            width: 32rem;
+        }
+
+        @include media(mob-xxs) {
+            width: 27rem;
+        }
+    }
+
+    &__slider {
+        max-width: 126rem;
+        margin-right: 0;
+        margin-left: 0;
+
+        @include media(tab) {
+            overflow: visible;
+        }
+    }
+}

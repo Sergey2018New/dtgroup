@@ -1,0 +1,70 @@
+---
+import Icon from '@components/modules/Icon.astro';
+import Button from '@components/modules/Button.astro';
+import Tags from '@components/blocks/Tags.astro';
+
+interface Props {
+    title?: string;
+    text?: string;
+    image?: string;
+    image2x?: string;
+    imageWidth?: number;
+    imageHeight?: number;
+    isMoreButton?: boolean;
+    class?: string;
+    [x: string]: any;
+}
+
+const { 
+	title, 
+	text, 
+	tags = [], 
+	image, 
+	image2x,
+	imageWidth,
+	imageHeight,
+	isMoreButton,
+	class: className,
+	...rest
+} = Astro.props;
+
+---
+
+<div 
+	class:list={[
+		'article-item', 
+		className
+	]}
+	{...rest}
+>
+	
+	
+	<div class="article-item__image-box">
+		<a href="" class="article-item__image-link">
+			<img class="article-item__image lazy" data-src={image} data-srcset={image2x} width={imageWidth ? imageWidth : 600} height={imageHeight ? imageHeight : 340} alt="" />
+			{
+				isMoreButton ? 
+				<div class="article-item__more">
+					<Button class="article-item__more-button" type="block" icon="arrow" style="hover" size="sm">Читать</Button>
+				</div>
+				: 
+				<div class="article-item__arrow">
+					<Icon class="article-item__arrow-icon" name="arrow"></Icon>
+				</div>
+			}
+		</a>
+	</div>
+	<div class="article-item__content">
+		<a href="" class="article-item__link">
+			<div class="article-item__title" set:html={title}></div>
+			{
+				text ? <div class="article-item__text" set:html={text}></div> : ''
+			}
+		</a>
+		{
+			tags ? 
+			<Tags class="article-item__tags" list={tags}></Tags>
+			: ''
+		}
+	</div>
+</div>

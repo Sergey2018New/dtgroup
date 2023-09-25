@@ -1,0 +1,22 @@
+/* ------- slider pagination -------- */
+
+.slider-pagination {
+	display: flex;
+    pointer-events: none;
+	
+	&__item {
+		flex: none;
+		border-radius: 50%;
+		margin: 0 0.4rem;
+		width: 0.8rem;
+		height: 0.8rem;
+		background: var(--color-grey-5);
+		transition: $duration background;
+		cursor: pointer;
+		pointer-events: auto;
+
+		&.is-active {
+			background: var(--color-base);
+		}
+	}
+}

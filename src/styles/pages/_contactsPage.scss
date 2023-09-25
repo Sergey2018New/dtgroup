@@ -1,0 +1,249 @@
+/* ------- Contacts page -------- */
+.p-contacts {
+    position: relative;
+    padding-top: var(--section-space-md);
+
+    @include media(tab) {
+        padding-top: calc(var(--section-space-md) - 3rem);;
+    }
+
+    @include media(mob-m) {
+        padding-top: calc(var(--section-space-md) - 1.5rem);
+    }
+    
+    &__row {
+        display: grid;
+        gap: 4rem;
+
+        @include grid-columns(2);
+
+        @include media(pc) {
+            @include grid-columns(1);
+        }
+    }
+
+    &__column {
+    }
+
+    &__block {
+        display: grid;
+        grid-template-columns: 20rem minmax(0, 1fr);
+        gap: 2rem;
+        border-bottom: 1px solid var(--color-line);
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+        font-size: 2rem;
+        font-weight: 500;
+        line-height: 1.4;
+
+        @include media(mob) {
+            padding-top: 4rem;
+            padding-bottom: 4rem;
+            font-size: 1.8rem;
+        }
+
+        @include media(mob-m) {
+            grid-template-columns: minmax(0, 1fr);
+            font-size: 1.6rem;
+        }
+
+        &:first-child {
+            padding-top: 0;
+        }
+
+        &:last-child {
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        &_route {
+            .p-contacts__block-content {
+                gap: 2rem;
+            }
+
+            .p-contacts__block-text {
+                font-size: 1.4rem;
+            }
+        }
+    }
+
+    &__block-title {
+        margin: 0;
+        font-size: 2.4rem;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 120%;
+
+        @include media(mob) {
+            font-size: 2rem;
+        }
+    }
+
+    &__block-content {
+        display: grid;
+        gap: 3rem;
+
+        @include media(mob) {
+            gap: 2rem;
+        }
+    }
+
+    &__phone-wrapper {
+        display: grid;
+        gap: 1rem;
+    }
+
+    &__phone {
+        width: fit-content;
+        font-size: 3.2rem;
+        font-weight: 700;
+        line-height: 130%;
+        text-decoration: none;
+        white-space: nowrap;
+
+        @include media(mob) {
+            font-size: 2.4rem;
+        }
+
+        &:hover {
+            color: $accent;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__email {
+        width: fit-content;
+        white-space: nowrap;
+        text-decoration-skip-ink: none;
+
+        &:hover {
+            color: $accent;
+        }
+    }
+
+    &__messengers {
+        display: grid;
+        gap: 2rem;
+        padding-top: 1rem;
+        max-width: 18rem * 2;
+        
+        @include grid-columns(2);
+    }
+
+    &__messengers-item {
+        display: grid;
+        gap: 2rem;
+    }
+
+    &__messengers-link {
+        display: grid;
+        justify-content: flex-start;
+        align-items: center;
+        grid-auto-flow: column;
+        gap: 1.5rem;
+        width: fit-content;
+        font-weight: 600;
+        font-size: $base-font-size;
+        line-height: 1.4;
+        text-decoration: none;
+
+        &:hover {
+            color: $accent;
+        }
+    }
+
+    &__messengers-icon {
+        width: 2.4rem;
+        height: 2.4rem;
+    }
+
+    &__messengers-code {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 12rem;
+        height: 12rem;
+        overflow: hidden;
+        border-radius: $radius;
+
+        img {
+            display: block;
+        }
+    }
+
+    &__block-text {
+       line-height: 1.4;
+    }
+
+    &__info {
+        span {
+            display: block;
+            font-size: $base-font-size;
+            color: var(--color-grey-6);
+        }
+    }
+
+    &__map {
+        height: 50rem;
+        overflow: hidden;
+        border-radius: $radius;
+        margin-bottom: 5rem;
+
+        @include media(mob) {
+            height: 76vw;
+            margin-bottom: 4rem;
+        }
+
+        iframe,
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__row-block {
+        display: grid;  
+        gap: 4rem;
+
+        @include grid-columns(2);
+
+        .p-contacts__block {
+            grid-template-columns: minmax(0, 1fr);
+            border-bottom: none;
+            padding-bottom: 0;
+            padding-top: 0;
+        }
+
+        @include media(mob-m) {
+            gap: 2rem;
+            @include grid-columns(1);
+        }
+    }
+
+    &__code {
+        overflow: hidden;
+        border-radius: $radius;
+        width: 12rem;
+        height: 12rem;
+
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+
+    &__button {
+        margin-top: 0.2rem;
+    }
+}

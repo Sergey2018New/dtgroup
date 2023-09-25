@@ -1,0 +1,65 @@
+---
+import Layout from '@layouts/layout.astro';
+import Heading from '@components/blocks/Heading.astro';
+import Portfolio from '@components/sections/Portfolio.astro';
+const portfolioList = [
+	{
+		title: "Газпромбанк. Вклады. Рекламный ролик",
+		category: "Проморолик",
+		tags: ["Съемка", "Графика", "Монтаж"],
+	},
+	{
+		title: "Культура и&nbsp;образование в&nbsp;партнерстве с&nbsp;Samsung",
+		category: "Клип",
+		tags: ["2D", "HR-видео"],
+		isVideo: true
+	},
+	{
+		title: "Кейс о&nbsp;проекте: Контент для концертного тура Алсу",
+		category: "Презентация",
+		tags: ["Графика", "Монтаж"],
+		isVideo: true,
+	},
+	{
+		title: "Herbalife Крем-суп. Продуктовый ролик",
+		category: "Продакшен",
+		tags: ["Съемка", "Монтаж", "3D"],
+	},
+	{
+		title: "Кейс о&nbsp;проекте: Контент для концертного тура Алсу",
+		category: "Презентация",
+		tags: ["Съемка", "Монтаж"],
+	},
+	{
+		title: "Графический пакет для стенда Сбера на&nbsp;ПМЭФ",
+		category: "Презентация",
+		tags: ["Графика", "3D", "Монтаж"],
+	},
+	{
+		title: "Продуктовый ролик для &laquo;Лаборатории Касперского&raquo;",
+		category: "Продуктовый ролик",
+		tags: ["Съемка", "Монтаж", "3D"],
+	},
+	{
+		title: "Кейс: поставка оборудования и&nbsp;ролик для тренинг-центра Olympus",
+		category: "Ролик",
+		tags: ["Продакшн", "Монтаж", "2D"],
+	},
+	{
+		title: "Имиджевый ролик для SCANIA. Владивосток",
+		category: "Реклама",
+		tags: ["Графика", "3D", "Монтаж"],
+	},
+	{
+		title: "Графический ролик о&nbsp;трех основных продуктах Лаборатории Касперского",
+		category: "Продакшен",
+		tags: ["Съемка", "Монтаж", "3D"],
+	}
+]
+
+---
+
+<Layout title="Портфолио">
+    <Heading type={'portfolio'} title="Портфолио"></Heading>
+    <Portfolio class="p-portfolio" isHeading={false} isTabMenu={true} type={'page'} moreText="Показать еще" isDescription={true} list={portfolioList}></Portfolio>
+</Layout>

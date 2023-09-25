@@ -1,0 +1,299 @@
+/* ------- search-form ------- */
+
+@keyframes visibility {
+    from {
+      visibility: hidden;
+    }
+  
+    to {
+        visibility: visible;
+    }
+}
+
+.search-form {
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 4.8rem;
+
+    &__backdrop {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: calc(var(--vh, 1%) * 100);
+        opacity: 0;
+        visibility: hidden;
+        background: $backdrop;
+        transition: $duration opacity, $duration visibility;
+        pointer-events: none;
+
+        @include media(tab) {
+            display: none;
+        }
+    }
+
+    &__button {
+        position: relative;
+        z-index: 3;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: auto;
+        border-radius: 50%;
+        width: 2.4rem;
+        height: 2.4rem;
+        transition: $duration transform;
+        will-change: transform;
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: -1rem;
+            bottom: -1rem;
+            left: -1rem;
+            right: -1rem;
+        }
+
+        &_submit {
+            position: absolute;
+            right: 1.2rem;
+            top: 50%;
+            margin-top: -1.2rem;
+        }
+
+        @include hover {
+            .search-form__button-icon {
+                fill: $accent;
+            }
+        }
+
+        @include media(pc) {
+            transform: translate(0, 0);
+        }
+
+        @include media(tab) {
+            margin-right: $gutters;
+            margin-top: -4.8rem;
+            width: 4.8rem;
+            height: 4.8rem;
+            order: 1;
+        }
+    }
+
+    &__button-icon {
+        width: 2.4rem;
+        height: 2.4rem;
+    }
+
+    &__popup {
+        position: absolute;
+        top: 0;
+        left: -0.5rem;
+        right: -1.2rem;
+        z-index: 2;
+        height: 100%;
+        align-items: center;
+        background: $white;
+        opacity: 0;
+        transform-origin: 100% 50%;
+        visibility: hidden;
+        transition: $duration opacity, $duration visibility;
+        will-change: opacity, visibility;
+
+        @include media(pc) {
+            left: 0;
+        }
+
+        @include media(tab) {
+            position: static;
+            width: 100%;
+            height: auto;
+            padding: 0 $gutters;
+            opacity: 1;
+            transition: none;
+            
+
+            &.is-active & {
+                visibility: visible;
+            }
+        }
+    }
+
+    &__container {
+        display: flex;
+        align-items: center;
+        height: 100%;
+    }
+
+    &__box {
+        position: relative;
+        width: 100%;
+
+        @include media(tab) {
+            position: static;
+        }
+    }
+
+    &__input {
+        border-radius: 0.8rem;
+        padding: 1rem 10rem 1rem 2rem; 
+        height: 4.8rem;
+        outline: none;
+        font-weight: 700;
+        font-size: 1.8rem;
+
+        &::placeholder {
+            color: var(--color-placeholder);
+        }
+
+        @include media(tab) {
+            padding-right: 6rem;
+        }
+    }
+
+    &__close {
+        position: absolute;
+        top: 50%;
+        right: 5.6rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-shrink: 0;
+        margin-top: -1.2rem;
+        width: 2.4rem;
+        height: 2.4rem;
+        transition: $duration opacity, $duration fill;
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: -1rem;
+            bottom: -1rem; 
+            left: -1rem;
+            right: -1rem;
+        }
+
+        &:hover,
+        &:active {
+            .search-form__close-icon {
+                fill-opacity: 1;
+                transform: rotate(90deg);
+            }
+        }
+
+        @include media(tab) {
+            top: calc($header * 0.5 - 2rem);
+            right: $gutters;
+            margin-top: 0;
+            width: 4rem;
+            height: 4rem; 
+ 
+            &::before,
+             &::after {
+                 content: "";
+                 position: absolute;
+                 top: 50%;
+                 bottom: auto;
+                 left: 50%;
+                 right: auto;
+                 height: 2px;
+                 width: 2.6rem;
+                 margin-top: -1px;
+                 margin-left: -1.3rem;
+                 background: $primary;
+                 transform: rotate(45deg);
+                 will-change: transform;
+             }
+ 
+             &::after {
+                 transform: rotate(-45deg);
+             }
+         }
+    }
+
+    &__close-icon {
+        width: 2.4rem;
+        height: 2.4rem;
+        fill: $primary;
+        fill-opacity: 0.2;
+        transition: $duration transform, $duration fill-opacity;
+
+        @include media(tab) {
+            display: none;
+        }
+    }
+
+    &__title {
+        padding: 3rem $gutters;
+        border-top: 1px solid var(--color-grey-5);
+        width: 100%;
+        font-weight: 800;
+        font-size: 2rem;
+        line-height: 100%;
+        letter-spacing: -0.02em;
+
+        @include media-min(tab) {
+            display: none;
+        }
+    }
+
+    &.is-active {
+        .search-form__popup {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .search-form__button {
+            transform: translate(0);
+        }
+
+        .search-form {
+            &__backdrop {
+                opacity: 1;
+                visibility: visible;
+                pointer-events: auto;
+            }
+        }
+    }
+
+    @include media(tab) {
+        position: fixed;
+        left: 0;
+        top: 0;
+        right: 0;
+        z-index: 6;
+        flex-direction: column;
+        align-items: flex-start;
+        padding-top: $header;
+        height: calc(var(--vh, 1vh) * 100);
+        background: $white;
+        opacity: 0;
+        transition: $duration opacity, $duration visibility;
+        visibility: hidden;
+        pointer-events: none;
+        will-change: opacity, visibility;
+
+        &.is-active {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+        
+    }
+}
+
+.is-search-active {
+    padding-right: var(--lock-padding-right);
+    overflow: hidden;
+    touch-action: none;
+
+    .header.is-fixed {
+        .header__inner {
+            padding-right: var(--lock-padding-right);
+        }
+    }
+}

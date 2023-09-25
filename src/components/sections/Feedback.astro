@@ -1,0 +1,75 @@
+---
+import Input from '@components/modules/Input.astro';
+import Button from '@components/modules/Button.astro';
+---
+
+<section class="section feedback">
+	<div class="container">
+		<div class="feedback__inner">
+			<div class="feedback__box">
+				<div class="feedback__column">
+					<h2 class="feedback__title section-title">Остались вопросы?</h2>
+					<div class="feedback__text">Обращайтесь к&nbsp;нам за&nbsp;консультацией по&nbsp;телефону:</div>
+					<a class="feedback__phone" href="tel:+74956650248">+7 (495) 665-02-48</a>
+					<div class="feedback__text">или через форму:</div>
+					<div class="feedback__text feedback__text_info">Наши специалисты с&nbsp;удовольствием ответят на&nbsp;любые вопросы и&nbsp;найдут оптимальное решение вашей задачи</div>
+				</div>
+				<div class="feedback__column">
+					<form class="feedback__form form" data-js-form>
+						<div class="form__grid">
+							<div class="form__field">
+								<Input name="name" placeholder="Имя" data-js-form-field></Input>
+							</div>
+							<div class="form__field">
+								<Input type={'email'} name="email" placeholder="E-mail" data-js-form-field></Input>
+							</div>
+							<div class="form__field">
+								<Input name="phone" placeholder="Телефон" data-js-form-field></Input>
+							</div>
+							<div class="form__field">
+								<Input type={'textarea'} name="message" placeholder="Сообщение" rows=7" data-js-form-field></Input>
+							</div>
+						</div>
+						
+						<div class="feedback__form-footer">
+							<div class="form__button-wrapper">
+								<Button type={'submit'} class="form__button" icon="arrow">Отправить</Button>
+							</div>
+							<div class="feedback__form-agreement form__agreement">
+								Нажимая на кнопку "Отправить" вы даете согласие на обработку <a href="">персональных данных</a>.
+							</div>
+							<div class="feedback__form-agreement form__agreement">
+								This site is&nbsp;protected by&nbsp;reCAPTCHA and the Google <a href="">Privacy Policy</a> and <a href="">Terms of&nbsp;Service</a> apply.
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<div class="feedback__graphic">
+				<div class="feedback__graphic-item feedback__graphic-item_ellipse" data-parallax data-parallax-orientation="up" data-parallax-scale="1.6">
+					<span class="feedback__graphic-ellipse"></span>
+				</div>
+				<div class="feedback__graphic-item feedback__graphic-item_lines" data-parallax data-parallax-orientation="up" data-parallax-scale="1.8">
+					<svg class="feedback__graphic-lines" width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M-1.44317e-07 92.6984L0 96L96 96L96 92.6984L-1.44317e-07 92.6984Z" fill="#2C2C2C"/>
+						<path d="M-1.44317e-07 86.0951L0 89.3967L96 89.3967L96 86.0951L-1.44317e-07 86.0951Z" fill="#2C2C2C"/>
+						<path d="M-1.44317e-07 79.4921L0 82.7937L96 82.7937L96 79.4921L-1.44317e-07 79.4921Z" fill="#2C2C2C"/>
+						<path d="M-1.44317e-07 72.8044L0 76.106L96 76.106L96 72.8044L-1.44317e-07 72.8044Z" fill="#2C2C2C"/>
+						<path d="M-1.44317e-07 66.2011L0 69.5027L96 69.5027L96 66.2011L-1.44317e-07 66.2011Z" fill="#2C2C2C"/>
+						<path d="M-1.44317e-07 59.5978L0 62.8994L96 62.8994L96 59.5978L-1.44317e-07 59.5978Z" fill="#2C2C2C"/>
+						<path d="M-1.44317e-07 52.995L0 56.2966L96 56.2966L96 52.995L-1.44317e-07 52.995Z" fill="#2C2C2C"/>
+						<path d="M-1.44317e-07 46.3913L0 49.6929L96 49.6929L96 46.3913L-1.44317e-07 46.3913Z" fill="#2C2C2C"/>
+						<path d="M-1.44317e-07 39.7883L0 43.0898L96 43.0898L96 39.7883L-1.44317e-07 39.7883Z" fill="#2C2C2C"/>
+						<path d="M-1.44317e-07 33.1003L0 36.4019L96 36.4019L96 33.1003L-1.44317e-07 33.1003Z" fill="#2C2C2C"/>
+						<path d="M-1.44317e-07 26.4972L0 29.7988L96 29.7988L96 26.4972L-1.44317e-07 26.4972Z" fill="#2C2C2C"/>
+						<path d="M-1.44317e-07 19.894L0 23.1956L96 23.1956L96 19.894L-1.44317e-07 19.894Z" fill="#2C2C2C"/>
+						<path d="M-1.44317e-07 13.2912L0 16.5928L96 16.5928L96 13.2912L-1.44317e-07 13.2912Z" fill="#2C2C2C"/>
+						<path d="M-1.44317e-07 6.68767L0 9.98926L96 9.98925L96 6.68766L-1.44317e-07 6.68767Z" fill="#2C2C2C"/>
+						<path d="M-1.44317e-07 -7.51019e-05L0 3.30151L96 3.30151L96 -7.92981e-05L-1.44317e-07 -7.51019e-05Z" fill="#2C2C2C"/>
+					</svg>
+				</div>
+			</div>
+		
+		</div>
+	</div>
+</section>

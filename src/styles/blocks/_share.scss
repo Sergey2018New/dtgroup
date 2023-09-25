@@ -1,0 +1,50 @@
+/* ------- Share -------- */
+.share {
+    display: grid;
+    align-items: center;
+    grid-auto-flow: column;
+    justify-content: flex-start;
+    gap: 1rem;
+
+    &__title {
+    }
+
+    &__list {
+        display: grid;
+        align-items: center;
+        grid-auto-flow: column;
+        justify-content: flex-start;
+        gap: 1rem;
+    }
+
+    &__link {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid;
+        border-radius: 0.8rem;
+        width: 5rem;
+        height: 5rem;
+        text-decoration: none;
+        color: $base-color;
+        transition: $duration color, $duration background;
+
+        &:hover {
+            color: $white;
+            background: $accent;
+        }
+
+        @include media(mob-m) {
+            width: 4rem;
+            height: 4rem;
+        }
+    }
+
+    &__icon {
+        fill: currentColor;
+
+        @include media(mob-m) {
+            transform: scale(0.8);
+        }
+    }
+}

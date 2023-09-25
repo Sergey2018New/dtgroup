@@ -1,0 +1,42 @@
+/* ------- 404 page -------- */
+.p-not-found {
+    padding-top: 4rem;
+
+    &:last-child {
+        padding-bottom: calc($section-space + 3rem);
+
+        @include media(pc) {
+            padding-bottom: calc($section-space);
+        }
+    }
+
+    &__title {
+        margin: 0 auto 6rem;
+        max-width: 30rem;
+        font-size: 4.8rem;
+        text-align: center;
+
+        @include media(mob) {
+            margin-bottom: 4rem;
+            font-size: 4rem;
+        }
+
+        @include media(mob-m) {
+            max-width: 26rem;
+            font-size: 3.2rem;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__button-wrapper {
+        display: flex;
+        justify-content: center;
+    }
+
+    &__button {
+        gap: 2.2rem;
+    }
+}

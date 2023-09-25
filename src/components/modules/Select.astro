@@ -1,0 +1,27 @@
+---
+interface Props {
+    name?: string;
+    placeholder?: string;
+    ariaLabel?: string;
+    class?: string;
+    [x: string]: any;
+}
+
+const {
+    name,
+    placeholder,
+    ariaLabel,
+    options = [],
+    class: className,
+    ...rest
+} = Astro.props;
+
+---
+<select data-choices>
+    {
+        placeholder ?  <option value="">{placeholder}</option> : ''
+    }
+    {options.map((item, index) => (
+        <option value={index + 1}>{item}</option>
+    ))}
+</select>

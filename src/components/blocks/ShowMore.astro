@@ -1,0 +1,37 @@
+---
+import Button from '@components/modules/Button.astro';
+
+interface Props {
+    moreText?: string;
+    buttonText?: string;
+    isSelf?: boolean;
+    class?: string;
+    [x: string]: any;
+}
+
+const { 
+	moreText, 
+	buttonText, 
+	isSelf = false, 
+	list = [], 
+	class: className,
+	...rest
+} = Astro.props;
+
+---
+
+<div 
+	class:list={[
+		'show-more', 
+		isSelf ? 'show-more_self' : '', 
+		className
+	]}
+	{...rest}
+>
+	<div class="show-more__text" set:html={moreText ? moreText : 'У&nbsp;нас еще много крутых проектов'}></div>
+	<div class="show-more__button-wrapper">
+		<Button class="show-more__button" 
+		icon="arrow"
+		>{buttonText ? buttonText : 'Посмотреть все'}</Button>
+	</div>
+</div>

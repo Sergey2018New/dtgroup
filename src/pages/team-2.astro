@@ -1,0 +1,60 @@
+---
+import Layout from '@layouts/layout.astro';
+import Heading from '@components/blocks/Heading.astro';
+import TeamItem from '@components/blocks/TeamItem.astro';
+import ShowMore from '@components/blocks/ShowMore.astro';
+
+const items = [
+	{
+		name: "Антон <br>Лукьяница",
+		position: "Генеральный директор",
+		image: "img/team/1.jpg",
+		image2x: "img/team/1@2x.jpg 2x",
+	},
+	{
+		name: "Дмитрий <br>Никонов",
+		position: "Заместитель генерального директора",
+		image: "img/team/2.jpg",
+		image2x: "img/team/2@2x.jpg 2x",
+	},
+	{
+		name: "Антон <br>Денисов",
+		position: "Технический директор",
+		image: "img/team/3.jpg",
+		image2x: "img/team/3@2x.jpg 2x",
+	},
+	{
+		name: "Юрий «Компот» <br>Пижанков",
+		position: "Генеральный продюсер",
+		image: "img/team/4.jpg",
+		image2x: "img/team/4@2x.jpg 2x",
+	},
+	{
+		name: "Мария <br>Мальцева",
+		position: "Исполнительный продюсер",
+		image: "img/team/5.jpg",
+		image2x: "img/team/5@2x.jpg 2x",
+	},
+	{
+		name: "Сергей <br>Томилов",
+		position: "Генеральный директор",
+		image: "img/team/16.jpg",
+		image2x: "img/team/16@2x.jpg 2x",
+	},
+]
+
+---
+
+<Layout title="Команда">
+	<Heading title="Команда" titleSize='lg'></Heading>
+	<div class="section p-team">
+		<div class="container">
+			<div class="p-team__items">
+				{items.map((item, index) => (
+					<TeamItem class="p-team__item" name={item.name} position={item.position} image={item.image} image2x={item.image2x}></TeamItem>
+				))}
+			</div>
+			<ShowMore class="p-team__show-more" moreText="Наша команда больше чем ты&nbsp;думаешь" buttonText={'Показать всех'} isSelf={true}></ShowMore>
+		</div>
+	</div>
+</Layout>

@@ -1,0 +1,46 @@
+---
+import Swiper from '@components/modules/swiper/Swiper.astro';
+import ArticleItem from '@components/blocks/ArticleItem.astro';
+
+interface Props {
+    title?: string;
+}
+
+const {
+	title,
+} = Astro.props;
+
+const blogList = [
+	{
+		title: "Да&nbsp;будет свет! Правильное освещение на&nbsp;съемочной площадке",
+		tags: ["dt rent"],
+	},
+	{
+		title: "Один из&nbsp;наших проектов получил награду Фонда региональных социальных программ",
+		tags: ["Промо"],
+	},
+	{
+		title: "Наша команда Kimchi победила в&nbsp;креатоне",
+		tags: ["Конкурсы"],
+	},
+]
+
+---
+
+<section class:list={[
+	"section blog-section",
+]}
+>
+	<div class="container">
+		{
+			title ? 
+			<h2 class="blog-section__title section-title section-title_size_lg anim anim_slideRight" data-anim set:html={title ? title : 'Блог'}></h2>
+			: ''
+		}
+		<Swiper class="blog-section__slider js-slider-blog anim" data-anim data-delay="100">
+			{blogList.map((item, index) => (
+				<ArticleItem class="swiper-slide blog-section__slide anim__item" title={item.title} tags={item.tags} image={`img/blog/${index + 1}.jpg`} image2x={`img/blog/${index + 1}@2x.jpg 2x`} imageWidth={380} imageHeight={260}></ArticleItem>
+			))}
+		</Swiper>
+	</div>
+</section>
